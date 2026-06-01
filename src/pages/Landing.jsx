@@ -52,9 +52,9 @@ const Landing = () => {
       </div>
 
       <nav className={`fixed top-[36px] md:top-[44px] w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1000px] px-5 md:px-8 flex justify-between items-center">
-          
-          <div className="flex items-center gap-2 md:gap-2.5 z-50">
+        <div className="w-full max-w-[1040px] px-5 md:px-8 flex justify-between items-center gap-4">
+
+          <div className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <div className="w-7 h-7 md:w-8 md:h-8 rounded-[7px] md:rounded-lg bg-gradient-to-br from-[#3b6fe8] to-[#7c3bed] flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] fill-white"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z"/></svg>
             </div>
@@ -63,11 +63,12 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="#" onClick={handleComingSoon} className="text-[13px] text-[#7a7fa8] hover:text-white transition-colors">AI Manager</a>
-            <a href="#" onClick={handleComingSoon} className="text-[13px] text-[#7a7fa8] hover:text-white transition-colors">Lawyers</a>
-            <a href="#" onClick={handleComingSoon} className="text-[13px] text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</a>
-            <a href="#" onClick={handleComingSoon} className="text-[13px] text-[#7a7fa8] hover:text-white transition-colors">Athletes</a>
+          <div className="hidden md:flex gap-5 lg:gap-7 items-center">
+            <a href="#" onClick={handleComingSoon} className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</a>
+            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
           </div>
 
           <div className="flex items-center gap-3.5 md:gap-4">
@@ -98,9 +99,10 @@ const Landing = () => {
         
         <div className="flex flex-col gap-6">
           <a href="#" onClick={handleComingSoon} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">AI Manager</a>
-          <a href="#" onClick={handleComingSoon} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">Lawyers</a>
-          <a href="#" onClick={handleComingSoon} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">Sales Identity</a>
-          <a href="#" onClick={handleComingSoon} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">Athletes</a>
+          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
             <Link to="/book" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
