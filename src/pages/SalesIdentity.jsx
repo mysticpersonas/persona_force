@@ -105,16 +105,14 @@ const SalesIdentity = () => {
         <div className="w-full max-w-[1040px] px-5 md:px-8 flex justify-between items-center gap-4">
 
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded-[7px] md:rounded-lg bg-gradient-to-br from-[#3b6fe8] to-[#7c3bed] flex items-center justify-center shrink-0">
-              <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] fill-white"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z"/></svg>
-            </div>
+            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
               Persona<span className="text-[#5b8af5]">Force®</span>
             </div>
           </Link>
 
           <div className="hidden md:flex gap-5 lg:gap-7 items-center">
-            <a href="#" onClick={handleComingSoon} className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</a>
+            <Link to="/book" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
             <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Sales Identity</Link>
             <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
@@ -146,7 +144,7 @@ const SalesIdentity = () => {
           </button>
         </div>
         <div className="flex flex-col gap-6">
-          <a href="#" onClick={handleComingSoon} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">AI Manager</a>
+          <Link to="/book" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
           <Link to="/sales-identity" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
           <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>

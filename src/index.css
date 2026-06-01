@@ -13,11 +13,18 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
-wistia-player[media-id='e4ij9uaujk']:not(:defined) { 
-  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/e4ij9uaujk/swatch'); 
-  display: block; 
-  filter: blur(5px); 
-  padding-top: 56.25%; 
+wistia-player[media-id='ey25sbhvm4']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ey25sbhvm4/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
+wistia-player[media-id='e4ij9uaujk']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/e4ij9uaujk/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
 }
 
 wistia-player {

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Check, Download } from 'lucide-react';
+import { Menu, X, ArrowRight, Check, ChevronDown } from 'lucide-react';
 import FadeUp from '../components/FadeUp';
+import FormModal from '../components/FormModal';
 
 /* ------------------------------------------------------------------ */
 /*  IMAGES — swap these with the real assets when provided.            */
@@ -64,7 +65,11 @@ const TRACK_TEAM = [
   "Build collective identity resilience",
 ];
 
-const BLUEPRINTS = ["Golfers Blueprint", "Baseball Blueprint", "Soccer Blueprint"];
+const BLUEPRINTS = [
+  { label: "Golfers Blueprint", form: { id: "OifLjaajW8n0ohzpfKG4", title: "Golf Performance", height: 3309 } },
+  { label: "Baseball Blueprint", form: { id: "sr5wW6EsFdrOrieus4xP", title: "Baseball Assessment", height: 2862 } },
+  { label: "Soccer Blueprint", form: { id: "2Bq0rgubPUDckEX0ss3D", title: "Soccer Assessment", height: 2939 } },
+];
 
 // Reusable primary CTA -> booking flow, with the sliding arrow
 const ConsultBtn = ({ className = "" }) => (
@@ -88,6 +93,7 @@ const Athletes = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [activeForm, setActiveForm] = useState(null);
 
   const showToast = (e, msg = "Coming Soon!") => {
     if (e) e.preventDefault();
@@ -125,16 +131,14 @@ const Athletes = () => {
       <nav className={`fixed top-[36px] md:top-[44px] w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'bg-[#06081a] py-3 md:py-5'}`}>
         <div className="w-full max-w-[1040px] px-5 md:px-8 flex justify-between items-center gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded-[7px] md:rounded-lg bg-gradient-to-br from-[#3b6fe8] to-[#7c3bed] flex items-center justify-center shrink-0">
-              <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] fill-white"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z"/></svg>
-            </div>
+            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
               Persona<span className="text-[#5b8af5]">Force®</span>
             </div>
           </Link>
 
           <div className="hidden md:flex gap-5 lg:gap-7 items-center">
-            <a href="#" onClick={showToast} className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</a>
+            <Link to="/book" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
             <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
             <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
@@ -166,7 +170,7 @@ const Athletes = () => {
           </button>
         </div>
         <div className="flex flex-col gap-6">
-          <a href="#" onClick={showToast} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">AI Manager</a>
+          <Link to="/book" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
           <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
           <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
@@ -218,8 +222,8 @@ const Athletes = () => {
             <div className="flex flex-col items-center gap-3 mt-7 md:mt-8 w-full">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto max-w-[320px] sm:max-w-none">
                 <ConsultBtn className="justify-center w-full sm:w-auto" />
-                <button onClick={scrollToBlueprints} className="inline-flex items-center justify-center gap-2 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.14] text-[#eef0ff] px-6 py-3.5 rounded-[10px] text-[13px] font-medium transition-colors w-full sm:w-auto">
-                  <Download className="w-4 h-4" /> Free Blueprints
+                <button onClick={scrollToBlueprints} className="group inline-flex items-center justify-center gap-2 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.14] text-[#eef0ff] px-6 py-3.5 rounded-[10px] text-[13px] font-medium transition-colors w-full sm:w-auto">
+                  Free Blueprints <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
                 </button>
               </div>
             </div>
@@ -232,12 +236,12 @@ const Athletes = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-[520px] mx-auto">
                 {BLUEPRINTS.map((b) => (
                   <button
-                    key={b}
-                    onClick={() => showToast(null, `${b} — Coming Soon!`)}
+                    key={b.label}
+                    onClick={() => setActiveForm(b.form)}
                     className="group flex items-center justify-between gap-2 bg-white/[0.04] border border-white/[0.07] hover:border-[#3b6fe8]/[0.4] hover:bg-white/[0.07] text-[#eef0ff] px-4 py-3 rounded-[10px] text-[11.5px] font-semibold tracking-[0.04em] uppercase transition-all"
                   >
-                    {b}
-                    <Download className="w-3.5 h-3.5 text-[#5b8af5] shrink-0 transition-transform group-hover:translate-y-0.5" />
+                    {b.label}
+                    <ArrowRight className="w-3.5 h-3.5 text-[#5b8af5] shrink-0 transition-transform group-hover:translate-x-0.5" />
                   </button>
                 ))}
               </div>
@@ -517,6 +521,9 @@ const Athletes = () => {
           </FadeUp>
         </div>
       </section>
+
+      {/* FORM MODAL (blueprint assessments) */}
+      <FormModal form={activeForm} onClose={() => setActiveForm(null)} />
 
       {/* FOOTER (same as home) */}
       <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">

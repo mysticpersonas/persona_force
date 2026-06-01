@@ -32,9 +32,7 @@ const Book = () => {
 
             {/* Logo */}
             <Link to="/" className="inline-flex items-center gap-2.5 hover:opacity-90 transition-opacity w-max">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#3b6fe8] to-[#7c3bed] flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-white"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z"/></svg>
-              </div>
+              <img src="/pf_logo.png" alt="PersonaForce" className="w-9 h-9 rounded-lg shrink-0 object-contain" />
               <div className="text-[17px] font-extrabold tracking-[-0.3px] text-white">
                 Persona<span className="text-[#5b8af5]">Force®</span>
               </div>

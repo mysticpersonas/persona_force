@@ -14,7 +14,7 @@ const PATHS = [
 ];
 
 const NAV_LINKS = [
-  { label: "AI Manager", type: "soon" },
+  { label: "AI Manager", to: "/book" },
   { label: "Lawyers", to: "/lawyers", active: true },
   { label: "Sales Identity", to: "/sales-identity" },
   { label: "Sales & Culture", to: "/sales-culture" },
@@ -67,9 +67,7 @@ const Lawyers = () => {
       <nav className={`fixed top-[36px] md:top-[44px] w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'bg-[#06081a] py-3 md:py-5'}`}>
         <div className="w-full max-w-[1040px] px-5 md:px-8 flex justify-between items-center gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded-[7px] md:rounded-lg bg-gradient-to-br from-[#3b6fe8] to-[#7c3bed] flex items-center justify-center shrink-0">
-              <svg viewBox="0 0 24 24" className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] fill-white"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z"/></svg>
-            </div>
+            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
               Persona<span className="text-[#5b8af5]">Force®</span>
             </div>
@@ -143,11 +141,19 @@ const Lawyers = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,5.5vw,54px)] font-black leading-[1.06] tracking-[-1px] text-white mb-5 max-w-[720px] mx-auto">
+            <h1 className="text-[clamp(30px,5.5vw,54px)] font-black leading-[1.06] tracking-[-1px] text-white mb-6 max-w-[720px] mx-auto">
               Win the Room Before<br />
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">You Enter It.</em>
             </h1>
           </FadeUp>
+
+          {/* VSL */}
+          <FadeUp delay={150}>
+            <div className="w-full max-w-[760px] mx-auto mb-8 md:mb-10 rounded-[14px] md:rounded-[20px] overflow-hidden bg-black border border-[#3b6fe8]/[0.32] shadow-[0_0_40px_rgba(59,111,232,0.12),0_15px_30px_rgba(0,0,0,0.4)] md:shadow-[0_0_70px_rgba(59,111,232,0.2),0_28px_70px_rgba(0,0,0,0.6)]">
+              <wistia-player media-id="e4ij9uaujk" aspect="1.7777777777777777"></wistia-player>
+            </div>
+          </FadeUp>
+
           <FadeUp delay={200}>
             <div className="max-w-[620px] mx-auto flex flex-col gap-3">
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
