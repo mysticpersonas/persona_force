@@ -108,6 +108,7 @@ const NAV_LINKS = [
   { label: "Sales Identity", to: "/sales-identity" },
   { label: "Sales & Culture", to: "/sales-culture", active: true },
   { label: "Athletes", to: "/athletes" },
+  { label: "Free Blueprints", to: "/free-blueprints" },
 ];
 
 const SalesCulture = () => {

@@ -42,6 +42,7 @@ const NAV_LINKS = [
   { label: "Sales Identity", to: "/sales-identity" },
   { label: "Sales & Culture", to: "/sales-culture" },
   { label: "Athletes", to: "/athletes" },
+  { label: "Free Blueprints", to: "/free-blueprints" },
 ];
 
 const imgFallback = (e) => { e.currentTarget.style.opacity = '0'; };

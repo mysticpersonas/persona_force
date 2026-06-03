@@ -8,6 +8,7 @@ import Lawyers from './pages/Lawyers';
 import JuryAnalysis from './pages/JuryAnalysis';
 import WitnessIdentity from './pages/WitnessIdentity';
 import DepositionIdentity from './pages/DepositionIdentity';
+import FreeBlueprints from './pages/FreeBlueprints';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/book" element={<Book />} />
         <Route path="/sales-identity" element={<SalesIdentity />} />
         <Route path="/athletes" element={<Athletes />} />
+        <Route path="/free-blueprints" element={<FreeBlueprints />} />
         <Route path="/sales-culture" element={<SalesCulture />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/lawyers/jury-analysis" element={<JuryAnalysis />} />
