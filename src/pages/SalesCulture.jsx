@@ -24,7 +24,7 @@ const CARDS = [
 const LAYERS = [
   {
     num: "01",
-    title: "Diagnose the Breakdown",
+    title: "Map the Breakdown",
     what: <><strong className="text-white">What we do:</strong> We identify <em className="italic text-[#eef0ff]/70">where performance actually collapses</em> inside your sales environment. This isn't "more scripts." This is finding the real friction points that destroy consistency.</>,
     groups: [{ heading: "We uncover:", items: [
       "Where reps lose confidence mid-call",
@@ -46,8 +46,8 @@ const LAYERS = [
   },
   {
     num: "03",
-    title: "Train the Pressure Response",
-    what: <><strong className="text-white">What we do:</strong> We train the moment where most teams fail: <em className="italic text-[#eef0ff]/70">pressure.</em> Pressure doesn't just reduce skill — it changes decision-making.</>,
+    title: "Installing the System",
+    what: <><strong className="text-white">What we do:</strong> Identify the moment where most teams fail: <em className="italic text-[#eef0ff]/70">pressure.</em> Pressure doesn't just reduce skill — it changes decision-making.</>,
     groups: [{ heading: "PersonaForce trains your team to perform when:", items: [
       "The prospect pushes back",
       "The rep feels rejected",

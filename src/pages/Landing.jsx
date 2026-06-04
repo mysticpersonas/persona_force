@@ -205,7 +205,7 @@ const Landing = () => {
               <FadeUp key={i} delay={i * 100}>
                 <div className="bg-[#0b0d22] border border-white/[0.06] rounded-[14px] md:rounded-[16px] p-6 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-[#10132b] hover:border-[#3b6fe8]/[0.32] group h-full">
                   <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#3b6fe8] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="text-[32px] md:text-[48px] font-black text-[#3b6fe8]/20 leading-none mb-3 md:mb-4">{item.num}</div>
+                  <div className="text-[32px] md:text-[48px] font-black text-[#5b8af5] leading-none mb-3 md:mb-4">{item.num}</div>
                   <h3 className="text-[15px] md:text-[17px] font-bold text-[#eef0ff] mb-2 md:mb-2.5">{item.title}</h3>
                   <p className="text-[13px] md:text-[14px] text-[#7a7fa8] leading-[1.6] md:leading-[1.65]">{item.text}</p>
                 </div>
@@ -339,12 +339,12 @@ const Landing = () => {
             {[
               { num: "91%", lbl: "Leaders stable within 30 days" },
               { num: "3x", lbl: "Follow Through improvement" },
-              { num: "1,000+", lbl: "Leaders mapped" },
+              { num: "100+", lbl: "Leaders mapped" },
               { num: "98%", lbl: "Client retention" }
             ].map((stat, i) => (
               <FadeUp key={i} delay={i * 100} className="w-full md:w-auto">
                 <div className="py-5 px-3 md:py-6 md:px-8 text-center bg-[#10132b] rounded-[10px] md:rounded-[12px] md:flex-1 md:min-w-[180px] flex flex-col justify-center border border-white/[0.02] h-full">
-                  <div className="text-[24px] md:text-[36px] font-black text-[#eef0ff] leading-tight mb-1">{stat.num}</div>
+                  <div className="text-[24px] md:text-[36px] font-black text-[#5b8af5] leading-tight mb-1">{stat.num}</div>
                   <div className="text-[10.5px] md:text-[13px] text-[#7a7fa8] leading-tight px-1 md:px-2">{stat.lbl}</div>
                 </div>
               </FadeUp>
