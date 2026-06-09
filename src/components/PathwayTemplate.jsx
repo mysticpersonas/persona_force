@@ -5,6 +5,7 @@ import FadeUp from './FadeUp';
 import FormModal from './FormModal';
 
 const NAV_LINKS = [
+  { label: "For CEOs", to: "/for-ceos" },
   { label: "AI Manager", to: "/book" },
   { label: "Lawyers", to: "/lawyers", active: true },
   { label: "Sales Identity", to: "/sales-identity" },
@@ -76,7 +77,7 @@ const PathwayTemplate = ({ cfg }) => {
 
       {/* NAV */}
       <nav className={`fixed top-[36px] md:top-[44px] w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1040px] px-5 md:px-8 flex justify-between items-center gap-4">
+        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
@@ -84,7 +85,7 @@ const PathwayTemplate = ({ cfg }) => {
             </div>
           </Link>
 
-          <div className="hidden md:flex gap-5 lg:gap-7 items-center">
+          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
             {NAV_LINKS.map((l) => l.to ? (
               <Link key={l.label} to={l.to} className={`text-[13px] whitespace-nowrap transition-colors ${l.active ? 'text-[#5b8af5] font-semibold' : 'text-[#7a7fa8] hover:text-white'}`}>{l.label}</Link>
             ) : (
@@ -93,15 +94,15 @@ const PathwayTemplate = ({ cfg }) => {
           </div>
 
           <div className="flex items-center gap-3.5 md:gap-4 shrink-0">
-            <Link to="/book" className="hidden md:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">Book a Call</Link>
-            <button className="md:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}><Menu className="w-5 h-5" /></button>
+            <Link to="/book" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">Book a Call</Link>
+            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}><Menu className="w-5 h-5" /></button>
           </div>
         </div>
       </nav>
 
       {/* Mobile overlay + drawer */}
-      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMenuOpen(false)} />
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMenuOpen(false)} />
+      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
         <div className="flex justify-end mb-8"><button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}><X className="w-6 h-6" /></button></div>
         <div className="flex flex-col gap-6">
           {NAV_LINKS.map((l) => l.to ? (

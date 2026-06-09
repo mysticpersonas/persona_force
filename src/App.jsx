@@ -9,12 +9,14 @@ import JuryAnalysis from './pages/JuryAnalysis';
 import WitnessIdentity from './pages/WitnessIdentity';
 import DepositionIdentity from './pages/DepositionIdentity';
 import FreeBlueprints from './pages/FreeBlueprints';
+import ForCeos from './pages/ForCeos';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/for-ceos" element={<ForCeos />} />
         <Route path="/book" element={<Book />} />
         <Route path="/sales-identity" element={<SalesIdentity />} />
         <Route path="/athletes" element={<Athletes />} />
