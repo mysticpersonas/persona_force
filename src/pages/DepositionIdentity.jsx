@@ -1,6 +1,7 @@
 import PathwayTemplate from '../components/PathwayTemplate';
 
 const cfg = {
+  source: "deposition-identity",
   pathwayLabel: "Pathway 03 · Deposition Identity",
   hero: {
     img: "/deposition/hero.jpg",

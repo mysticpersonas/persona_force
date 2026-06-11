@@ -1,6 +1,7 @@
 import PathwayTemplate from '../components/PathwayTemplate';
 
 const cfg = {
+  source: "witness-identity",
   pathwayLabel: "Pathway 02 · Witness Identity",
   hero: {
     img: "/witness/hero.jpg",

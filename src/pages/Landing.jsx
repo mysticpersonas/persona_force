@@ -63,7 +63,7 @@ const Landing = () => {
 
           <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/book" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
+            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
             <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
             <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
@@ -72,7 +72,7 @@ const Landing = () => {
           </div>
 
           <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
+            <Link to="/book?source=home" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
               Book a Call
             </Link>
             
@@ -99,7 +99,7 @@ const Landing = () => {
         
         <div className="flex flex-col gap-6">
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/book" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
+          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
           <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
           <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
@@ -107,7 +107,7 @@ const Landing = () => {
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
 
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/book?source=home" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
               Book a Call
             </Link>
           </div>
@@ -164,7 +164,7 @@ const Landing = () => {
           
           <FadeUp delay={500}>
             <div className="flex justify-center mt-5 md:mt-8">
-              <Link to="/book" className="bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-6 py-3 md:px-8 md:py-4 rounded-[10px] md:rounded-xl text-[14px] md:text-[16px] font-bold shadow-[0_0_24px_rgba(59,111,232,0.15)] md:shadow-[0_0_30px_rgba(59,111,232,0.2)] transition-all hover:scale-[1.02]">
+              <Link to="/book?source=home" className="bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-6 py-3 md:px-8 md:py-4 rounded-[10px] md:rounded-xl text-[14px] md:text-[16px] font-bold shadow-[0_0_24px_rgba(59,111,232,0.15)] md:shadow-[0_0_30px_rgba(59,111,232,0.2)] transition-all hover:scale-[1.02]">
                 Book My Mapping Session
               </Link>
             </div>
@@ -450,7 +450,7 @@ const Landing = () => {
                 ))}
               </ul>
               
-              <Link to="/book" className="bg-[#3b6fe8] hover:scale-[1.02] transition-transform duration-200 text-white text-center py-3.5 px-5 md:py-5 md:px-12 rounded-[10px] md:rounded-[12px] text-[14.5px] md:text-[17px] font-bold shadow-[0_0_30px_rgba(59,111,232,0.2)] w-full max-w-[340px] sm:w-auto inline-block mx-auto">
+              <Link to="/book?source=home" className="bg-[#3b6fe8] hover:scale-[1.02] transition-transform duration-200 text-white text-center py-3.5 px-5 md:py-5 md:px-12 rounded-[10px] md:rounded-[12px] text-[14.5px] md:text-[17px] font-bold shadow-[0_0_30px_rgba(59,111,232,0.2)] w-full max-w-[340px] sm:w-auto inline-block mx-auto">
                 Book My PersonaForce® Mapping Call
               </Link>
               <div className="text-[11.5px] md:text-[13px] text-[#7a7fa8] mt-4 md:mt-5 font-medium">

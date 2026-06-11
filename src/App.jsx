@@ -10,6 +10,7 @@ import WitnessIdentity from './pages/WitnessIdentity';
 import DepositionIdentity from './pages/DepositionIdentity';
 import FreeBlueprints from './pages/FreeBlueprints';
 import ForCeos from './pages/ForCeos';
+import AiManager from './pages/AiManager';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/for-ceos" element={<ForCeos />} />
+        <Route path="/ai-manager" element={<AiManager />} />
         <Route path="/book" element={<Book />} />
         <Route path="/sales-identity" element={<SalesIdentity />} />
         <Route path="/athletes" element={<Athletes />} />

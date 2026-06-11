@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Clock, Video, Globe, ChevronLeft } from 'lucide-react';
+import { getBookingCopy } from '../bookingCopy';
 
 const Book = () => {
+  // The page the visitor came from drives the framing (eyebrow / headline /
+  // intro / bullets). Same calendar embed for everyone — only the copy changes.
+  const [searchParams] = useSearchParams();
+  const copy = getBookingCopy(searchParams.get('source'));
+
   useEffect(() => {
     // We need to load the GHL script for the embed
     const script = document.createElement('script');
@@ -42,24 +48,23 @@ const Book = () => {
           <div className="mt-auto pt-16 md:pt-32 pb-8 animate-[fadeUp_0.7s_ease_both]">
             <div className="inline-flex items-center gap-2 bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/30 text-[#5b8af5] text-[11px] font-bold tracking-[0.12em] uppercase py-1.5 px-3.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 bg-[#5b8af5] rounded-full animate-[pulse_1.6s_ease-in-out_infinite] shrink-0" />
-              Identity mapping session
+              {copy.eyebrow}
             </div>
 
             <h1 className="text-[32px] md:text-[40px] lg:text-[46px] font-black leading-[1.08] tracking-[-0.8px] text-white mb-5">
-              Let's see who you<br className="hidden md:block" /> become <em className="text-[#5b8af5] not-italic">under<br className="hidden md:block" /> pressure.</em>
+              {copy.title.map((seg, i) =>
+                seg.accent
+                  ? <em key={i} className="text-[#5b8af5] not-italic">{seg.t}</em>
+                  : <span key={i}>{seg.t}</span>
+              )}
             </h1>
 
             <p className="text-[15px] text-[#eef0ff]/60 leading-[1.75] max-w-[400px] mb-9">
-              In 30 minutes, we'll map the identity architecture beneath your performance, the drivers, the shadow patterns, the exact points where pressure causes collapse, and show you a clear path to stabilise it.
+              {copy.intro}
             </p>
 
             <div className="flex flex-col gap-3.5">
-              {[
-                { bold: "30 minutes.", text: "No pitch. No pressure. Pure intelligence." },
-                { bold: "With Travis Fox or Michelle Fox", text: "directly, not a sales rep." },
-                { bold: "Limited to 6 sessions per month.", text: "Spots fill fast." },
-                { bold: "", text: "You'll leave knowing something about your identity architecture you've never seen before." }
-              ].map((item, i) => (
+              {copy.bullets.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#3b6fe8] shrink-0 mt-2" />
                   <div className="text-[14px] text-[#eef0ff]/60 leading-[1.5]">

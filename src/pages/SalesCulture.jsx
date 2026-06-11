@@ -83,7 +83,7 @@ const YOULL_SEE = [
 // Reusable primary CTA -> booking flow, with the sliding arrow
 const ConsultBtn = ({ className = "" }) => (
   <Link
-    to="/book"
+    to="/book?source=sales-culture"
     className={`group inline-flex items-center justify-center gap-2 bg-[#3b6fe8] text-white px-7 py-3.5 rounded-[10px] text-[14px] font-semibold shadow-[0_0_28px_rgba(59,111,232,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_44px_rgba(59,111,232,0.45)] ${className}`}
   >
     Schedule A Consultation
@@ -104,7 +104,7 @@ const imgFallback = (e) => { e.currentTarget.style.opacity = '0'; };
 
 const NAV_LINKS = [
   { label: "For CEOs", to: "/for-ceos" },
-  { label: "AI Manager", to: "/book" },
+  { label: "AI Manager", to: "/ai-manager" },
   { label: "Lawyers", to: "/lawyers" },
   { label: "Sales Identity", to: "/sales-identity" },
   { label: "Sales & Culture", to: "/sales-culture", active: true },
@@ -160,7 +160,7 @@ const SalesCulture = () => {
           </div>
 
           <div className="flex items-center gap-3.5 md:gap-4 shrink-0">
-            <Link to="/book" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
+            <Link to="/book?source=sales-culture" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
               Book a Call
             </Link>
             <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
@@ -190,7 +190,7 @@ const SalesCulture = () => {
             <a key={l.label} href="#" onClick={showToast} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">{l.label}</a>
           ))}
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/book?source=sales-culture" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
               Book a Call
             </Link>
           </div>
