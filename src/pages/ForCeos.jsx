@@ -55,29 +55,33 @@ const ForCeos = () => {
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // "What PersonaForce reveals" — six identity-level signals.
+  // "What PersonaForce reveals" — five identity-level signals.
   const reveals = [
-    { num: "01", t: "Who shows up under pressure", d: "The version of a leader that actually arrives when the stakes are real — not the one on the résumé." },
-    { num: "02", t: "Where execution breaks down", d: "The exact point between agreement and action where initiatives quietly stall." },
-    { num: "03", t: "How communication shifts", d: "Why the same message lands with one team and fractures with another." },
-    { num: "04", t: "What drives resistance", d: "The hidden identity patterns beneath hesitation, friction, and pushback." },
-    { num: "05", t: "Why talented people become inconsistent", d: "What turns a top performer unpredictable the moment pressure arrives." },
-    { num: "06", t: "Where influence is gained or lost", d: "The precise moments leadership presence compounds — or erodes." },
+    { num: "01", t: "Leadership Patterns", d: "The recurring ways a leader actually operates when the stakes are real — not the version on the résumé." },
+    { num: "02", t: "Execution Breakdowns", d: "The exact point between agreement and action where initiatives quietly stall." },
+    { num: "03", t: "Communication Gaps", d: "Why the same message lands with one team and fractures with another." },
+    { num: "04", t: "Culture Friction", d: "The hidden identity patterns beneath hesitation, friction, and pushback." },
+    { num: "05", t: "Decision Blind Spots", d: "The moments where judgment and presence quietly compound — or erode." },
   ];
 
-  // "Why CEOs use it" — clarity → leverage, level by level.
-  const leverage = [
-    { when: "When leaders understand their own operating patterns", then: "Decision-making improves." },
-    { when: "When teams understand each other's patterns", then: "Collaboration improves." },
-    { when: "When organizations understand the identities influencing culture", then: "Execution improves." },
+  // "Organizational Mapping" — the deliverables that make up the map.
+  const orgMapping = [
+    "Identity Intelligence Report™",
+    "Team Dynamics",
+    "Leadership Mapping",
+    "Pressure Analysis",
+    "Culture Mapping",
   ];
 
-  // "What you gain" — the visibility executives never had.
-  const gains = [
-    "Why certain leaders consistently outperform others.",
-    "Why some teams create momentum while others create friction.",
-    "Why communication succeeds with one group and fails with another.",
-    "Why execution repeatedly breaks down despite clear direction.",
+  // "What CEOs actually buy" — the outcomes leadership is really paying for.
+  const ceoBuys = [
+    "Predictability",
+    "Alignment",
+    "Visibility",
+    "Accountability",
+    "Execution",
+    "Retention",
+    "Leadership Stability",
   ];
 
   // The PersonaForce Blueprint preview list.
@@ -112,8 +116,8 @@ const ForCeos = () => {
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">For CEOs</Link>
             <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
             <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
             <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
           </div>
@@ -146,8 +150,8 @@ const ForCeos = () => {
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
           <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
           <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
@@ -172,13 +176,13 @@ const ForCeos = () => {
           </FadeUp>
           <FadeUp delay={100}>
             <h1 className="text-[clamp(30px,7vw,60px)] font-black leading-[1.06] tracking-[-1px] text-white mt-6 mb-5 max-w-[820px] mx-auto">
-              Organizations don't<br className="hidden sm:block" /> execute strategy.{' '}
-              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">People do.</em>
+              Why is your team{' '}
+              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">still not executing?</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[16px] text-[#eef0ff]/[0.6] max-w-[620px] mx-auto leading-[1.8]">
-              You already have the strategy. The talent. Maybe even strong leadership. Yet something still gets lost between vision and execution — and the same patterns keep returning. The reason isn't capability. It's identity.
+              You have talent. You have strategy. You have systems. PersonaForce® reveals what's happening between them.
             </p>
           </FadeUp>
           <FadeUp delay={300}>
@@ -308,25 +312,24 @@ const ForCeos = () => {
         </div>
       </section>
 
-      {/* WHY CEOs USE IT — leverage rows over a dark boardroom */}
+      {/* ORGANIZATIONAL MAPPING — deliverables over a dark boardroom */}
       <BgSection img="/ceo/boardroom.jpg" overlay="0.88">
         <FadeUp>
-          <div className="text-center"><Eyebrow>Why CEOs Use It</Eyebrow></div>
+          <div className="text-center"><Eyebrow>Organizational Mapping</Eyebrow></div>
           <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4 text-white">
-            Because clarity creates <em className="text-[#5b8af5] not-italic">leverage.</em>
+            Your organization, <em className="text-[#5b8af5] not-italic">mapped.</em>
           </h2>
           <p className="text-[14px] text-[#eef0ff]/[0.62] text-center max-w-[560px] mx-auto mb-10 md:mb-12 leading-[1.8]">
-            The result isn't simply awareness. It's alignment — and alignment scales.
+            Every layer of how your people operate — captured in one living view.
           </p>
         </FadeUp>
 
-        <div className="flex flex-col gap-3.5 md:gap-4 max-w-[820px] mx-auto">
-          {leverage.map((l, i) => (
-            <FadeUp key={i} delay={i * 100}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-6 bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-[16px] p-6 md:p-7 hover:border-[#3b6fe8]/[0.4] transition-colors">
-                <p className="text-[13.5px] md:text-[15px] text-[#eef0ff]/[0.7] leading-[1.6] text-center md:text-left">{l.when}</p>
-                <ArrowRight className="w-5 h-5 text-[#5b8af5] shrink-0 rotate-90 md:rotate-0 mx-auto" />
-                <p className="text-[16px] md:text-[19px] font-bold text-white text-center md:text-right leading-[1.4]">{l.then}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-4 max-w-[820px] mx-auto">
+          {orgMapping.map((m, i) => (
+            <FadeUp key={i} delay={(i % 3) * 90}>
+              <div className="h-full flex items-center gap-3.5 bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-[16px] p-5 md:p-6 hover:border-[#3b6fe8]/[0.4] transition-colors">
+                <span className="text-[18px] md:text-[22px] font-black text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
+                <p className="text-[14px] md:text-[16px] font-bold text-white leading-[1.3]">{m}</p>
               </div>
             </FadeUp>
           ))}
@@ -361,35 +364,26 @@ const ForCeos = () => {
         </div>
       </section>
 
-      {/* WHAT YOU GAIN */}
+      {/* WHAT CEOs ACTUALLY BUY */}
       <section className="py-16 md:py-24 px-5 md:px-8 bg-[#0b0d22] border-y border-white/[0.06]">
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
-            <div className="text-center"><Eyebrow>What You Gain</Eyebrow></div>
-            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4">
-              Imagine being able to <em className="text-[#5b8af5] not-italic">see it.</em>
+            <div className="text-center"><Eyebrow>What CEOs Actually Buy</Eyebrow></div>
+            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-10 md:mb-12">
+              Not a program. <em className="text-[#5b8af5] not-italic">An outcome.</em>
             </h2>
-            <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[560px] mx-auto mb-10 md:mb-12 leading-[1.8]">
-              That visibility changes how organizations lead, how teams communicate, and how culture scales.
-            </p>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-4 max-w-[860px] mx-auto">
-            {gains.map((g, i) => (
-              <FadeUp key={i} delay={i * 80}>
-                <div className="flex items-start gap-4 bg-[#10132b] border border-white/[0.06] rounded-[14px] p-5 md:p-6 h-full hover:border-[#3b6fe8]/[0.32] transition-colors">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-4 max-w-[860px] mx-auto">
+            {ceoBuys.map((b, i) => (
+              <FadeUp key={i} delay={(i % 3) * 80}>
+                <div className="flex items-center gap-4 bg-[#10132b] border border-white/[0.06] rounded-[14px] p-5 md:p-6 h-full hover:border-[#3b6fe8]/[0.32] transition-colors">
                   <span className="text-[20px] md:text-[24px] font-black text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
-                  <p className="text-[13.5px] md:text-[15px] text-[#cdd3f0] leading-[1.6]">{g}</p>
+                  <p className="text-[14px] md:text-[16px] font-bold text-[#eef0ff] leading-[1.4]">{b}</p>
                 </div>
               </FadeUp>
             ))}
           </div>
-
-          <FadeUp delay={120}>
-            <p className="text-center text-[16px] md:text-[20px] font-bold text-[#eef0ff] max-w-[560px] mx-auto mt-9 md:mt-10 leading-[1.5]">
-              And most importantly — <em className="text-[#5b8af5] not-italic">how to change it.</em>
-            </p>
-          </FadeUp>
         </div>
       </section>
 

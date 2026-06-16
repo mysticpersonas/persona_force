@@ -92,8 +92,8 @@ const FreeBlueprints = () => {
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
             <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
             <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
             <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Free Blueprints</Link>
           </div>
@@ -126,8 +126,8 @@ const FreeBlueprints = () => {
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
           <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
           <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
@@ -161,13 +161,13 @@ const FreeBlueprints = () => {
           </FadeUp>
           <FadeUp delay={100}>
             <h1 className="text-[clamp(30px,5.5vw,56px)] font-black leading-[1.05] tracking-[-1px] text-white mb-5 max-w-[760px] mx-auto">
-              Every Free Blueprint,<br />
-              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">In One Place.</em>
+              See Who Shows Up<br />
+              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">Under Pressure.</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] max-w-[560px] mx-auto leading-[1.8]">
-              Start mapping identity under pressure for free. Pick the blueprint that fits you — athlete, team, or trial — and get an instant profile. No call required to begin.
+              In less than 10 minutes, discover the hidden patterns influencing your decisions, communication, leadership and performance.
             </p>
           </FadeUp>
           <FadeUp delay={300}>

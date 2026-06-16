@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
+import {
   ChevronLeft,
   ChevronRight,
   Menu,
-  X
+  X,
+  ArrowRight
 } from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 
@@ -65,8 +66,8 @@ const Landing = () => {
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
             <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
             <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
             <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
           </div>
@@ -101,8 +102,8 @@ const Landing = () => {
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
           <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
           <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
 
@@ -134,14 +135,14 @@ const Landing = () => {
           
           <FadeUp delay={100}>
             <h1 className="text-[34px] sm:text-[46px] md:text-[68px] lg:text-[76px] font-black leading-[1.05] tracking-[-1px] md:tracking-[-1.5px] text-[#eef0ff] max-w-[900px] mx-auto mb-4 md:mb-6">
-              Your team doesn't crack<br/>under pressure.<br/>
-              <em className="text-[#5b8af5] not-italic">Their identity does.</em>
+              You don't have a<br/>performance problem.<br/>
+              <em className="text-[#5b8af5] not-italic">You have an identity problem.</em>
             </h1>
           </FadeUp>
           
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[19px] text-[#7a7fa8] max-w-[640px] mx-auto leading-[1.6] mt-1 md:mt-4">
-              Most programs train behavior. But when the moment counts, the high stakes pitch, the breaking point, the culture defining decision, people don't fall to skill. They fall to identity. Watch this to understand why.
+              PersonaForce® reveals who shows up under pressure—so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
             </p>
           </FadeUp>
         </div>
@@ -181,35 +182,27 @@ const Landing = () => {
 
       <div className="max-w-[1000px] mx-auto px-5 md:px-8"><div className="h-px bg-white/[0.06] mt-8 md:mt-16" /></div>
 
-      {/* PAIN */}
+      {/* WHAT IS COSTING YOU RESULTS */}
       <section className="pt-12 md:pt-20 pb-12 md:pb-16 px-5 md:px-8 flex flex-col items-center">
         <div className="max-w-[960px] mx-auto w-full">
           <FadeUp>
-            <div className="text-[9.5px] md:text-[11px] font-bold tracking-[2px] uppercase text-[#5b8af5] mb-2.5 md:mb-3 text-center">The Real Problem</div>
-            <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-black text-center mb-4 md:mb-5 tracking-[-0.5px] leading-[1.15]">
-              Training works. Until the moment <em className="text-[#5b8af5] not-italic block sm:inline">it can't.</em>
+            <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-black text-center mb-8 md:mb-14 tracking-[-0.5px] leading-[1.15]">
+              What is costing you <em className="text-[#5b8af5] not-italic block sm:inline">results?</em>
             </h2>
-          </FadeUp>
-          
-          <FadeUp delay={100}>
-            <p className="text-[14px] md:text-base text-[#7a7fa8] text-center max-w-[600px] mx-auto mb-8 md:mb-14 leading-[1.65] md:leading-[1.7]">
-              You've invested in coaching, workshops, sales programs. It works until pressure hits. Then something breaks. Not the skill. The person beneath it. Here's exactly what that looks like:
-            </p>
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-5">
             {[
-              { num: "01", title: "Confidence Collapses Mid Pitch", text: "The message they rehearsed disappears. In the room that matters most, their identity reverts to a version that protects instead of performs." },
-              { num: "02", title: "Tone Becomes Unpredictable", text: "Sharp in calm. Reactive in conflict. Your best performer in a normal week becomes your biggest liability in a high stakes one." },
-              { num: "03", title: "Follow Through Quietly Erodes", text: "Standards drift. Culture thins. Execution loses its edge. And nobody can articulate why because the cause lives below the surface." },
-              { num: "04", title: "The Training Cycle Repeats", text: "New program. Temporary lift. Next pressure event. Same collapse. Because skill level training can't fix an identity level problem." }
+              { role: "Leaders", q: "Why is my team still not executing?" },
+              { role: "Sales", q: "Why are deals stalling?" },
+              { role: "Athletes", q: "Why does performance change under pressure?" },
+              { role: "Organizations", q: "Why does culture break down despite training?" }
             ].map((item, i) => (
               <FadeUp key={i} delay={i * 100}>
-                <div className="bg-[#0b0d22] border border-white/[0.06] rounded-[14px] md:rounded-[16px] p-6 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-[#10132b] hover:border-[#3b6fe8]/[0.32] group h-full">
+                <div className="bg-[#0b0d22] border border-white/[0.06] rounded-[14px] md:rounded-[16px] p-6 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-[#10132b] hover:border-[#3b6fe8]/[0.32] group h-full flex flex-col">
                   <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#3b6fe8] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="text-[32px] md:text-[48px] font-black text-[#5b8af5] leading-none mb-3 md:mb-4">{item.num}</div>
-                  <h3 className="text-[15px] md:text-[17px] font-bold text-[#eef0ff] mb-2 md:mb-2.5">{item.title}</h3>
-                  <p className="text-[13px] md:text-[14px] text-[#7a7fa8] leading-[1.6] md:leading-[1.65]">{item.text}</p>
+                  <div className="text-[9.5px] md:text-[11px] font-bold tracking-[2px] uppercase text-[#5b8af5] mb-3 md:mb-4">{item.role}</div>
+                  <h3 className="text-[18px] md:text-[24px] font-bold text-[#eef0ff] leading-[1.3]">{item.q}</h3>
                 </div>
               </FadeUp>
             ))}
@@ -217,60 +210,60 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* REFRAME */}
-      <section className="pb-12 md:pb-24 px-5 md:px-8">
-        <div className="max-w-[960px] mx-auto">
-          <FadeUp>
-            <div className="bg-[#0b0d22] border-l-[3px] border-[#3b6fe8] py-6 px-5 md:py-8 md:px-10 rounded-r-[12px] md:rounded-r-[16px]">
-              <p className="text-[14px] md:text-[18px] text-[#b0b8e8] leading-[1.65] md:leading-[1.75] italic">
-                This isn't a motivation problem. It isn't a mindset problem. It isn't even a skill gap. <strong className="text-[#eef0ff] not-italic font-semibold">It's an identity instability problem.</strong> And no amount of skill level training fixes it because skill lives above the surface. Identity lives beneath it. PersonaForce® goes beneath it.
-              </p>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
+      {/* SEE WHAT OTHERS MISS */}
       <section className="py-12 md:py-24 px-5 md:px-8 bg-[#0b0d22] border-y border-white/[0.06] flex flex-col items-center">
         <div className="max-w-[960px] mx-auto w-full">
           <FadeUp>
-            <div className="text-[9.5px] md:text-[11px] font-bold tracking-[2px] uppercase text-[#5b8af5] mb-2.5 md:mb-3 text-center">How It Works</div>
             <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-black text-center mb-8 md:mb-16 tracking-[-0.5px] leading-[1.15]">
-              Three phases. One outcome:<br/><em className="text-[#5b8af5] not-italic block sm:inline">performance that holds.</em>
+              See what others <em className="text-[#5b8af5] not-italic block sm:inline">miss.</em>
             </h2>
           </FadeUp>
 
           <div className="flex flex-col">
-            <FadeUp delay={100}>
-              <div className="flex flex-col md:flex-row gap-3 md:gap-10 py-6 md:py-10 border-b border-white/[0.06] items-start">
-                <div className="text-[11px] text-[#3b6fe8] font-bold tracking-[0.1em] md:min-w-[40px] pt-1 px-3 py-1.5 md:p-0 rounded-full md:rounded-none bg-[#3b6fe8]/10 md:bg-transparent">PHASE 01</div>
-                <div>
-                  <div className="text-[16px] md:text-[20px] font-bold text-[#eef0ff] mb-2 md:mb-3">Map the Identity Architecture™</div>
-                  <div className="text-[14px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.75]">We go beneath behavior. Using the PersonaForce® system, we identify your team's core identity drivers, shadow interference patterns, the subconscious signals that derail performance under pressure, and latent performance signals that have never been unlocked. This alone changes how leaders see themselves and their teams.</div>
+            {[
+              { most: "Most systems train behavior.", pf: "PersonaForce® maps identity." },
+              { most: "Most systems teach communication.", pf: "PersonaForce® reveals who is communicating." },
+              { most: "Most systems improve skills.", pf: "PersonaForce® identifies who takes over when pressure arrives." }
+            ].map((row, i) => (
+              <FadeUp key={i} delay={i * 100}>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-center py-6 md:py-8 border-b border-white/[0.06] last:border-0">
+                  <p className="text-[15px] md:text-[19px] text-[#7a7fa8] leading-[1.5] text-center md:text-right">{row.most}</p>
+                  <div className="hidden md:flex w-9 h-9 rounded-full bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.28] items-center justify-center shrink-0 mx-auto">
+                    <ArrowRight className="w-4 h-4 text-[#5b8af5]" />
+                  </div>
+                  <p className="text-[16px] md:text-[21px] font-bold text-[#eef0ff] leading-[1.4] text-center md:text-left">{row.pf}</p>
                 </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={200}>
-              <div className="flex flex-col md:flex-row gap-3 md:gap-10 py-6 md:py-10 border-b border-white/[0.06] items-start">
-                <div className="text-[11px] text-[#3b6fe8] font-bold tracking-[0.1em] md:min-w-[40px] pt-1 px-3 py-1.5 md:p-0 rounded-full md:rounded-none bg-[#3b6fe8]/10 md:bg-transparent">PHASE 02</div>
-                <div>
-                  <div className="text-[16px] md:text-[20px] font-bold text-[#eef0ff] mb-2 md:mb-3">Install Persona Control Under Pressure</div>
-                  <div className="text-[14px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.75]">We build the trained ability to stabilize the right persona in real time in the closing conversation, the high stakes meeting, the culture defining moment. Not theory. An installed response pattern that activates when it counts most without conscious effort.</div>
-                </div>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={300}>
-              <div className="flex flex-col md:flex-row gap-3 md:gap-10 py-6 md:py-10 items-start">
-                <div className="text-[11px] text-[#3b6fe8] font-bold tracking-[0.1em] md:min-w-[40px] pt-1 px-3 py-1.5 md:p-0 rounded-full md:rounded-none bg-[#3b6fe8]/10 md:bg-transparent">PHASE 03</div>
-                <div>
-                  <div className="text-[16px] md:text-[20px] font-bold text-[#eef0ff] mb-2 md:mb-3">Scale With AI + Systems</div>
-                  <div className="text-[14px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.75]">The PersonaForce® AI Manager gives leaders real time identity intelligence, detecting persona drift, flagging instability before it surfaces as a breakdown, and reinforcing standards automatically. Identity installed. Performance protected. Growth compounded.</div>
-                </div>
-              </div>
-            </FadeUp>
+              </FadeUp>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* POWERED BY MINDPERSONAS */}
+      <section className="py-12 md:py-24 px-5 md:px-8 flex flex-col items-center">
+        <div className="max-w-[960px] mx-auto w-full flex flex-col items-center">
+          <FadeUp>
+            <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-black text-center mb-6 md:mb-8 tracking-[-0.5px] leading-[1.15] max-w-[820px] mx-auto">
+              Powered by the MindPersonas <em className="text-[#5b8af5] not-italic">Human Operating System™</em>
+            </h2>
+          </FadeUp>
+
+          <FadeUp delay={100}>
+            <div className="flex flex-col items-center mb-8 md:mb-12">
+              <div className="text-[48px] md:text-[72px] font-black text-[#5b8af5] leading-none">30+</div>
+              <div className="text-[11px] md:text-[13px] font-bold tracking-[2px] uppercase text-[#7a7fa8] mt-2">Years</div>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={200}>
+            <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 max-w-[760px] mx-auto">
+              {["Corporate", "Athletics", "Leadership", "Sales", "Performance", "Identity Architecture™"].map((tag, i) => (
+                <span key={i} className="bg-[#0b0d22] border border-white/[0.08] hover:border-[#3b6fe8]/[0.32] transition-colors text-[#b0b8e8] text-[13px] md:text-[15px] font-semibold py-2.5 px-5 md:py-3 md:px-6 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 

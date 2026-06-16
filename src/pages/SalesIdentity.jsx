@@ -115,8 +115,8 @@ const SalesIdentity = () => {
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
             <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Sales Identity</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Sales</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
             <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
             <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
           </div>
@@ -149,8 +149,8 @@ const SalesIdentity = () => {
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
           <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
           <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
@@ -182,14 +182,13 @@ const SalesIdentity = () => {
           </FadeUp>
           <FadeUp delay={100}>
             <h1 className="text-[clamp(32px,5.5vw,56px)] font-black leading-[1.08] tracking-[-0.8px] text-white mb-[22px] max-w-[760px] mx-auto">
-              Sales Performance Breaks<br />When Identity <em className="text-[#5b8af5] not-italic">Isn't Trained.</em>
+              Find What's Killing <em className="text-[#5b8af5] not-italic">The Sale.</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[16px] text-[#eef0ff]/60 max-w-[620px] mx-auto mb-3.5 leading-[1.75]">
-              Most Sales Programs Train Skills, Scripts, And Strategy.<br />
-              But Under Pressure, People Don't Default To Training — <strong className="text-white">They Default To Identity.</strong><br />
-              PersonaForce Stabilizes That Moment So Your Team Performs With <strong className="text-white">Precision, Consistency, And Authority</strong> When It Matters Most.
+              Most sales teams don't lose deals because they lack skill.<br />
+              They lose deals because <strong className="text-white">the wrong identity shows up.</strong>
             </p>
           </FadeUp>
           <FadeUp delay={300}><ConsultBtn className="mt-4" /></FadeUp>

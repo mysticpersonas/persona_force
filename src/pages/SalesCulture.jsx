@@ -220,13 +220,13 @@ const SalesCulture = () => {
           </FadeUp>
           <FadeUp delay={100}>
             <h1 className="text-[clamp(30px,5.5vw,54px)] font-black leading-[1.06] tracking-[-1px] text-white mb-4 max-w-[720px] mx-auto">
-              Sales Performance Built on<br />
-              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">Identity Stability.</em>
+              Culture Is the Sum of<br />
+              <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">Repeated Identities.</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] max-w-[600px] mx-auto leading-[1.8] mb-7">
-              PersonaForce® Sales &amp; Culture equips teams to perform under pressure without defaulting to urgency, burnout, or breakdown — so culture stays strong while revenue scales.
+              Culture isn't what you say. It's who consistently shows up.
             </p>
           </FadeUp>
           <FadeUp delay={300}><ConsultBtn /></FadeUp>

@@ -33,14 +33,11 @@ const ConsultBtn = ({ className = '', label = 'Book a Consultation' }) => (
 
 // What AI Manager helps organizations see.
 const SEES = [
-  'Communication strengths',
-  'Pressure patterns',
-  'Team dynamics',
-  'Leadership opportunities',
-  'Collaboration blind spots',
-  'Customer-facing communication styles',
-  'Sales communication tendencies',
-  'Internal communication challenges',
+  'Communication Drift',
+  'Leadership Stress',
+  'Sales Friction',
+  'Culture Instability',
+  'Performance Variability',
 ];
 
 // The four views that make up the identity map.
@@ -112,8 +109,8 @@ const AiManager = () => {
             <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
             <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">AI Manager</Link>
             <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales Identity</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales &amp; Culture</Link>
+            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
+            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
             <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
             <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
           </div>
@@ -146,8 +143,8 @@ const AiManager = () => {
           <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
           <Link to="/ai-manager" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
           <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales Identity</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales &amp; Culture</Link>
+          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
+          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
           <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
@@ -173,14 +170,12 @@ const AiManager = () => {
           </FadeUp>
           <FadeUp delay={100}>
             <h1 className="text-[clamp(32px,5.5vw,56px)] font-black leading-[1.08] tracking-[-0.8px] text-white mb-[22px] max-w-[800px] mx-auto">
-              Know your people. Predict your pressure points.<br /><em className="text-[#5b8af5] not-italic">Strengthen performance.</em>
+              The Future of Human Performance Is<br /><em className="text-[#5b8af5] not-italic">Identity Intelligence™</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[16px] text-[#eef0ff]/60 max-w-[640px] mx-auto mb-3.5 leading-[1.8]">
-              Imagine having a manager that could instantly understand how every employee communicates, performs under pressure, collaborates with others, and where friction is most likely to occur.
-              <br /><br />
-              That's what AI Manager is designed to do. Powered by the PersonaForce framework, it creates an <strong className="text-white">identity map of your organization</strong> and turns communication patterns into actionable insights.
+              See identity patterns before they become performance problems.
             </p>
           </FadeUp>
           <FadeUp delay={300}><ConsultBtn className="mt-4" label="Schedule a Strategy Call" /></FadeUp>
@@ -193,7 +188,7 @@ const AiManager = () => {
       <section className="py-14 md:py-[72px] px-5 md:px-8">
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
-            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">What AI Manager Does</div>
+            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">What It Detects</div>
             <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
               Helps organizations <em className="text-[#5b8af5] not-italic">see.</em>
             </h2>
