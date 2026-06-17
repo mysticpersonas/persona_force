@@ -96,14 +96,15 @@ const ForCeos = () => {
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR */}
-      <div className="bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 relative z-50 leading-tight">
+      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
+      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
         <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
         Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
       </div>
 
       {/* NAV — switches to drawer below lg so 7 links never crowd. */}
-      <nav className={`fixed top-[36px] md:top-[44px] w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'bg-[#06081a] py-3 md:py-5'}`}>
+      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
+      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
         <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
