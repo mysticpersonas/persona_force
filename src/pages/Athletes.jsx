@@ -255,6 +255,22 @@ const Athletes = () => {
         </div>
       </section>
 
+      {/* VSL */}
+      <section className="pb-12 md:pb-20 px-5 md:px-8">
+        <div className="max-w-[900px] mx-auto">
+          <FadeUp>
+            <div className="w-full max-w-[760px] mx-auto rounded-[14px] md:rounded-[24px] overflow-hidden bg-black border border-[#3b6fe8]/[0.32] shadow-[0_0_40px_rgba(59,111,232,0.12),0_15px_30px_rgba(0,0,0,0.4)] md:shadow-[0_0_80px_rgba(59,111,232,0.22),0_32px_80px_rgba(0,0,0,0.7)] relative">
+              <wistia-player media-id="08ajejts2l" aspect="1.7777777777777777"></wistia-player>
+            </div>
+          </FadeUp>
+          <FadeUp delay={100}>
+            <p className="text-center text-[11px] md:text-[13px] text-[#3a3f60] mt-3 md:mt-5">
+              Watch free · No email required
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* REALITY SPLIT */}
       <section className="py-16 md:py-24 px-5 md:px-8">
         <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center">
