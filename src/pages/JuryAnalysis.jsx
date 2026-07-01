@@ -43,6 +43,7 @@ const NAV_LINKS = [
   { label: "Sales Identity", to: "/sales-identity" },
   { label: "Sales & Culture", to: "/sales-culture" },
   { label: "Athletes", to: "/athletes" },
+  { label: "Traders", to: "/trader" },
   { label: "Free Blueprints", to: "/free-blueprints" },
 ];
 

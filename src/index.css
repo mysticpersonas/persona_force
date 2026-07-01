@@ -13,6 +13,22 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* PersonaForce Trader™ — hero word-by-word reveal */
+@keyframes wordUp {
+  from { opacity: 0; transform: translateY(14px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* PersonaForce Trader™ — soft blue glow pulse on the primary CTA */
+@keyframes pftGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 174, 239, 0.32); }
+  50% { box-shadow: 0 0 40px rgba(0, 174, 239, 0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
 wistia-player[media-id='ey25sbhvm4']:not(:defined) {
   background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ey25sbhvm4/swatch');
   display: block;
