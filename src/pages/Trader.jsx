@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Check, X, ArrowRight, ChevronDown, Menu,
   LineChart, Crosshair, Activity, BarChart3, TrendingUp, Shield, Clock, Target,
-  Eye, Compass, Flame, Sparkles, Lock,
+  Eye, Compass, Flame, Sparkles, Lock, Zap,
 } from 'lucide-react';
 import ParticleField from '../components/ParticleField';
 
@@ -337,10 +337,15 @@ const Trader = () => {
           </p>
 
           <div className="opacity-0 animate-[wordUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]" style={{ animationDelay: '700ms' }}>
-            <div className="mt-9">
+            <div className="mt-8 md:mt-9">
               <CTAButton onClick={scrollToForm} glow />
             </div>
-            <p className="text-[12px] text-[#6b7390] mt-5 max-w-[440px] mx-auto leading-[1.55]">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11.5px] font-semibold text-[#8b93ad]">
+              <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-[#00AEEF]" /> Free</span>
+              <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-[#00AEEF]" /> 5 Days</span>
+              <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-[#00AEEF]" /> Invited traders only</span>
+            </div>
+            <p className="text-[12px] text-[#6b7390] mt-4 max-w-[440px] mx-auto leading-[1.55]">
               This is not a trading strategy course. No signals. No financial advice.
               Just the identity behind your decisions.
             </p>
@@ -686,6 +691,22 @@ const Trader = () => {
             </p>
           </Rise>
 
+          {/* trust strip */}
+          <Rise delay={80}>
+            <div className="flex flex-col sm:flex-row items-stretch justify-center gap-2.5 mt-8 max-w-[560px] mx-auto">
+              {[
+                { icon: Lock, text: 'Private pilot — not a public course' },
+                { icon: Check, text: 'Free to join — no payment' },
+                { icon: Zap, text: 'Invited traders only' },
+              ].map((it, i) => (
+                <div key={i} className="flex items-center gap-2 flex-1 justify-center rounded-lg bg-white/[0.03] border border-white/[0.07] px-3 py-2.5 text-[12px] font-semibold text-[#cdd4e6]">
+                  <it.icon className="w-3.5 h-3.5 text-[#5fd0f5] shrink-0" />
+                  {it.text}
+                </div>
+              ))}
+            </div>
+          </Rise>
+
           <div
             ref={formRef}
             className={`mt-8 md:mt-10 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/[0.09] p-1.5 sm:p-3 md:p-4 shadow-[0_0_60px_rgba(0,174,239,0.1)] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -722,11 +743,23 @@ const Trader = () => {
             Results vary. Participants are responsible for their own trading decisions and
             should consult appropriate licensed professionals before making financial decisions.
           </p>
+          <div className="flex items-center justify-center gap-5 mt-6 text-[12px] font-semibold text-[#8b93ad]">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <span className="w-px h-3 bg-white/10" />
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
           <p className="text-[11px] text-[#3f4763] mt-5">
             © {new Date().getFullYear()} PersonaForce Trader™ · Discover the Trader Behind the Trade™
           </p>
         </div>
       </footer>
+
+      {/* STICKY MOBILE CTA — follows the user on phones/tablets; hides once the form is in view */}
+      <div className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pt-3 pb-[max(12px,env(safe-area-inset-bottom))] bg-[#0A0F1F]/95 backdrop-blur-md border-t border-white/[0.08] transition-all duration-300 ${isScrolled && !formIn ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
+        <button onClick={scrollToForm} className="w-full inline-flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0bb9f8] text-[#04121f] py-3.5 rounded-xl text-[15px] font-bold shadow-[0_0_24px_rgba(0,174,239,0.35)]">
+          Join the Private Pilot <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
       </div>
     </div>
   );
