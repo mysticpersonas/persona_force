@@ -13,6 +13,9 @@ import ForCeos from './pages/ForCeos';
 import AiManager from './pages/AiManager';
 import Trader from './pages/Trader';
 import TraderThankYou from './pages/TraderThankYou';
+import PftThirtyDay from './pages/PftThirtyDay';
+import PftSixtyDay from './pages/PftSixtyDay';
+import PftNinetyDay from './pages/PftNinetyDay';
 
 const App = () => {
   return (
@@ -23,6 +26,10 @@ const App = () => {
         <Route path="/ai-manager" element={<AiManager />} />
         <Route path="/trader" element={<Trader />} />
         <Route path="/trader/thank-you" element={<TraderThankYou />} />
+        {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
+        <Route path="/trader/pft-30day" element={<PftThirtyDay />} />
+        <Route path="/trader/pft-60day" element={<PftSixtyDay />} />
+        <Route path="/trader/pft-90day" element={<PftNinetyDay />} />
         <Route path="/book" element={<Book />} />
         <Route path="/sales-identity" element={<SalesIdentity />} />
         <Route path="/athletes" element={<Athletes />} />
