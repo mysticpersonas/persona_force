@@ -40,7 +40,7 @@ const Book = () => {
             <Link to="/" className="inline-flex items-center gap-2.5 hover:opacity-90 transition-opacity w-max">
               <img src="/pf_logo.png" alt="PersonaForce" className="w-9 h-9 rounded-lg shrink-0 object-contain" />
               <div className="text-[17px] font-extrabold tracking-[-0.3px] text-white">
-                Persona<span className="text-[#5b8af5]">Force®</span>
+                Persona<span className="text-[#5b8af5]">Force™</span>
               </div>
             </Link>
           </div>
@@ -86,7 +86,7 @@ const Book = () => {
           
           {/* Card Header */}
           <div className="p-6 md:p-8 border-b border-[#f0f0f4] shrink-0 bg-white z-10">
-            <div className="text-[20px] font-black text-[#0a0a1a] mb-4 tracking-tight">PersonaForce®</div>
+            <div className="text-[20px] font-black text-[#0a0a1a] mb-4 tracking-tight">PersonaForce™</div>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
                 <Clock className="w-4 h-4 text-[#3b6fe8] shrink-0" />
@@ -119,7 +119,7 @@ const Book = () => {
 
       {/* FOOTER - MOBILE ONLY */}
       <footer className="col-span-1 md:col-span-2 bg-[#06081a] border-t border-white/[0.07] py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-white/30 font-medium">
-        <span>© 2026 PersonaForce® | All Rights Reserved</span>
+        <span>© 2026 PersonaForce™ | All Rights Reserved</span>
         <div className="flex gap-6">
           <a href="#" className="hover:text-white/60 transition-colors">Privacy</a>
           <a href="#" className="hover:text-white/60 transition-colors">Terms</a>

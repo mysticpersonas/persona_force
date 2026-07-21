@@ -102,7 +102,7 @@ const AiManager = () => {
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force®</span>
+              Persona<span className="text-[#5b8af5]">Force™</span>
             </div>
           </Link>
 
@@ -329,7 +329,7 @@ const AiManager = () => {
       {/* FOOTER */}
       <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 PersonaForce® | All Rights Reserved</p>
+          <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Whitepaper</a>
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>

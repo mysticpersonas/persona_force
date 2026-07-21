@@ -149,7 +149,7 @@ const SalesCulture = () => {
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force®</span>
+              Persona<span className="text-[#5b8af5]">Force™</span>
             </div>
           </Link>
 
@@ -250,7 +250,7 @@ const SalesCulture = () => {
                 Pressure Reveals Culture.<br /><em className="text-[#5b8af5] not-italic">Identity Determines Results.</em>
               </h2>
               <p className="text-[13.5px] md:text-[14px] text-[#eef0ff]/[0.58] leading-[1.8]">
-                PersonaForce® trains the internal operating system behind performance so sales teams stay consistent, communicate cleanly, and execute with confidence when it matters most.
+                PersonaForce™ trains the internal operating system behind performance so sales teams stay consistent, communicate cleanly, and execute with confidence when it matters most.
               </p>
               <ConsultBtn className="mt-6" />
             </div>
@@ -277,7 +277,7 @@ const SalesCulture = () => {
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">How Real Change Actually Happens</div>
             <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-3">
-              MPHIAS® — A <em className="text-[#5b8af5] not-italic">4-Layer System</em>
+              MPHIAS™ — A <em className="text-[#5b8af5] not-italic">4-Layer System</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[560px] mx-auto mb-10 leading-[1.8]">
               PersonaForce is a 4-layer system that stabilizes performance under pressure by training execution, leadership, and culture — not just tactics.
@@ -401,7 +401,7 @@ const SalesCulture = () => {
       {/* FOOTER (same as home) */}
       <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 PersonaForce® | All Rights Reserved</p>
+          <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Whitepaper</a>
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>

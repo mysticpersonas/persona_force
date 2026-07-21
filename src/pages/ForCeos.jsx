@@ -109,7 +109,7 @@ const ForCeos = () => {
           <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force®</span>
+              Persona<span className="text-[#5b8af5]">Force™</span>
             </div>
           </Link>
 
@@ -185,7 +185,7 @@ const ForCeos = () => {
           </FadeUp>
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[16px] text-[#eef0ff]/[0.6] max-w-[620px] mx-auto leading-[1.8]">
-              You have talent. You have strategy. You have systems. PersonaForce® reveals what's happening between them.
+              You have talent. You have strategy. You have systems. PersonaForce™ reveals what's happening between them.
             </p>
           </FadeUp>
           <FadeUp delay={300}>
@@ -286,7 +286,7 @@ const ForCeos = () => {
           <FadeUp>
             <div className="text-center"><Eyebrow>The System</Eyebrow></div>
             <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4">
-              What PersonaForce® <em className="text-[#5b8af5] not-italic">reveals.</em>
+              What PersonaForce™ <em className="text-[#5b8af5] not-italic">reveals.</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[640px] mx-auto mb-10 md:mb-14 leading-[1.8]">
               It's not a personality assessment. Not another leadership framework. Not another communication model. It's an Identity Architecture™ system designed to reveal what actually drives behavior under pressure.
@@ -308,7 +308,7 @@ const ForCeos = () => {
           <FadeUp delay={120}>
             <div className="bg-[#3b6fe8]/[0.08] border border-[#3b6fe8]/[0.28] rounded-[16px] p-6 md:p-8 mt-8 md:mt-10 text-center max-w-[760px] mx-auto">
               <p className="text-[14px] md:text-[17px] text-[#b0b8e8] leading-[1.7]">
-                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce® maps what drives behavior.</strong> The difference is significant — because once you can see the pattern, you can change the outcome.
+                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce™ maps what drives behavior.</strong> The difference is significant — because once you can see the pattern, you can change the outcome.
               </p>
             </div>
           </FadeUp>
@@ -355,7 +355,7 @@ const ForCeos = () => {
                 Thirty years studying performance where <em className="text-[#5b8af5] not-italic">outcomes matter.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-7">
-                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce® frameworks — built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
+                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce™ frameworks — built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
               </p>
               <div className="flex flex-wrap gap-6 md:gap-10">
                 <div><div className="text-[26px] md:text-[34px] font-black text-[#5b8af5] leading-none">30+</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Years studying performance</div></div>
@@ -444,7 +444,7 @@ const ForCeos = () => {
                 Start with the <em className="text-[#5b8af5] not-italic">Blueprint.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-6">
-                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce® Blueprint gives you a personalized starting point — not theory, not generic advice.
+                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce™ Blueprint gives you a personalized starting point — not theory, not generic advice.
               </p>
               <div className="flex flex-col gap-3 mb-7">
                 {blueprint.map((b, i) => (
@@ -487,7 +487,7 @@ const ForCeos = () => {
       {/* FOOTER */}
       <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 PersonaForce® | All Rights Reserved</p>
+          <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Whitepaper</a>
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>

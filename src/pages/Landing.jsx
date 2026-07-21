@@ -59,7 +59,7 @@ const Landing = () => {
           <div className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
             <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
             <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force®</span>
+              Persona<span className="text-[#5b8af5]">Force™</span>
             </div>
           </div>
 
@@ -145,7 +145,7 @@ const Landing = () => {
           
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[19px] text-[#7a7fa8] max-w-[640px] mx-auto leading-[1.6] mt-1 md:mt-4">
-              PersonaForce® reveals who shows up under pressure—so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
+              PersonaForce™ reveals who shows up under pressure—so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
             </p>
           </FadeUp>
         </div>
@@ -224,9 +224,9 @@ const Landing = () => {
 
           <div className="flex flex-col">
             {[
-              { most: "Most systems train behavior.", pf: "PersonaForce® maps identity." },
-              { most: "Most systems teach communication.", pf: "PersonaForce® reveals who is communicating." },
-              { most: "Most systems improve skills.", pf: "PersonaForce® identifies who takes over when pressure arrives." }
+              { most: "Most systems train behavior.", pf: "PersonaForce™ maps identity." },
+              { most: "Most systems teach communication.", pf: "PersonaForce™ reveals who is communicating." },
+              { most: "Most systems improve skills.", pf: "PersonaForce™ identifies who takes over when pressure arrives." }
             ].map((row, i) => (
               <FadeUp key={i} delay={i * 100}>
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-center py-6 md:py-8 border-b border-white/[0.06] last:border-0">
@@ -289,7 +289,7 @@ const Landing = () => {
                 <div className="text-[9.5px] md:text-[11px] font-bold tracking-[2px] uppercase text-[#5b8af5] mb-1.5 md:mb-2">Creator & Lead Architect</div>
                 <h3 className="text-[24px] md:text-[30px] font-black mb-1 md:mb-2 text-[#eef0ff]">Dr. Travis Fox</h3>
                 <div className="text-[12px] md:text-[14px] text-[#5b8af5] font-semibold mb-3 md:mb-5 leading-tight">PhD in Psychology · Emmy Award Winning Producer · Clinical Hypnotherapist</div>
-                <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7] mb-3 md:mb-4">With over 30 years of experience guiding more than a million individuals, Dr. Travis Fox is the mastermind behind the Identity Architecture™ that powers PersonaForce®. He specializes in decoding how the human nervous system, identity, and decision making function when placed under extreme pressure.</p>
+                <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7] mb-3 md:mb-4">With over 30 years of experience guiding more than a million individuals, Dr. Travis Fox is the mastermind behind the Identity Architecture™ that powers PersonaForce™. He specializes in decoding how the human nervous system, identity, and decision making function when placed under extreme pressure.</p>
                 <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7]">Drawing from his extensive background in psychology, he translates subconscious processing into field usable frameworks. He doesn't just analyze behavior he engineers the precise system architecture that allows leaders to predict, stabilize, and redirect their responses in real time.</p>
                 
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-8 mt-5 md:mt-6">
@@ -310,7 +310,7 @@ const Landing = () => {
                 <div className="text-[9.5px] md:text-[11px] font-bold tracking-[2px] uppercase text-[#5b8af5] mb-1.5 md:mb-2">Co Creator & Integration Lead</div>
                 <h3 className="text-[24px] md:text-[30px] font-black mb-1 md:mb-2 text-[#eef0ff]">Michelle Fox</h3>
                 <div className="text-[12px] md:text-[14px] text-[#5b8af5] font-semibold mb-3 md:mb-5 leading-tight">Somatic Hypnotherapist · Expert Trauma Navigator · Mapping Practitioner</div>
-                <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7] mb-3 md:mb-4">As the Co Creator of PersonaForce®, Michelle Fox is the Lead Alchemist who integrates Human Identity Architecture™ into practical application. Her rare expertise in somatic and subconscious pattern work allows her to decode the quiet, dangerous state shifts that derail performance under pressure.</p>
+                <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7] mb-3 md:mb-4">As the Co Creator of PersonaForce™, Michelle Fox is the Lead Alchemist who integrates Human Identity Architecture™ into practical application. Her rare expertise in somatic and subconscious pattern work allows her to decode the quiet, dangerous state shifts that derail performance under pressure.</p>
                 <p className="text-[13.5px] md:text-[15px] text-[#7a7fa8] leading-[1.65] md:leading-[1.7]">Michelle specializes in translating complex behavioral loops into clear, actionable frameworks. She trains leaders and teams to recognize subtle signs of hypervigilance and collapse ensuring they can navigate high stakes moments without escalating or retreating, while maintaining complete operational control.</p>
                 
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-8 mt-5 md:mt-6">
@@ -436,7 +436,7 @@ const Landing = () => {
                 {[
                   "Full Identity Architecture™ overview for your context",
                   "Shadow interference pattern identification",
-                  "Recommended PersonaForce® solution path",
+                  "Recommended PersonaForce™ solution path",
                   "No pitch. No pressure. Pure intelligence."
                 ].map((feature, i) => (
                   <li key={i} className="text-[13px] md:text-[15px] font-medium text-[#b0b8e8] flex items-start gap-2.5">
@@ -447,7 +447,7 @@ const Landing = () => {
               </ul>
               
               <Link to="/book?source=home" className="bg-[#3b6fe8] hover:scale-[1.02] transition-transform duration-200 text-white text-center py-3.5 px-5 md:py-5 md:px-12 rounded-[10px] md:rounded-[12px] text-[14.5px] md:text-[17px] font-bold shadow-[0_0_30px_rgba(59,111,232,0.2)] w-full max-w-[340px] sm:w-auto inline-block mx-auto">
-                Book My PersonaForce® Mapping Call
+                Book My PersonaForce™ Mapping Call
               </Link>
               <div className="text-[11.5px] md:text-[13px] text-[#7a7fa8] mt-4 md:mt-5 font-medium">
                 45 minutes · No cost · Limited to 6 sessions per month
@@ -467,7 +467,7 @@ const Landing = () => {
       {/* FOOTER */}
       <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 PersonaForce® | All Rights Reserved</p>
+          <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Whitepaper</a>
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>
