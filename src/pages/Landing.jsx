@@ -247,7 +247,7 @@ const Landing = () => {
         <div className="max-w-[960px] mx-auto w-full flex flex-col items-center">
           <FadeUp>
             <h2 className="text-[28px] sm:text-[36px] md:text-[46px] font-black text-center mb-6 md:mb-8 tracking-[-0.5px] leading-[1.15] max-w-[820px] mx-auto">
-              Powered by the MindPersonas <em className="text-[#5b8af5] not-italic">Human Operating System™</em>
+              Powered by the MindPersonas<sup className="text-[0.55em] font-bold align-super">™</sup> <em className="text-[#5b8af5] not-italic">Human Identity Operating System<sup className="text-[0.55em] font-bold align-super">™</sup></em>
             </h2>
           </FadeUp>
 

@@ -335,7 +335,7 @@ const Athletes = () => {
           <div className="max-w-[680px] mx-auto">
             <FadeUp delay={100}>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.85] text-center mb-3">
-                The PersonaForce framework is built on the MindPersonas Human Operating System that <strong className="text-white">maps, diagnoses, and aligns the internal identity architecture</strong> for elite athletes, professional teams, and high-stakes leaders.
+                The PersonaForce framework is built on the MindPersonas<sup className="text-[0.6em] font-bold align-super">™</sup> Human Identity Operating System<sup className="text-[0.6em] font-bold align-super">™</sup> that <strong className="text-white">maps, diagnoses, and aligns the internal identity architecture</strong> for elite athletes, professional teams, and high-stakes leaders.
               </p>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.85] text-center mb-6">
                 Built on a <strong className="text-white">102-Persona identity framework</strong>, it reveals:
