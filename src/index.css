@@ -43,6 +43,42 @@ wistia-player[media-id='e4ij9uaujk']:not(:defined) {
   padding-top: 56.25%;
 }
 
+/* 5-Day Trader Identity Challenge — blurred swatch until each player defines */
+wistia-player[media-id='7if2mpulvx']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/7if2mpulvx/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
+wistia-player[media-id='0eywl46sxr']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/0eywl46sxr/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
+wistia-player[media-id='oopr3asnnu']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/oopr3asnnu/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
+wistia-player[media-id='hsiaiayi8m']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/hsiaiayi8m/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
+wistia-player[media-id='mebphpeds3']:not(:defined) {
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/mebphpeds3/swatch');
+  display: block;
+  filter: blur(5px);
+  padding-top: 56.25%;
+}
+
 wistia-player {
   display: block;
   width: 100%;

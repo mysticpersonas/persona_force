@@ -13,6 +13,7 @@ import ForCeos from './pages/ForCeos';
 import AiManager from './pages/AiManager';
 import Trader from './pages/Trader';
 import TraderThankYou from './pages/TraderThankYou';
+import TraderChallenge from './pages/TraderChallenge';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/ai-manager" element={<AiManager />} />
         <Route path="/trader" element={<Trader />} />
         <Route path="/trader/thank-you" element={<TraderThankYou />} />
+        <Route path="/trader/trader-challenge" element={<TraderChallenge />} />
         {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
         <Route path="/trader/pft-30day" element={<PftThirtyDay />} />
         <Route path="/trader/pft-60day" element={<PftSixtyDay />} />
