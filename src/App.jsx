@@ -15,6 +15,8 @@ import Trader from './pages/Trader';
 import TraderThankYou from './pages/TraderThankYou';
 import TraderChallenge from './pages/TraderChallenge';
 import { Day1, Day2, Day3, Day4, Day5 } from './pages/ChallengeDays';
+import TraderIntake from './pages/TraderIntake';
+import IntakeThankYou from './pages/IntakeThankYou';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
@@ -36,6 +38,8 @@ const App = () => {
         <Route path="/trader/day3" element={<Day3 />} />
         <Route path="/trader/day4" element={<Day4 />} />
         <Route path="/trader/day5" element={<Day5 />} />
+        <Route path="/trader/trader-intake" element={<TraderIntake />} />
+        <Route path="/trader/intake-thank-you" element={<IntakeThankYou />} />
         {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
         <Route path="/trader/pft-30day" element={<PftThirtyDay />} />
         <Route path="/trader/pft-60day" element={<PftSixtyDay />} />
