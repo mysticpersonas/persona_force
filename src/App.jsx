@@ -19,6 +19,7 @@ import TraderIntake from './pages/TraderIntake';
 import IntakeThankYou from './pages/IntakeThankYou';
 import OptIn from './pages/OptIn';
 import OptInThankYou from './pages/OptInThankYou';
+import OrientationReplay from './pages/OrientationReplay';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/trader/intake-thank-you" element={<IntakeThankYou />} />
         <Route path="/opt-in" element={<OptIn />} />
         <Route path="/opt-in-thank-you" element={<OptInThankYou />} />
+        <Route path="/trader/orientation-replay" element={<OrientationReplay />} />
         {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
         <Route path="/trader/pft-30day" element={<PftThirtyDay />} />
         <Route path="/trader/pft-60day" element={<PftSixtyDay />} />
