@@ -23,7 +23,7 @@
 // Universal trust signals — reused where the visitor is booking for themselves.
 const personBullets = [
   { bold: '30 minutes.', text: 'No pitch. No pressure. Pure intelligence.' },
-  { bold: 'With Travis Fox or Michelle Fox', text: 'directly, not a sales rep.' },
+  { bold: 'With Dr. Travis or Michelle Fox', text: 'directly, not a sales rep.' },
   { bold: 'Limited to 6 sessions per month.', text: 'Spots fill fast.' },
   { bold: '', text: "You'll leave knowing something about your identity architecture you've never seen before." },
 ];
@@ -31,7 +31,7 @@ const personBullets = [
 // Team / organization framing — for leaders booking on behalf of a company.
 const orgBullets = [
   { bold: '30 minutes.', text: 'No pitch. No pressure. Pure intelligence.' },
-  { bold: 'With Travis Fox or Michelle Fox', text: 'directly, not a sales rep.' },
+  { bold: 'With Dr. Travis or Michelle Fox', text: 'directly, not a sales rep.' },
   { bold: 'Limited to 6 sessions per month.', text: 'Spots fill fast.' },
   { bold: '', text: "You'll leave seeing your organization's identity map in a way you never have before." },
 ];
@@ -62,7 +62,7 @@ const bookingCopy = {
     bullets: [
       { bold: 'What AI Manager reveals', text: 'about how your team communicates, collaborates, and performs.' },
       { bold: 'Where friction is hiding', text: 'across leadership, departments, and customer-facing roles.' },
-      { bold: 'With Travis Fox or Michelle Fox', text: 'directly, not a sales rep.' },
+      { bold: 'With Dr. Travis or Michelle Fox', text: 'directly, not a sales rep.' },
       { bold: '', text: "You'll leave with a clear picture of your organization's identity map." },
     ],
   },
@@ -140,12 +140,12 @@ const bookingCopy = {
     eyebrow: 'Free Identity Blueprint',
     title: [{ t: 'Get your free ' }, { t: 'Identity Blueprint.', accent: true }],
     intro:
-      "Enter your details and we'll build your free PersonaForce™ Identity Blueprint — a first look at the drivers, the shadow patterns, and the exact points where pressure causes collapse. Delivered straight to your inbox.",
+      "For anyone — whatever your field or role. Enter your details and we'll build your free PersonaForce™ Identity Blueprint: a first look at the hidden patterns shaping how you perform, decide, and respond under pressure. Delivered straight to your inbox.",
     bullets: [
       { bold: 'Free.', text: 'Takes under two minutes to request.' },
-      { bold: 'Built on the PersonaForce framework', text: 'by Travis Fox and Michelle Fox.' },
+      { bold: 'Built by Dr. Travis and Michelle Fox', text: 'on the PersonaForce identity framework.' },
       { bold: 'Delivered privately to your inbox.', text: 'No pitch. No pressure.' },
-      { bold: '', text: "You'll see something about your identity architecture you've never seen before." },
+      { bold: '', text: "You'll see something about yourself you've never had laid out this clearly before." },
     ],
   },
 };

@@ -177,6 +177,10 @@ const FreeBlueprints = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
               <ConsultBtn className="justify-center w-full sm:w-auto max-w-[320px]" />
             </div>
+            <p className="text-[12.5px] md:text-[13px] text-[#eef0ff]/[0.5] mt-4 max-w-[440px] mx-auto leading-[1.6]">
+              For everyone — whatever your field, role, or industry. The collections below are just
+              specialised examples.
+            </p>
           </FadeUp>
         </div>
       </section>
