@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Clock, Video, Globe, ChevronLeft } from 'lucide-react';
+import { Clock, Video, Globe, ChevronLeft, FileText, Mail, Lock } from 'lucide-react';
 import { getBookingCopy } from '../bookingCopy';
 
 const Book = () => {
   // The page the visitor came from drives the framing (eyebrow / headline /
-  // intro / bullets). Same calendar embed for everyone — only the copy changes.
+  // intro / bullets). Every source shows the calendar EXCEPT free-blueprints,
+  // which is a lead-gen form ("Get your free Blueprint") instead of a booking.
   const [searchParams] = useSearchParams();
-  const copy = getBookingCopy(searchParams.get('source'));
+  const source = searchParams.get('source');
+  const copy = getBookingCopy(source);
+  const isBlueprintForm = source === 'free-blueprints';
 
   useEffect(() => {
     // We need to load the GHL script for the embed
@@ -86,32 +89,73 @@ const Book = () => {
           
           {/* Card Header */}
           <div className="p-6 md:p-8 border-b border-[#f0f0f4] shrink-0 bg-white z-10">
-            <div className="text-[20px] font-black text-[#0a0a1a] mb-4 tracking-tight">PersonaForce™</div>
+            <div className="text-[20px] font-black text-[#0a0a1a] mb-4 tracking-tight">
+              {isBlueprintForm ? 'Free Identity Blueprint' : 'PersonaForce™'}
+            </div>
             <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
-                <Clock className="w-4 h-4 text-[#3b6fe8] shrink-0" />
-                30 minutes
-              </div>
-              <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
-                <Video className="w-4 h-4 text-[#3b6fe8] shrink-0" />
-                Video call
-              </div>
-              <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
-                <Globe className="w-4 h-4 text-[#3b6fe8] shrink-0" />
-                Your timezone, auto-detected
-              </div>
+              {isBlueprintForm ? (
+                <>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <FileText className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    Free — takes under two minutes
+                  </div>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <Mail className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    Delivered to your inbox
+                  </div>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <Lock className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    Private. No pitch, no pressure.
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <Clock className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    30 minutes
+                  </div>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <Video className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    Video call
+                  </div>
+                  <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
+                    <Globe className="w-4 h-4 text-[#3b6fe8] shrink-0" />
+                    Your timezone, auto-detected
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
-          {/* GHL Calendar Embed Wrapper */}
+          {/* RIGHT PANEL BODY — free-blueprints = lead-gen form, everyone else = calendar */}
           <div className="w-full bg-white relative pb-6 flex-1 md:max-h-[600px] md:overflow-y-auto custom-scrollbar">
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/BXc6BGPB8tpe8qAtSwyf"
-              style={{ width: '100%', minHeight: '550px', border: 'none', display: 'block' }}
-              scrolling="no"
-              id="BXc6BGPB8tpe8qAtSwyf_1778835771281"
-              title="PersonaForce Booking"
-            ></iframe>
+            {isBlueprintForm ? (
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/oJjNbeSBgzEx0Mfu71Hf"
+                style={{ width: '100%', minHeight: '620px', border: 'none', borderRadius: '8px', display: 'block' }}
+                id="inline-oJjNbeSBgzEx0Mfu71Hf"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="General Blueprint Lead Gen"
+                data-height="undefined"
+                data-layout-iframe-id="inline-oJjNbeSBgzEx0Mfu71Hf"
+                data-form-id="oJjNbeSBgzEx0Mfu71Hf"
+                title="General Blueprint Lead Gen"
+              ></iframe>
+            ) : (
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/booking/BXc6BGPB8tpe8qAtSwyf"
+                style={{ width: '100%', minHeight: '550px', border: 'none', display: 'block' }}
+                scrolling="no"
+                id="BXc6BGPB8tpe8qAtSwyf_1778835771281"
+                title="PersonaForce Booking"
+              ></iframe>
+            )}
           </div>
 
         </div>

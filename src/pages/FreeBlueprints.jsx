@@ -40,7 +40,7 @@ const ConsultBtn = ({ className = "" }) => (
     to="/book?source=free-blueprints"
     className={`group inline-flex items-center gap-2 bg-[#3b6fe8] hover:bg-[#3b6fe8] text-white px-7 py-3.5 rounded-[10px] text-[14px] font-semibold shadow-[0_0_28px_rgba(59,111,232,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_44px_rgba(59,111,232,0.45)] ${className}`}
   >
-    Schedule A Consultation
+    Get Your Free Blueprint
     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
   </Link>
 );
@@ -101,7 +101,7 @@ const FreeBlueprints = () => {
           </div>
 
           <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book?source=free-blueprints" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
+            <Link to="/book?source=home" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
               Book a Call
             </Link>
             <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
@@ -134,7 +134,7 @@ const FreeBlueprints = () => {
           <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
           <Link to="/free-blueprints" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
           <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=free-blueprints" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/book?source=home" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
               Book a Call
             </Link>
           </div>

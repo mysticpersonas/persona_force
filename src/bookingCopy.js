@@ -133,13 +133,20 @@ const bookingCopy = {
     bullets: personBullets,
   },
 
-  // ---- Free Blueprints ----------------------------------------------------
+  // ---- Free Blueprints (lead-gen FORM, not a booking) ---------------------
+  // NOTE: this is the only source Book.jsx renders as a form instead of the
+  // calendar. Keep the framing about entering details / receiving a Blueprint.
   'free-blueprints': {
-    eyebrow: 'Go-deeper session',
-    title: [{ t: 'Turn your blueprint into ' }, { t: 'a real strategy.', accent: true }],
+    eyebrow: 'Free Identity Blueprint',
+    title: [{ t: 'Get your free ' }, { t: 'Identity Blueprint.', accent: true }],
     intro:
-      "You've seen the surface. In 30 minutes, we'll map the full identity architecture beneath your performance — the drivers, the shadow patterns, and the exact path to stabilise it.",
-    bullets: personBullets,
+      "Enter your details and we'll build your free PersonaForce™ Identity Blueprint — a first look at the drivers, the shadow patterns, and the exact points where pressure causes collapse. Delivered straight to your inbox.",
+    bullets: [
+      { bold: 'Free.', text: 'Takes under two minutes to request.' },
+      { bold: 'Built on the PersonaForce framework', text: 'by Travis Fox and Michelle Fox.' },
+      { bold: 'Delivered privately to your inbox.', text: 'No pitch. No pressure.' },
+      { bold: '', text: "You'll see something about your identity architecture you've never seen before." },
+    ],
   },
 };
 
