@@ -23,6 +23,7 @@ import OrientationReplay from './pages/OrientationReplay';
 import TraderBlueprint from './pages/TraderBlueprint';
 import TraderBlueprintThankYou from './pages/TraderBlueprintThankYou';
 import FreeBlueprintThankYou from './pages/FreeBlueprintThankYou';
+import BlueprintAssessment from './pages/BlueprintAssessment';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/trader/orientation-replay" element={<OrientationReplay />} />
         <Route path="/trader/blueprint" element={<TraderBlueprint />} />
         <Route path="/trader/blueprintthankyou" element={<TraderBlueprintThankYou />} />
+        <Route path="/blueprintassessment" element={<BlueprintAssessment />} />
         <Route path="/freeblueprintthankyou" element={<FreeBlueprintThankYou />} />
         {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
         <Route path="/trader/pft-30day" element={<PftThirtyDay />} />

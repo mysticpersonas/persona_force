@@ -43,16 +43,17 @@ const FreeBlueprintThankYou = () => {
             </span>
 
             <h1 className="text-[clamp(30px,6vw,48px)] font-black tracking-[-1px] leading-[1.1]">
-              Your Blueprint Is On Its Way
+              We&rsquo;ve Got Your Details
             </h1>
 
             <p className="text-[15px] md:text-[17px] text-[#eef0ff]/[0.58] mt-6 leading-[1.7]">
-              Thank you. Your free PersonaForce™ Identity Blueprint is being prepared — the details
-              are on their way to your inbox. Please give it a few minutes to arrive.
+              Thank you. Your responses are in, and our team is preparing your personalised
+              PersonaForce™ Identity Blueprint now. We&rsquo;ll send it to your inbox soon.
             </p>
 
             <p className="text-[13.5px] text-[#eef0ff]/[0.4] mt-5 leading-[1.7]">
-              If you don&rsquo;t see the email, check your promotions, spam, or updates folder.
+              Keep an eye on your email over the next little while — and if you don&rsquo;t see it,
+              check your promotions, spam, or updates folder.
             </p>
 
             <Link
