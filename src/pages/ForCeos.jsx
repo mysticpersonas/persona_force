@@ -490,8 +490,8 @@ const ForCeos = () => {
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Whitepaper</a>
-            <a href="#" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#eef0ff] transition-colors">Terms</a>
+            <a href="/privacy" className="hover:text-[#eef0ff] transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-[#eef0ff] transition-colors">Terms &amp; Conditions</a>
             <a href="#" className="hover:text-[#eef0ff] transition-colors">Contact</a>
           </div>
         </div>

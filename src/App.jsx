@@ -24,6 +24,8 @@ import TraderBlueprint from './pages/TraderBlueprint';
 import TraderBlueprintThankYou from './pages/TraderBlueprintThankYou';
 import FreeBlueprintThankYou from './pages/FreeBlueprintThankYou';
 import BlueprintAssessment from './pages/BlueprintAssessment';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
@@ -54,6 +56,8 @@ const App = () => {
         <Route path="/trader/blueprintthankyou" element={<TraderBlueprintThankYou />} />
         <Route path="/blueprintassessment" element={<BlueprintAssessment />} />
         <Route path="/freeblueprintthankyou" element={<FreeBlueprintThankYou />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsConditions />} />
         {/* Private, unlisted product pages — NOT linked from nav/footer/sitemap; noindex,nofollow set per page */}
         <Route path="/trader/pft-30day" element={<PftThirtyDay />} />
         <Route path="/trader/pft-60day" element={<PftSixtyDay />} />

@@ -165,8 +165,8 @@ const Book = () => {
       <footer className="col-span-1 md:col-span-2 bg-[#06081a] border-t border-white/[0.07] py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-white/30 font-medium">
         <span>© 2026 PersonaForce™ | All Rights Reserved</span>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white/60 transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white/60 transition-colors">Terms</a>
+          <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy</a>
+          <a href="/terms" className="hover:text-white/60 transition-colors">Terms &amp; Conditions</a>
           <a href="mailto:hello@personaforce.co" className="hover:text-white/60 transition-colors">Contact</a>
         </div>
       </footer>

@@ -744,9 +744,9 @@ const Trader = () => {
             should consult appropriate licensed professionals before making financial decisions.
           </p>
           <div className="flex items-center justify-center gap-5 mt-6 text-[12px] font-semibold text-[#8b93ad]">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <span className="w-px h-3 bg-white/10" />
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
           </div>
           <p className="text-[11px] text-[#3f4763] mt-5">
             © {new Date().getFullYear()} PersonaForce Trader™ · Discover the Trader Behind the Trade™
