@@ -18,4 +18,15 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // WebGL layer (react-three-fiber): the render loop legitimately reads refs
+    // and mutates typed-array/instance buffers every frame, and uses lazy ref
+    // init (blessed by React docs). The React Compiler rules don't model this.
+    files: ['src/three/**/*.{js,jsx}'],
+    rules: {
+      'react-hooks/purity': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/immutability': 'off',
+    },
+  },
 ])

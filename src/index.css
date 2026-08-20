@@ -4,8 +4,406 @@
   --animate-fadeUp: fadeUp 0.7s ease both;
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   PERSONAFORCE DESIGN TOKENS
+   One source of truth. Components read these — never hardcode a hex.
+
+   The site runs on TWO surface rails that alternate down the page:
+   a DARK rail (the constellation shows through it) and a LIGHT rail
+   (opaque, so it visually "lands" on top of the dark). That alternation
+   is what produces the stacked-card scroll effect.
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  /* ── Dark rail ────────────────────────────────────────────────── */
+  --pf-dark-900: #06081a;   /* page base — unchanged brand navy */
+  --pf-dark-800: #0b0d22;   /* raised card on dark */
+  --pf-dark-700: #10132b;   /* stat tiles / inset panels */
+
+  /* ── Light rail (new — this is what makes the overlap readable) ─ */
+  --pf-light-50:  #f5f7fd;  /* white section: navy-tinted, not sterile #fff */
+  --pf-light-100: #ffffff;  /* card on the white section */
+  --pf-slate-100: #e6eaf7;  /* slate section: the third surface */
+
+  /* Graphite: the founder/proof surface. Pure white broke the cinematic
+     continuity — this still reads as a distinct, lighter beat while keeping the
+     page inside one visual universe, and lets the image behind it show through. */
+  --pf-graphite: #161a2e;
+  --pf-graphite-card: #1e2338;
+
+  /* ── Text ─────────────────────────────────────────────────────── */
+  --pf-text-on-dark:    #eef0ff;
+  /* Raised from #7a7fa8 (~4.5:1) to ~5.9:1 on the dark rail. Long paragraphs
+     at the old value were genuinely hard work, and harder still on the lighter
+     graphite surface. Secondary text should be quiet, not dim. */
+  --pf-text-on-dark-2:  #8e94bd;
+  --pf-text-on-light:   #0a0d24;  /* near-black navy, never pure black */
+  --pf-text-on-light-2: #545a80;
+
+  /* ── Brand ────────────────────────────────────────────────────── */
+  --pf-blue:      #3b6fe8;  /* primary action */
+  --pf-blue-lift: #5b8af5;  /* accent ON DARK — reads bright */
+  --pf-blue-deep: #2450c4;  /* accent ON LIGHT — deepened to clear WCAG AA */
+  --pf-violet:    #7c3bed;  /* shadow state (3D field only) */
+
+  /* ── Borders ──────────────────────────────────────────────────── */
+  --pf-border-dark:  rgba(255, 255, 255, 0.07);
+  --pf-border-light: rgba(10, 13, 36, 0.09);
+
+  /* ── Type ─────────────────────────────────────────────────────── */
+  --pf-font-display: "Instrument Serif", ui-serif, Georgia, serif;
+
+  /* Weight is the loudest lever on a page, and the easiest to overuse.
+     The display serif sits at 400; pairing it with a 900 sans left a
+     500-unit gap that read as shouting. 700 is the ceiling here — the
+     hierarchy comes from SIZE and COLOUR, not from piling on weight. */
+  --pf-weight-heading: 700;
+  --pf-weight-strong:  600;
+
+  /* Fluid scale. clamp() means no breakpoint jumps — the page is sized
+     for its viewport at every width, not at four fixed guesses. */
+  --pf-text-xs:   11px;
+  --pf-text-sm:   13px;
+  --pf-text-base: 15px;
+  --pf-text-md:   17px;
+  --pf-text-lg:   clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);    /* card titles   */
+  --pf-text-xl:   clamp(1.3rem,  1.15rem + 0.7vw, 1.75rem);   /* sub-headings  */
+  --pf-text-2xl:  clamp(1.6rem,  1.25rem + 1.9vw, 2.45rem);   /* section heads */
+  --pf-text-3xl:  clamp(2.05rem, 1.4rem + 3.3vw, 3.6rem);     /* hero          */
+
+  /* ── Stacked-card geometry ────────────────────────────────────── */
+  --pf-stack-radius: 28px;
+  --pf-stack-pull: -2.5rem;
+
+  /* ── Motion ───────────────────────────────────────────────────── */
+  --pf-duration-base: 200ms;
+  --pf-duration-slow: 350ms;
+  --pf-easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --pf-stack-radius: 48px;
+    --pf-stack-pull: -4rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Everything below lives in @layer components ──────────────────────────
+   Tailwind's utilities sit in a LATER cascade layer, so a utility always wins
+   over these. Unlayered rules would beat every utility regardless of
+   specificity — which silently broke `hidden lg:inline-flex` on the nav button
+   (.pf-btn's display won) and `text-[13px]` on the CTA (.pf-btn-lg's font-size
+   won). Layering restores the expected override order.                        */
+@layer components {
+  /* The serif is the "true voice" of the type system — it appears ONLY on the
+     emphasis clause of a headline, never on body copy. See Landing.jsx. */
+  .pf-display {
+    font-family: var(--pf-font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Stacked card ──────────────────────────────────────────────────
+     Every major section is a slab that rides UP over the one above it:
+     negative margin pulls it up, the radius rounds its leading edge, and
+     the upward shadow separates the two planes so the overlap is legible.
+     Add `.pf-stack` + a background colour. Nothing else required.        */
+  .pf-stack {
+    position: relative;
+    margin-top: var(--pf-stack-pull);
+    border-top-left-radius: var(--pf-stack-radius);
+    border-top-right-radius: var(--pf-stack-radius);
+  }
+
+  /* light slab landing on dark → shadow reads as the slab casting downward-up */
+  .pf-stack-light {
+    box-shadow: 0 -32px 64px -24px rgba(6, 8, 26, 0.55);
+  }
+
+  /* dark slab landing on light → a hairline is enough to catch the edge */
+  .pf-stack-dark {
+    box-shadow: 0 -24px 48px -20px rgba(6, 8, 26, 0.7);
+  }
+
+  /* Each slab must OUT-RANK the one before it. Without this the deck relies on
+     paint order alone, and any slab that gains a stacking context (a transform,
+     a blur, a reveal animation) drops behind its neighbour and the overlap
+     silently disappears. Explicit ranks make the effect hold every time. */
+  .pf-slab-1 { z-index: 1; }
+  .pf-slab-2 { z-index: 2; }
+  .pf-slab-3 { z-index: 3; }
+  .pf-slab-4 { z-index: 4; }
+  .pf-slab-5 { z-index: 5; }
+
+  /* ── Component primitives ──────────────────────────────────────────────────
+     The card recipe appears ~12 times across the page. Defining it once here
+     means a radius or hover tweak is a one-line change, not a find-and-replace. */
+  .pf-card {
+    border-radius: 14px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform var(--pf-duration-slow) var(--pf-easing-default),
+                box-shadow var(--pf-duration-slow) var(--pf-easing-default),
+                border-color var(--pf-duration-base) var(--pf-easing-default),
+                background-color var(--pf-duration-base) var(--pf-easing-default);
+  }
+  @media (min-width: 768px) {
+    .pf-card { border-radius: 20px; }
+  }
+
+  .pf-card-light {
+    background: var(--pf-light-100);
+    border-color: var(--pf-border-light);
+    box-shadow: 0 1px 3px rgba(10, 13, 36, 0.04);
+  }
+  .pf-card-light:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 111, 232, 0.4);
+    box-shadow: 0 12px 40px -8px rgba(10, 13, 36, 0.14);
+  }
+
+  /* Cards react physically: rise and tilt slightly toward the viewer. Echo's
+     note was that they read as conceptually strong but visually passive. */
+  .pf-card-tilt {
+    transform-style: preserve-3d;
+    transition: transform var(--pf-duration-slow) var(--pf-easing-default),
+                border-color var(--pf-duration-base) var(--pf-easing-default),
+                box-shadow var(--pf-duration-slow) var(--pf-easing-default);
+  }
+  .pf-card-tilt:hover {
+    transform: translateY(-6px) rotateX(2.2deg) rotateY(-1.6deg) scale(1.012);
+    box-shadow: 0 26px 60px -22px rgba(0, 0, 0, 0.75);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pf-card-tilt:hover { transform: none; }
+  }
+
+  /* Glass panel for the graphite beat — a lifted surface with real depth,
+     rather than a flat card pasted onto a different-coloured page. */
+  .pf-card-glass {
+    background: color-mix(in srgb, var(--pf-graphite-card) 82%, transparent);
+    border-color: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 48px -18px rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .pf-card-glass:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 111, 232, 0.42);
+  }
+
+  /* Reading surfaces, not scannable items. A hover lift implies "this does
+     something"; the big single cards (bios, testimonial) do not, so they stay put.
+     Grid cards keep the lift because you scan across them. */
+  .pf-card-static:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(10, 13, 36, 0.04);
+    border-color: var(--pf-border-light);
+  }
+
+  /* dark cards are translucent on purpose — the constellation reads THROUGH them,
+     which is what keeps the dark slabs feeling like windows instead of panels */
+  .pf-card-dark {
+    background: color-mix(in srgb, var(--pf-dark-800) 78%, transparent);
+    border-color: var(--pf-border-dark);
+    backdrop-filter: blur(12px);
+  }
+  .pf-card-dark:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 111, 232, 0.45);
+    box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* the uppercase micro-label above a heading — used on both rails */
+  .pf-eyebrow {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px) {
+    .pf-eyebrow { font-size: 11px; }
+  }
+
+  /* ── Type primitives ───────────────────────────────────────────────────────
+     Headings were being hand-sized at every call site, which is how a page ends
+     up with six different "section heading" sizes. One class per role instead. */
+  .pf-h1 {
+    font-size: var(--pf-text-3xl);
+    font-weight: var(--pf-weight-heading);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+  .pf-h2 {
+    font-size: var(--pf-text-2xl);
+    font-weight: var(--pf-weight-heading);
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+  }
+  .pf-h3 {
+    font-size: var(--pf-text-lg);
+    font-weight: var(--pf-weight-strong);
+    line-height: 1.32;
+    letter-spacing: -0.015em;
+  }
+  .pf-lead {
+    font-size: clamp(0.95rem, 0.88rem + 0.3vw, 1.1rem);
+    line-height: 1.65;
+  }
+  .pf-body { font-size: var(--pf-text-base); line-height: 1.68; }
+  .pf-caption { font-size: var(--pf-text-sm); line-height: 1.5; }
+
+  /* The display serif runs ~6% small against a sans of the same px because its
+     x-height is shorter. Nudge it back so the two halves of a headline sit on
+     the same optical line.
+     The weight is restated here deliberately: this rule is defined AFTER .pf-h1/2/3,
+     so an element carrying both classes keeps the serif's real 400 instead of being
+     synthetically emboldened into a smeared fake-bold. */
+  /* Weight is restated here deliberately: this rule sits AFTER .pf-h1/2/3, so a
+     heading carrying both classes keeps the serif's real 400 rather than being
+     synthetically emboldened into a smeared fake-bold. */
+  .pf-display { font-weight: 400; }
+
+  /* The optical bump applies ONLY to a serif nested inside a heading, where 1.06em
+     resolves against the heading. On a standalone .pf-display.pf-h2 it would
+     resolve against BODY text and collapse the heading to ~16px. */
+  .pf-h1 .pf-display,
+  .pf-h2 .pf-display,
+  .pf-h3 .pf-display { font-size: 1.06em; }
+
+  /* Trademark marks: `vertical-align: super` on a 900-weight display heading
+     threw the glyph clear of the cap line. A fixed em rise keeps it tucked. */
+  .pf-tm {
+    font-size: 0.42em;
+    font-weight: var(--pf-weight-strong);
+    vertical-align: 0.62em;
+    letter-spacing: 0;
+    margin-left: 0.02em;
+  }
+
+  /* ── Buttons ───────────────────────────────────────────────────────────────
+     Fixed heights, not padding math — that is what stops a long label from
+     inflating into a chunky two-line slab. Labels never wrap. */
+  .pf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    font-weight: var(--pf-weight-strong);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color var(--pf-duration-base) var(--pf-easing-default),
+                box-shadow var(--pf-duration-base) var(--pf-easing-default),
+                transform var(--pf-duration-base) var(--pf-easing-default),
+                border-color var(--pf-duration-base) var(--pf-easing-default);
+  }
+  .pf-btn-sm { height: 36px; padding: 0 16px; font-size: var(--pf-text-sm); }
+  .pf-btn-md { height: 44px; padding: 0 22px; font-size: 14px; }
+  /* Mobile geometry is set by the LONGEST label on the page ("Book My
+     PersonaForce™ Mapping Call") at a 390px viewport, where the button is
+     full-width and cannot grow. Measured to clear its pill with slack. */
+  .pf-btn-lg { height: 48px; padding: 0 20px; font-size: 13px; }
+  @media (min-width: 768px) {
+    .pf-btn-lg { height: 54px; padding: 0 36px; font-size: var(--pf-text-md); }
+  }
+
+  .pf-btn-primary { background: var(--pf-blue); color: #fff; }
+  /* a 1px lift + directional shadow reads as physical; a scale() reads as a
+     cheap zoom, which is exactly the "poor quality" tell */
+  .pf-btn-primary:hover {
+    background: var(--pf-blue-lift);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px -8px rgba(59, 111, 232, 0.65);
+  }
+  .pf-btn-primary:active { transform: translateY(0); }
+  .pf-btn:focus-visible {
+    outline: 2px solid var(--pf-blue-lift);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pf-btn-primary:hover { transform: none; }
+  }
+
+  /* Local contrast scrim for the acts where the camera is close enough that
+     the lattice fills the frame. The global vignette is not enough once you are
+     INSIDE the field — body copy at --pf-text-on-dark-2 loses against bright
+     additive lines without this. */
+  .pf-act-scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 55% at 50% 50%,
+                rgba(6, 8, 26, 0.88) 0%,
+                rgba(6, 8, 26, 0.62) 45%,
+                rgba(6, 8, 26, 0) 78%);
+  }
+
+  /* ── Story reveals ────────────────────────────────────────────────────────
+     Scoped to html.pf-story, which useStoryScroll adds ONLY once it knows it
+     will animate these back in. Unscoped, a JS failure or a blocked bundle
+     would leave the entire page permanently invisible — the hidden state must
+     never be the default the browser can get stuck in. */
+  html.pf-story [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(6px);
+    will-change: opacity, transform, filter;
+  }
+
+  /* Hero scroll cue — a wheel-shell with a dot falling inside, plus a chevron
+     that breathes underneath. Wordless on purpose: it is an affordance, and the
+     page's copy is not mine to add to. */
+  .pf-cue { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .pf-cue-shell {
+    position: relative;
+    width: 22px; height: 34px;
+    border: 1.5px solid color-mix(in srgb, var(--pf-blue-lift) 45%, transparent);
+    border-radius: 999px;
+  }
+  .pf-cue-dot {
+    position: absolute; left: 50%; top: 7px;
+    width: 3.5px; height: 3.5px; margin-left: -1.75px;
+    border-radius: 999px; background: var(--pf-blue-lift);
+    animation: pfCueDot 2s var(--pf-easing-default) infinite;
+  }
+  .pf-cue-chev {
+    color: var(--pf-blue-lift);
+    animation: pfCueChev 2s var(--pf-easing-default) infinite;
+  }
+  @keyframes pfCueDot {
+    0%   { transform: translateY(0);    opacity: 0; }
+    22%  { opacity: 1; }
+    70%  { opacity: 1; }
+    100% { transform: translateY(13px); opacity: 0; }
+  }
+  @keyframes pfCueChev {
+    0%, 100% { transform: translateY(0);   opacity: 0.35; }
+    50%      { transform: translateY(3px); opacity: 0.8; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pf-cue-dot, .pf-cue-chev { animation: none; opacity: 0.7; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-card:hover { transform: none; }
+}
+
+/* Lenis smooth scroll (safe subset — deliberately no iframe rule so VSL/GHL forms stay interactive) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 @keyframes fadeUp {

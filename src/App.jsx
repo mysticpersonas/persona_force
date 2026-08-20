@@ -29,8 +29,10 @@ import TermsConditions from './pages/TermsConditions';
 import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
+import useSmoothScroll from './hooks/useSmoothScroll';
 
 const App = () => {
+  useSmoothScroll(); // app-wide Lenis smooth scroll (reduced-motion safe)
   return (
     <Router>
       <Routes>

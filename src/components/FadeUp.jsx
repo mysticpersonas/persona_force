@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
-const FadeUp = ({ children, delay = 0, className = "", threshold = 0.15 }) => {
+// `blur` is opt-in: it adds a de-focus to the hidden state so the element
+// resolves INTO frame rather than just sliding. Used by the stacked-card
+// landing page; every existing caller keeps the original slide-only reveal.
+const FadeUp = ({ children, delay = 0, className = "", threshold = 0.15, blur = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
 
@@ -33,7 +36,9 @@ const FadeUp = ({ children, delay = 0, className = "", threshold = 0.15 }) => {
     <div
       ref={domRef}
       className={`transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        isVisible
+          ? `opacity-100 translate-y-0${blur ? ' blur-0' : ''}`
+          : `opacity-0 translate-y-8${blur ? ' blur-[6px]' : ''}`
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
