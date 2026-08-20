@@ -2,6 +2,13 @@
 
 @theme {
   --animate-fadeUp: fadeUp 0.7s ease both;
+
+  /* Redesign type system — serif carries identity, sans carries the interface. */
+  --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  /* Inter Tight: a neutral grotesque with a tighter rhythm. Instrument Serif is
+     high-contrast and editorial, so the sans should stay quiet and let it lead —
+     a warmer or more geometric face would compete with it. */
+  --font-ui: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 html {
@@ -25,8 +32,179 @@ html {
   50% { box-shadow: 0 0 40px rgba(0, 174, 239, 0.6); }
 }
 
+/* ===========================================================================
+   HERO REDESIGN — dream sky, 3D stage, and the identity underline
+   =========================================================================== */
+
+/* Fine film grain over the sky so the gradient never bands on wide screens. */
+.pf-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* The stage tilts toward the cursor; children sit on different Z planes, so the
+   parallax falls out of the perspective for free instead of being faked. */
+.pf-stage {
+  transform-style: preserve-3d;
+  transform:
+    rotateX(calc(var(--pf-my, 0) * -1.8deg))
+    rotateY(calc(var(--pf-mx, 0) * 2.6deg));
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.pf-layer {
+  transform: translateZ(var(--pf-z, 0px));
+}
+
+/* Touch devices have no cursor to tilt toward — keep it flat and cheap. */
+@media (hover: none) {
+  .pf-stage { transform: none; }
+}
+
+/* --- The headline's argument, drawn ---------------------------------------
+   "performance" gets a line that draws in and then wipes away.
+   "identity" gets a line that draws in and stays lit. The sentence crosses out
+   the wrong diagnosis and reveals the right one, without extra copy.          */
+.pf-line {
+  position: relative;
+  white-space: nowrap;
+}
+
+.pf-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 0.05em;
+  min-height: 2px;
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  /* The headline clips its own background to text; the rule must not inherit that. */
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+.pf-line--erase::after {
+  background: linear-gradient(90deg, rgba(122, 127, 168, 0), #7a7fa8 50%, rgba(122, 127, 168, 0));
+  animation: pfLineErase 2.6s cubic-bezier(0.4, 0, 0.2, 1) 900ms forwards;
+}
+
+/* The revealed word opts out of the headline's gradient-clipped text and paints
+   solid. Two reasons: a positioned child of a background-clip:text element can
+   render invisible in some engines, and the reveal *should* be the brightest
+   thing in the sentence anyway. */
+.pf-line--reveal {
+  color: #f4f7ff;
+  -webkit-text-fill-color: #f4f7ff;
+}
+
+.pf-line--reveal::after {
+  background: linear-gradient(
+    90deg,
+    rgba(91, 138, 245, 0) 0%,
+    #5b8af5 16%,
+    #ffffff 50%,
+    #5b8af5 84%,
+    rgba(91, 138, 245, 0) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  box-shadow: 0 0 16px rgba(59, 111, 232, 0.75);
+  animation: pfLineDraw 1s cubic-bezier(0.22, 1, 0.36, 1) 2200ms forwards;
+  transition: background-position 700ms ease;
+}
+
+/* Hover sweeps the bright band back across the rule — the reveal, on demand. */
+.pf-line--reveal:hover::after {
+  background-position: 0 0;
+}
+
+@keyframes pfLineDraw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes pfLineErase {
+  0%   { transform: scaleX(0); transform-origin: left center; }
+  34%  { transform: scaleX(1); transform-origin: left center; }
+  46%  { transform: scaleX(1); transform-origin: right center; }
+  100% { transform: scaleX(0); transform-origin: right center; }
+}
+
+/* --- Scroll choreography ---------------------------------------------------
+   The hero recedes and the video rises off the *same* scroll progress, so the
+   words don't just leave — they hand off. Both are pure CSS vars written from a
+   rAF-throttled scroll listener, so nothing here triggers layout.             */
+.pf-scroll-out {
+  transform: translateY(var(--pf-out-y, 0px)) scale(var(--pf-out-s, 1));
+  opacity: var(--pf-out-o, 1);
+  filter: blur(var(--pf-out-b, 0px));
+  will-change: transform, opacity;
+}
+
+.pf-pop {
+  transform: translateY(var(--pf-pop-y, 64px)) scale(var(--pf-pop-s, 0.86));
+  opacity: var(--pf-pop-o, 0);
+  will-change: transform, opacity;
+}
+
+/* Scroll-scrubbed 3D plate. Blend-screen means only the bright structures in the
+   footage register — the black of the frame simply disappears into the sky, so it
+   reads as depth in the nebula rather than a video pasted behind the text. */
+.pf-bgvid {
+  mix-blend-mode: screen;
+  opacity: 0.32;
+}
+
+/* --- Section video plates -------------------------------------------------
+   The plate is pinned behind a section and tilted back on the Z axis; the page
+   scroll loop rotates it flat as the section arrives, so the footage enters in
+   3D instead of just fading up.                                              */
+.pf-plate {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+.pf-plate-inner {
+  transform-origin: 50% 100%;
+  transform:
+    translateY(var(--pf-pl-y, 56px))
+    scale(var(--pf-pl-s, 1.14))
+    rotateX(var(--pf-pl-rx, 14deg));
+  opacity: var(--pf-pl-o, 0);
+  will-change: transform, opacity;
+}
+
+.pf-sectionvid {
+  mix-blend-mode: screen;
+}
+
+/* Scroll button — a ring that keeps breathing outward, so it reads as an
+   invitation rather than a static control. */
+@keyframes pfHalo {
+  0%   { transform: scale(1); opacity: 0.55; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+@keyframes pfNudge {
+  0%, 100% { transform: translateY(-1.5px); }
+  50%      { transform: translateY(2.5px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  .pf-stage { transform: none; transition: none; }
+  .pf-scroll-out,
+  .pf-pop { transform: none; opacity: 1; filter: none; }
+  .pf-plate-inner { transform: none; opacity: 1; }
 }
 
 wistia-player[media-id='ey25sbhvm4']:not(:defined) {
