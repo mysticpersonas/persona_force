@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, ArrowDown, Check } from 'lucide-react';
 import FadeUp from './FadeUp';
 import TjLogo from './TjLogo';
 import TjForm from './TjForm';
@@ -99,6 +99,19 @@ const ChallengeDay = ({ day }) => {
                 {day.headline}
               </h1>
               <p className="font-tj-body text-[15px] md:text-[17px] text-white/55 mt-5 max-w-[620px] mx-auto leading-[1.7]">{day.sub}</p>
+
+              {/* Signposts the one action on the page. The emails may or may not have
+                  made it clear, so the page states it before anyone has to scroll. */}
+              <a
+                href="#reflection"
+                className="group mt-8 inline-flex items-center gap-2.5 rounded-full border border-[#00e676]/40 bg-[#00e676]/[0.07] px-5 py-3 font-tj-sub text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.18em] text-[#00e676] transition-all duration-300 hover:border-[#00e676] hover:bg-[#00e676]/[0.14] hover:shadow-[0_0_28px_rgba(0,230,118,0.3)]"
+              >
+                Complete Today&rsquo;s Reflection
+                <ArrowDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5" strokeWidth={2.5} />
+              </a>
+              <p className="font-tj-body text-[12.5px] md:text-[13px] text-white/35 mt-3.5">
+                Watch the video, then fill in your daily reflection below.
+              </p>
             </div>
           </FadeUp>
 
@@ -183,7 +196,7 @@ const ChallengeDay = ({ day }) => {
 
           {/* 8 — the day's real capture. Nothing above this submits anything. */}
           <FadeUp delay={100}>
-            <div className="mt-8 md:mt-10">
+            <div id="reflection" className="mt-8 md:mt-10 scroll-mt-6">
               <Panel eyebrow="Your Reflection" accent="#00e676" title={day.reflection.title}>
                 {day.reflection.subtitle && (
                   <p className="-mt-4 mb-7 text-[14px] md:text-[15px] text-white/55 leading-[1.7]">{day.reflection.subtitle}</p>

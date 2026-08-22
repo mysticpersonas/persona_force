@@ -13,9 +13,13 @@
  *    padding either side is 13% of a 375px screen and GHL's own layout has no
  *    room to give.
  */
+// On mobile the frame goes full-bleed to the viewport edge: -mx-11 (44px) undoes
+// the page's px-5 and the panel's p-6. The form's header banner is a fixed-width
+// image inside a cross-origin iframe, so width is the only lever we have on it
+// from this side — its crop and its spacing above Q1 are GHL-builder settings.
 const TjForm = ({ form }) => (
   <div
-    className="tj-form -mx-6 md:mx-0 overflow-hidden md:rounded-[14px] md:border md:border-white/[0.08] bg-[#11151d]"
+    className="tj-form -mx-11 md:mx-0 overflow-hidden md:rounded-[14px] md:border md:border-white/[0.08] bg-[#11151d]"
     style={{ '--tj-form-h': `${form.height}px` }}
   >
     <iframe
