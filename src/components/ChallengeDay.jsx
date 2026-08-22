@@ -31,7 +31,7 @@ const VslBlock = ({ vsl }) => (
 
 /** Section shell — the hairline eyebrow + slab used by every block below the fold. */
 const Panel = ({ eyebrow, accent = '#00e676', title, children, className = '' }) => (
-  <div className={`rounded-[16px] md:rounded-[20px] bg-[#11151d] border border-white/[0.07] p-6 md:p-10 ${className}`}>
+  <div className={`overflow-hidden rounded-[16px] md:rounded-[20px] bg-[#11151d] border border-white/[0.07] p-6 md:p-10 ${className}`}>
     <div className="flex items-center gap-2.5 mb-4">
       <span className="h-px w-5 shrink-0" style={{ backgroundColor: accent }} />
       <span className="font-tj-sub text-[9.5px] md:text-[10.5px] font-semibold tracking-[0.26em] uppercase" style={{ color: accent }}>

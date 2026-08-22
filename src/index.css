@@ -109,3 +109,23 @@ wistia-player {
   display: block;
   width: 100%;
 }
+
+/* ── The Trader's Journey — embedded LeadConnector forms ────────────────────
+   form_embed.js writes the measured height to the iframe's inline style, which
+   beats these rules. They only govern the pre-render window and the case where
+   the script never loads — so they must never leave the form clipped. */
+.tj-form__frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  height: var(--tj-form-h, 1200px);
+}
+
+@media (max-width: 767px) {
+  .tj-form__frame {
+    /* Fields that sit side by side on a desktop stack on a phone, so the same
+       form runs roughly half again as tall as the snippet's quoted height.
+       Over-shooting costs a little empty space; under-shooting hides fields. */
+    height: calc(var(--tj-form-h, 1200px) * 1.5);
+  }
+}
