@@ -31,16 +31,8 @@ export const CHALLENGE_DAYS = [
     reflection: {
       title: 'Build Your Day 1 Baseline',
       subtitle: 'Answer from what is true. Not from the trader you think you should be.',
-      questions: [
-        { q: 'How long have you actively traded?', type: 'radio', options: ['Less than 6 months', '6–12 months', '1–3 years', '3–5 years', 'More than 5 years'] },
-        { q: 'What is your primary trading market?', type: 'radio', options: ['Stocks', 'Options', 'Forex', 'Futures', 'Crypto', 'Commodities', 'Multiple markets', 'Other'] },
-        { q: 'Which recurring pattern appears most often in your trading?', type: 'radio', options: ['I enter too early', 'I exit too early', 'I hold too long', 'I move stops', 'I overtrade', 'I hesitate', 'I force trades', 'I revenge trade', 'I abandon the plan', 'Other'] },
-        { q: 'What most often changes after you win?', type: 'radio', options: ['I stay steady', 'I increase risk', 'I trade more frequently', 'I become overconfident', 'I protect too aggressively', 'I stop following my normal process'] },
-        { q: 'What most often changes after you lose?', type: 'radio', options: ['I stay steady', 'I try to recover immediately', 'I reduce risk excessively', 'I freeze', 'I avoid the next setup', 'I question the entire strategy'] },
-        { q: 'Complete this sentence honestly:', type: 'text', hint: 'The trading pattern I am most tired of repeating is…', placeholder: 'The trading pattern I am most tired of repeating is…' },
-      ],
     },
-    cta: { label: 'Save My Day 1 Baseline', href: 'DAY1_SUBMISSION_LINK', micro: 'Private. Approximately 2–3 minutes. Your answers are saved to your personal PersonaForce Trader™ record.' },
+    form: { id: '9qDK09IYldsKXHgSkrsu', height: 1195, name: "TJ Day 1 - Who is Trading?" },
     completion: {
       title: 'Day 1 Complete',
       body: ['You have established the first honest baseline of the trader behind your trades.', 'Do not fix it yet.', 'Do not judge it.', 'Notice it.'],
@@ -71,15 +63,8 @@ export const CHALLENGE_DAYS = [
     reflection: {
       title: 'Identify Your Invisible Trade',
       subtitle: 'Think about a recent poor, reactive, or emotionally distorted trading decision.',
-      questions: [
-        { q: 'Which emotion appeared first?', type: 'radio', options: ['Fear', 'Urgency', 'Greed', 'Frustration', 'Doubt', 'Excitement', 'Overconfidence', 'Need for control', 'Other'] },
-        { q: 'What did that emotion make you do?', type: 'radio', options: ['Force', 'Freeze', 'Chase', 'Avoid', 'Exit', 'Hold', 'Move the stop', 'Increase size', 'Break the plan'] },
-        { q: 'When did you first notice the emotion?', type: 'radio', options: ['Before the market opened', 'While watching the setup', 'Immediately before entry', 'After entry', 'After the trade moved against me', 'After the trade moved in my favor', 'I did not notice it until afterward'] },
-        { q: 'Where did you feel it first?', type: 'radio', options: ['Chest', 'Stomach', 'Jaw', 'Shoulders', 'Breathing', 'Hands', 'Racing thoughts', 'I did not notice a physical signal'] },
-        { q: 'Complete the sentence:', type: 'text', hint: 'When I felt __________, I told myself __________.', placeholder: 'When I felt …, I told myself …' },
-      ],
     },
-    cta: { label: 'Reveal My Invisible Trade', href: 'DAY2_SUBMISSION_LINK', micro: 'Your answer becomes part of the private data used to build your PersonaForce Trader™ Map.' },
+    form: { id: 'uCuzvgBeZUR6zHclbKqM', height: 1320, name: "TJ Day 2 -BEFORE THE CLICK" },
     completion: {
       title: 'Day 2 Complete',
       body: ['You identified what entered the trade before the order did.', 'That is the Invisible Trade.'],
@@ -109,12 +94,8 @@ export const CHALLENGE_DAYS = [
     reflection: {
       title: 'Name Your Identity Gap',
       subtitle: '',
-      questions: [
-        { q: 'Which rule do you break most often?', type: 'text', placeholder: 'Write the rule…' },
-        { q: 'Right before I break my rule, the voice in my head says…', type: 'text', placeholder: 'Write the real sentence…' },
-      ],
     },
-    cta: { label: 'Name My Identity Gap', href: 'DAY3_SUBMISSION_LINK', micro: 'Do not make the answer sound professional. Write the real sentence.' },
+    form: { id: 'CvAwq56X1Ypk6S3XQWrI', height: 1166, name: "TJ Day 3 -I KNEW… BUT I…" },
     completion: {
       title: 'Day 3 Complete',
       body: ['You did not only identify the rule.', 'You identified the voice that negotiates with it.'],
@@ -146,14 +127,8 @@ export const CHALLENGE_DAYS = [
     reflection: {
       title: 'Identify Your Pressure Pattern',
       subtitle: '',
-      questions: [
-        { q: 'Under pressure, which response appears most often?', type: 'radio', options: ['Force', 'Freeze', 'Avoid', 'Revenge trade', 'Overanalyse', 'Move stops', 'Oversize', 'Abandon the plan entirely'] },
-        { q: 'How quickly does the shift happen?', type: 'radio', options: ['Immediately', 'Within minutes', 'After several losses', 'Only under extended drawdown', 'I do not notice until after'] },
-        { q: 'After the pressure passes, what do you typically do?', type: 'radio', options: ['Return to the plan immediately', 'Take a break', 'Review the trades', 'Try to recover the loss', 'Question the strategy entirely', 'Shut down for the day'] },
-        { q: 'Complete this sentence:', type: 'text', hint: 'When pressure hits, the version of me that takes over usually…', placeholder: 'When pressure hits, the version of me that takes over usually…' },
-      ],
     },
-    cta: { label: 'Identify My Pressure Pattern', href: 'DAY4_SUBMISSION_LINK', micro: 'This becomes one of the most important data points in your PersonaForce Trader™ Map.' },
+    form: { id: 'rnQSR176dCERTCj5vVze', height: 1132, name: "TJ Day 4 — PRESSURE REVEALS" },
     completion: {
       title: 'Day 4 Complete',
       body: ['You have named the trader that pressure reveals.', 'Tomorrow is the final day.'],
@@ -185,16 +160,9 @@ export const CHALLENGE_DAYS = [
     reflection: {
       title: 'Define Your Future Trader',
       subtitle: '',
-      questions: [
-        { q: 'The trading behavior I most want to stabilize is…', type: 'text', placeholder: 'Write your answer…' },
-        { q: 'The triggered pattern I most want to interrupt is…', type: 'text', placeholder: 'Write your answer…' },
-        { q: 'My Future Trader handles pressure by…', type: 'text', placeholder: 'Write your answer…' },
-        { q: 'Complete this statement:', type: 'text', hint: 'For the next 90 days, I am becoming the trader who…', placeholder: 'For the next 90 days, I am becoming the trader who…' },
-        { q: 'Complete your first interruption plan:', type: 'text', hint: 'When I notice my old pattern beginning, I will first…', placeholder: 'When I notice my old pattern beginning, I will first…' },
-      ],
     },
     // Day 5 is the only day that routes onward — into the map intake.
-    cta: { label: 'Complete My 5-Day Challenge', href: '/trader/trader-intake', internal: true, micro: 'Your five days of responses will now be brought together into one private identity-performance record.' },
+    form: { id: 'qyFcFF2IWGa8slB3OOvT', height: 1468, name: "TJ Day 5 — FUTURE TRADER / FIRST 5%" },
     completion: {
       title: 'You Completed the Challenge',
       body: ['You now have five days of structured evidence about the trader behind your trades.', 'Your answers have been saved.', 'Your pattern is becoming visible.'],
