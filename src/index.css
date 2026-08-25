@@ -9,6 +9,9 @@
      high-contrast and editorial, so the sans should stay quiet and let it lead —
      a warmer or more geometric face would compete with it. */
   --font-ui: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Every page root already carries font-sans, so pointing it at Inter Tight
+     brings the whole site onto the redesign UI face without touching them. */
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 html {

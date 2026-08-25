@@ -73,7 +73,7 @@ const ChallengeDay = ({ day }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const prevTitle = document.title;
-    document.title = `${day.marker} — ${day.headline} · PersonaForce Trader™`;
+    document.title = `${day.marker}, ${day.headline} · PersonaForce Trader™`;
     // Private page — keep it out of search indexes.
     const meta = document.createElement('meta');
     meta.name = 'robots';

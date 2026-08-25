@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+
 import FadeUp from '../components/FadeUp';
 
 // Small check icon used throughout the page (matches the doc's accent checkmarks)
@@ -72,104 +73,13 @@ const ConsultBtn = ({ className = "" }) => (
 );
 
 const SalesIdentity = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
-
-  const handleComingSoon = (e) => {
-    e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage("Coming Soon!");
-    setTimeout(() => setToastMessage(""), 2000);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book?source=sales-identity" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=sales-identity" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">
-          {toastMessage}
-        </div>
-      )}
+      <SiteNav />
 
       <div className="pt-[80px] md:pt-[110px]" /> {/* Spacer for fixed navs */}
 
@@ -184,8 +94,8 @@ const SalesIdentity = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(32px,5.5vw,56px)] font-black leading-[1.08] tracking-[-0.8px] text-white mb-[22px] max-w-[760px] mx-auto">
-              Find What's Killing <em className="text-[#5b8af5] not-italic">The Sale.</em>
+            <h1 className="text-[clamp(32px,5.5vw,56px)] font-display font-normal leading-[1.08] tracking-[-0.015em] text-white mb-[22px] max-w-[760px] mx-auto">
+              Find What's Killing <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">The Sale.</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
@@ -205,11 +115,11 @@ const SalesIdentity = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">The 4 Internal Personas</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
-              What shows up when<br />pressure <em className="text-[#5b8af5] not-italic">hits.</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
+              What shows up when<br />pressure <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">hits.</em>
             </h2>
             <p className="text-[15px] text-[#eef0ff]/60 text-center max-w-[580px] mx-auto mb-12 leading-[1.75]">
-              Inside every salesperson, four identity states compete for control. Knowing which one is driving — and when — is the difference between closing and collapsing.
+              Inside every salesperson, four identity states compete for control. Knowing which one is driving, and when, is the difference between closing and collapsing.
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -245,8 +155,8 @@ const SalesIdentity = () => {
             </FadeUp>
             <FadeUp delay={100}>
               <div>
-                <h2 className="text-[clamp(22px,3.5vw,32px)] font-black leading-[1.2] tracking-[-0.4px] mb-4">
-                  Traditional Sales Training<br />Assumes <em className="text-[#5b8af5] not-italic">One Person.</em>
+                <h2 className="text-[clamp(22px,3.5vw,32px)] font-display font-normal leading-[1.2] tracking-[-0.4px] mb-4">
+                  Traditional Sales Training<br />Assumes <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">One Person.</em>
                 </h2>
                 <p className="text-[14px] text-[#eef0ff]/60 leading-[1.75] mb-2.5">
                   High performers are not single state operators.<br />They are <strong className="text-white">multi-person systems</strong> and that's why most sales training creates short-term improvement that fades under real-world pressure.
@@ -274,8 +184,8 @@ const SalesIdentity = () => {
       <div className="bg-white/[0.04] border-y border-white/[0.07] py-14 text-center px-5 md:px-8">
         <FadeUp>
           <div className="max-w-[880px] mx-auto">
-            <h2 className="text-[clamp(22px,4vw,36px)] font-black tracking-[-0.4px] mb-5">
-              When testimony matters, <em className="text-[#5b8af5] not-italic">behavior matters more.</em>
+            <h2 className="text-[clamp(22px,4vw,36px)] font-display font-normal tracking-[-0.4px] mb-5">
+              When testimony matters, <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">behavior matters more.</em>
             </h2>
             <ConsultBtn />
           </div>
@@ -287,11 +197,11 @@ const SalesIdentity = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">What PersonaForce Is</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
-              A Human Identity<br /><em className="text-[#5b8af5] not-italic">Architecture System.</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
+              A Human Identity<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Architecture System.</em>
             </h2>
             <div className="text-[14px] text-[#eef0ff]/60 leading-[1.75] max-w-[680px] mx-auto mb-2 text-center">
-              PersonaForce trains individuals and teams to master the mechanics of identity.<br />This isn't motivational speaking.<br />This isn't surface-level mindset work.<br />This is identity mechanics applied to sales — a systematic approach to controlling who shows up in high-stakes moments.
+              PersonaForce trains individuals and teams to master the mechanics of identity.<br />This isn't motivational speaking.<br />This isn't surface-level mindset work.<br />This is identity mechanics applied to sales, a systematic approach to controlling who shows up in high-stakes moments.
             </div>
           </FadeUp>
           <div className="flex flex-col max-w-[680px] mx-auto mt-6">
@@ -317,11 +227,11 @@ const SalesIdentity = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">When Identity Stabilizes</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
-              When Identity Stabilizes,<br /><em className="text-[#5b8af5] not-italic">Revenue Follows.</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
+              When Identity Stabilizes,<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Revenue Follows.</em>
             </h2>
             <div className="text-[15px] text-[#eef0ff]/60 max-w-[640px] mx-auto mb-10 text-center leading-[1.75]">
-              When the right persona stays online, performance becomes predictable. Execution becomes consistent. Results become scalable. This isn't about working harder — it's about operating from a stable identity foundation that doesn't collapse under pressure.
+              When the right persona stays online, performance becomes predictable. Execution becomes consistent. Results become scalable. This isn't about working harder, it's about operating from a stable identity foundation that doesn't collapse under pressure.
             </div>
           </FadeUp>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
@@ -345,14 +255,14 @@ const SalesIdentity = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">The Programme</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-10">
-              The PersonaForce<br /><em className="text-[#5b8af5] not-italic">Sales Identity Intensive</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-10">
+              The PersonaForce<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Sales Identity Intensive</em>
             </h2>
           </FadeUp>
           <FadeUp delay={100}>
             <div className="bg-white/[0.04] border border-white/[0.07] rounded-[20px] p-7 md:p-10">
               <div className="inline-block bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/[0.28] text-[#5b8af5] text-[11px] font-bold tracking-[0.12em] uppercase py-[5px] px-3.5 rounded-full mb-4">2-Day Training Programme</div>
-              <div className="text-[clamp(20px,3vw,28px)] font-black text-white mb-2.5 tracking-[-0.3px]">A comprehensive 2-day training program</div>
+              <div className="text-[clamp(20px,3vw,28px)] font-display font-normal text-white mb-2.5 tracking-[-0.3px]">A comprehensive 2-day training program</div>
               <div className="text-[14px] text-[#eef0ff]/60 mb-8 leading-[1.7]">Available <strong className="text-white">onsite or virtually</strong> where identity becomes operational and results become repeatable.</div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-7">
@@ -402,11 +312,11 @@ const SalesIdentity = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Ready to begin
               </div>
-              <h2 className="text-[clamp(26px,4vw,42px)] font-black tracking-[-0.5px] mb-4">
-                Identity Stabilizes.<br /><em className="text-[#5b8af5] not-italic">Revenue Follows.</em>
+              <h2 className="text-[clamp(26px,4vw,42px)] font-display font-normal tracking-[-0.015em] mb-4">
+                Identity Stabilizes.<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Revenue Follows.</em>
               </h2>
               <p className="text-[15px] text-[#eef0ff]/60 max-w-[480px] mx-auto mb-8 leading-[1.75]">
-                One call is all it takes to see the exact identity patterns holding your team back — and the path to installing stability that performs under pressure.
+                One call is all it takes to see the exact identity patterns holding your team back, and the path to installing stability that performs under pressure.
               </p>
               <ConsultBtn />
               <div className="text-[12px] text-[#eef0ff]/[0.28] mt-3">No obligation · Built for sales leaders & teams</div>
@@ -416,7 +326,7 @@ const SalesIdentity = () => {
       </section>
 
       {/* FOOTER (same as home) */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">

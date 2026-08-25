@@ -52,9 +52,9 @@ const BlueprintAssessment = () => {
             <div className="text-center">
               <span className="inline-flex items-center gap-2 bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.3] text-[#5b8af5] text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase py-1.5 px-4 rounded-full">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite]" />
-                Free Identity Blueprint — Last Step
+                Free Identity Blueprint, Last Step
               </span>
-              <h1 className="text-[clamp(28px,5vw,44px)] font-black tracking-[-0.8px] leading-[1.12] mt-6">
+              <h1 className="text-[clamp(28px,5vw,44px)] font-display font-normal tracking-[-0.015em] leading-[1.12] mt-6">
                 Complete Your Identity Assessment
               </h1>
               <p className="text-[15px] md:text-[18px] text-[#eef0ff]/[0.58] mt-5 max-w-[540px] mx-auto leading-[1.65]">
@@ -66,7 +66,7 @@ const BlueprintAssessment = () => {
           {/* INTRO */}
           <FadeUp delay={120}>
             <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85] mt-10 max-w-[600px] mx-auto text-center">
-              Thanks for registering. Your answers here are what actually shape your Blueprint — the
+              Thanks for registering. Your answers here are what actually shape your Blueprint, the
               hidden patterns behind how you perform, decide, and respond under pressure. Answer
               honestly; there are no right or wrong answers. Once you finish, we&rsquo;ll prepare your
               personalised Blueprint and send it to your inbox.
@@ -97,7 +97,7 @@ const BlueprintAssessment = () => {
           {/* REASSURANCE LINE */}
           <div className="flex items-center justify-center gap-2 mt-6 text-center">
             <Lock className="w-3.5 h-3.5 text-[#5b8af5] shrink-0" />
-            <p className="text-[13px] text-[#eef0ff]/[0.58]">Private. Answer honestly — there are no right or wrong answers.</p>
+            <p className="text-[13px] text-[#eef0ff]/[0.58]">Private. Answer honestly, there are no right or wrong answers.</p>
           </div>
         </div>
       </main>

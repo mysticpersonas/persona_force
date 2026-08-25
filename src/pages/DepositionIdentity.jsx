@@ -58,7 +58,7 @@ const cfg = {
       { label: "Most attorneys try to:", value: "control the questions" },
       { label: "PersonaForce helps you:", value: "control which persona answers the questions" },
     ],
-    note: <>Because people don't respond logically under pressure — they respond predictably. And predictable behavior can be prepared for.</>,
+    note: <>Because people don't respond logically under pressure, they respond predictably. And predictable behavior can be prepared for.</>,
   },
   builtFor: {
     img: "/deposition/builtfor-bg.jpg",
@@ -72,12 +72,12 @@ const cfg = {
     titleA: "This Is Not Deposition Prep.",
     titleEm: "It Is Deposition Psychology.",
     rows: ["Traditional preparation focuses on content.", "PersonaForce focuses on behavior."],
-    note: <>Because the strongest leverage in a deposition is not what is said — it's how it is said under pressure.</>,
+    note: <>Because the strongest leverage in a deposition is not what is said, it's how it is said under pressure.</>,
   },
   finalCta: {
     titleA: "Win the deposition.",
     titleEm: "Before trial begins.",
-    body: "One call is all it takes to see exactly how identity intelligence turns the deposition into your advantage — before the first question is asked.",
+    body: "One call is all it takes to see exactly how identity intelligence turns the deposition into your advantage, before the first question is asked.",
   },
 };
 

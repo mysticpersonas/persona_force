@@ -45,9 +45,9 @@ const OrientationReplay = () => {
             <div className="text-center">
               <span className="inline-flex items-center gap-2 bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.3] text-[#5b8af5] text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase py-1.5 px-4 rounded-full">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite]" />
-                Founder Pilot — Orientation Replay
+                Founder Pilot, Orientation Replay
               </span>
-              <h1 className="text-[clamp(28px,5vw,46px)] font-black tracking-[-0.8px] leading-[1.12] mt-6 max-w-[640px] mx-auto">
+              <h1 className="text-[clamp(28px,5vw,46px)] font-display font-normal tracking-[-0.015em] leading-[1.12] mt-6 max-w-[640px] mx-auto">
                 You Missed Live. Here&rsquo;s the Full Orientation.
               </h1>
               <p className="text-[15px] md:text-[18px] text-[#eef0ff]/[0.58] mt-5">
@@ -106,7 +106,7 @@ const OrientationReplay = () => {
 
           <FadeUp>
             <div className="text-center max-w-[560px] mx-auto">
-              <h2 className="text-[clamp(24px,4vw,36px)] font-black tracking-[-0.6px]">Ready to Begin?</h2>
+              <h2 className="text-[clamp(24px,4vw,36px)] font-display font-normal tracking-[-0.6px]">Ready to Begin?</h2>
               <p className="text-[15px] md:text-[16px] text-[#eef0ff]/[0.58] mt-4 leading-[1.7]">
                 Now that you&rsquo;ve seen what this is, it&rsquo;s time to officially join the
                 5-Day Trader Identity Challenge™.

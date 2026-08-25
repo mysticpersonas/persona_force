@@ -78,7 +78,7 @@ const ProductPage = ({
             <FadeUp>
               <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-[#00AEEF]/[0.3] text-[#5fd0f5] text-[10px] md:text-[11px] font-bold tracking-[0.16em] uppercase py-1.5 px-4 rounded-full mb-7">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#00AEEF] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
-                Founder Pilot — Private Access Only
+                Founder Pilot, Private Access Only
               </div>
             </FadeUp>
             <FadeUp delay={100}>
@@ -187,7 +187,7 @@ const ProductPage = ({
                   href={paymentLink}
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0bb9f8] text-[#04121f] py-4 rounded-xl text-[16px] font-bold transition-colors animate-[pftGlow_3s_ease-in-out_infinite]"
                 >
-                  Get Started — {price} <ArrowRight className="w-4 h-4" />
+                  Get Started, {price} <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <p className="text-[12px] text-[#8b93ad] mt-4">Secure checkout · One-time payment · No subscription</p>

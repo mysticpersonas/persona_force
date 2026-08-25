@@ -42,7 +42,7 @@ const TraderBlueprintThankYou = () => {
               <Check className="w-7 h-7 text-[#5b8af5]" strokeWidth={3} />
             </span>
 
-            <h1 className="text-[clamp(30px,6vw,48px)] font-black tracking-[-1px] leading-[1.1]">
+            <h1 className="text-[clamp(30px,6vw,48px)] font-display font-normal tracking-[-0.015em] leading-[1.1]">
               Your Blueprint Is On Its Way
             </h1>
 

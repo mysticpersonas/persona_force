@@ -35,7 +35,7 @@ const Book = () => {
         <div className="relative z-10 flex flex-col h-full">
           <div className="flex flex-col gap-5 mb-16 md:mb-auto">
             {/* Back Button */}
-            <Link to="/" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#7a7fa8] hover:text-white transition-colors w-max">
+            <Link to="/" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#8790bb] hover:text-white transition-colors w-max">
               <ChevronLeft className="w-4 h-4" /> Back to Home
             </Link>
 
@@ -54,10 +54,10 @@ const Book = () => {
               {copy.eyebrow}
             </div>
 
-            <h1 className="text-[32px] md:text-[40px] lg:text-[46px] font-black leading-[1.08] tracking-[-0.8px] text-white mb-5">
+            <h1 className="text-[32px] md:text-[40px] lg:text-[46px] font-display font-normal leading-[1.08] tracking-[-0.015em] text-white mb-5">
               {copy.title.map((seg, i) =>
                 seg.accent
-                  ? <em key={i} className="text-[#5b8af5] not-italic">{seg.t}</em>
+                  ? <em key={i} className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">{seg.t}</em>
                   : <span key={i}>{seg.t}</span>
               )}
             </h1>
@@ -89,7 +89,7 @@ const Book = () => {
           
           {/* Card Header */}
           <div className="p-6 md:p-8 border-b border-[#f0f0f4] shrink-0 bg-white z-10">
-            <div className="text-[20px] font-black text-[#0a0a1a] mb-4 tracking-tight">
+            <div className="text-[20px] font-display font-normal text-[#0a0a1a] mb-4 tracking-tight">
               {isBlueprintForm ? 'Free Identity Blueprint' : 'PersonaForce™'}
             </div>
             <div className="flex flex-col gap-3">
@@ -97,7 +97,7 @@ const Book = () => {
                 <>
                   <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
                     <FileText className="w-4 h-4 text-[#3b6fe8] shrink-0" />
-                    Free — takes under two minutes
+                    Free, takes under two minutes
                   </div>
                   <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
                     <Mail className="w-4 h-4 text-[#3b6fe8] shrink-0" />

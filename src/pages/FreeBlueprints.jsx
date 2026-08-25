@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight,
+  Sparkles
+} from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 import FormModal from '../components/FormModal';
 
@@ -13,7 +17,7 @@ const COLLECTIONS = [
   {
     category: "Athletes",
     label: "Collection 01",
-    tagline: "Map how identity holds — or fractures — under pressure, sport by sport.",
+    tagline: "Map how identity holds, or fractures, under pressure, sport by sport.",
     to: "/athletes",
     blueprints: [
       { label: "Golfers Blueprint", desc: "Performance identity assessment built for the pressure of the course.", form: { id: "OifLjaajW8n0ohzpfKG4", title: "Golf Performance", height: 3309 } },
@@ -27,7 +31,7 @@ const COLLECTIONS = [
     tagline: "Free identity profiles for trial, deposition, and witness preparation.",
     to: "/lawyers",
     blueprints: [
-      { label: "Jury Analysis", desc: "A free juror identity profile — see who leads, flips, and anchors the verdict.", form: { id: "Ine3CsP62NEDVDJiaaMp", title: "Jury Analyzer", height: 956 } },
+      { label: "Jury Analysis", desc: "A free juror identity profile, see who leads, flips, and anchors the verdict.", form: { id: "Ine3CsP62NEDVDJiaaMp", title: "Jury Analyzer", height: 956 } },
       { label: "Witness Identity", desc: "Pressure analysis that prepares a witness for how they respond, not just what they say.", form: { id: "D2Sc4W1jASxKOOsEt6LA", title: "Witness Pressure Analysis", height: 2075 } },
       { label: "Deposition Identity", desc: "Map how a witness thinks, deflects, and breaks before you ever depose them.", form: { id: "rGQd8BoquCp0KMHoh3ir", title: "Deposition Identity Profile", height: 1890 } },
     ],
@@ -46,23 +50,7 @@ const ConsultBtn = ({ className = "" }) => (
 );
 
 const FreeBlueprints = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [activeForm, setActiveForm] = useState(null);
-
-  const showToast = (e, msg = "Coming Soon!") => {
-    if (e) e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage(msg);
-    setTimeout(() => setToastMessage(""), 2000);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -72,81 +60,7 @@ const FreeBlueprints = () => {
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book?source=home" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=home" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">
-          {toastMessage}
-        </div>
-      )}
+      <SiteNav />
 
       <div className="pt-[68px] md:pt-[92px]" /> {/* Spacer for fixed navs */}
 
@@ -163,7 +77,7 @@ const FreeBlueprints = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,5.5vw,56px)] font-black leading-[1.05] tracking-[-1px] text-white mb-5 max-w-[760px] mx-auto">
+            <h1 className="text-[clamp(30px,5.5vw,56px)] font-display font-normal leading-[1.05] tracking-[-0.015em] text-white mb-5 max-w-[760px] mx-auto">
               See Who Shows Up<br />
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">Under Pressure.</em>
             </h1>
@@ -178,7 +92,7 @@ const FreeBlueprints = () => {
               <ConsultBtn className="justify-center w-full sm:w-auto max-w-[320px]" />
             </div>
             <p className="text-[12.5px] md:text-[13px] text-[#eef0ff]/[0.5] mt-4 max-w-[440px] mx-auto leading-[1.6]">
-              For everyone — whatever your field, role, or industry. The collections below are just
+              For everyone, whatever your field, role, or industry. The collections below are just
               specialised examples.
             </p>
           </FadeUp>
@@ -193,12 +107,12 @@ const FreeBlueprints = () => {
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-10">
                 <div>
                   <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2">{c.label}</div>
-                  <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px]">
-                    {c.category} <em className="text-[#5b8af5] not-italic">Blueprints</em>
+                  <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em]">
+                    {c.category} <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Blueprints</em>
                   </h2>
                   <p className="text-[13.5px] text-[#eef0ff]/[0.58] leading-[1.7] mt-2.5 max-w-[520px]">{c.tagline}</p>
                 </div>
-                <Link to={c.to} className="group inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#7a7fa8] hover:text-white transition-colors whitespace-nowrap shrink-0">
+                <Link to={c.to} className="group inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8790bb] hover:text-white transition-colors whitespace-nowrap shrink-0">
                   Explore {c.category}
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
@@ -218,7 +132,7 @@ const FreeBlueprints = () => {
                       </span>
                       <ArrowRight className="w-4 h-4 text-[#5b8af5] shrink-0 transition-transform group-hover:translate-x-0.5" />
                     </div>
-                    <div className="text-[16px] font-black text-white tracking-[-0.2px] mb-2">{b.label}</div>
+                    <div className="text-[16px] font-display font-normal text-white tracking-[-0.2px] mb-2">{b.label}</div>
                     <div className="text-[12.5px] text-[#eef0ff]/[0.58] leading-[1.6]">{b.desc}</div>
                     <div className="mt-auto pt-4 text-[11px] font-semibold text-[#5b8af5] tracking-[0.02em]">Get your free profile →</div>
                   </button>
@@ -239,8 +153,8 @@ const FreeBlueprints = () => {
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Ready to go deeper
               </div>
-              <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.5px] mb-3.5">
-                The Blueprint Is Free.<br /><em className="text-[#5b8af5] not-italic">The Edge Is Earned.</em>
+              <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.015em] mb-3.5">
+                The Blueprint Is Free.<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">The Edge Is Earned.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] max-w-[460px] mx-auto mb-7 leading-[1.8]">
                 Run any free blueprint above, then book a call to turn the profile into a stabilized, pressure-tested identity system.
@@ -256,7 +170,7 @@ const FreeBlueprints = () => {
       <FormModal form={activeForm} onClose={() => setActiveForm(null)} />
 
       {/* FOOTER (same as home) */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">

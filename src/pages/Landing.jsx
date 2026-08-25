@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SiteNav from '../components/SiteNav';
 import {
   ChevronLeft,
   ChevronRight,
-  Menu,
-  X,
   ArrowRight,
   ChevronDown
 } from 'lucide-react';
@@ -25,30 +24,8 @@ const SPORT_CLIPS = [
 ];
 const OS_CLIP = [{ src: '/3d/30yrsos.mp4', duration: 4 }];
 
-// Single source of truth so the desktop bar and the mobile drawer can never drift apart.
-const navLinks = [
-  { to: '/for-ceos', label: 'For CEOs' },
-  { to: '/ai-manager', label: 'AI Manager' },
-  { to: '/lawyers', label: 'Lawyers' },
-  { to: '/sales-identity', label: 'Sales' },
-  { to: '/sales-culture', label: 'Organizations' },
-  { to: '/athletes', label: 'Athletes' },
-  { to: '/trader', label: 'Traders' },
-  { to: '/free-blueprints', label: 'Free Blueprints' },
-];
-
 const Landing = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const handleComingSoon = (e) => {
-    e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage("Coming Soon!");
-    setTimeout(() => setToastMessage(""), 2000);
-  };
 
   const testimonials = [
     {
@@ -72,12 +49,6 @@ const Landing = () => {
   const scrollToVsl = () => {
     document.getElementById('vsl')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Feed the cursor into the hero stage as CSS vars — no re-render, no layout.
   useEffect(() => {
@@ -200,104 +171,7 @@ const Landing = () => {
       </div>
 
       
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap.
-          Fixed height, matched by the nav's resting offset, so the sky never peeks through a seam. */}
-      <div className={`fixed top-0 left-0 w-full h-[36px] md:h-[44px] z-50 flex justify-center items-center gap-2.5 px-4 md:px-6 text-center bg-[#080b1f]/85 backdrop-blur-md border-b border-white/[0.05] transition-transform duration-500 ease-out ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-[5px] h-[5px] bg-[#5b8af5] rounded-full shadow-[0_0_10px_rgba(91,138,245,0.9)] animate-[pulse_1.6s_ease-in-out_infinite] shrink-0" />
-        <span className="font-ui text-[9px] md:text-[10.5px] font-medium uppercase tracking-[0.2em] text-[#a3abd6] leading-none">
-          Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-        </span>
-      </div>
-
-      {/* NAV — transparent over the sky at rest so the stars read through, then condenses into
-          a blurred bar on scroll. Same structure and same destinations as before. */}
-      <nav className={`fixed w-full z-40 transition-all duration-500 ease-out flex justify-center ${isScrolled ? 'top-0 py-3 md:py-4 bg-[#06081a]/70 backdrop-blur-xl border-b border-white/[0.07]' : 'top-[36px] md:top-[44px] py-3 md:py-5 bg-transparent border-b border-transparent'}`}>
-        <div className="w-full max-w-[1180px] px-5 md:px-8 flex justify-between items-center gap-4">
-
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0 group">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain transition-transform duration-500 group-hover:scale-105" />
-            <div className="font-ui text-[14px] md:text-[15px] font-bold tracking-[-0.2px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-5 xl:gap-7 items-center">
-            {navLinks.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className="group relative font-ui text-[12.5px] whitespace-nowrap text-[#8790bb] hover:text-white transition-colors duration-300"
-              >
-                {/* The slash mark slides in from the left on hover — a quiet signature borrowed from the reference */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute top-1/2 left-[-6px] h-[13px] w-[2px] -translate-y-1/2 rotate-[16deg] rounded-full bg-[#5b8af5] opacity-0 scale-y-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-y-100 group-hover:left-[-10px]"
-                />
-                <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-[3px]">
-                  {label}
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link
-              to="/book?source=home"
-              className="group hidden lg:flex items-center overflow-hidden rounded-full border border-[#5b8af5]/35 bg-[#3b6fe8]/[0.12] px-5 py-2.5 font-ui text-[12.5px] font-medium text-[#eef0ff] backdrop-blur-sm transition-all duration-300 hover:border-[#5b8af5]/70 hover:bg-[#3b6fe8]/25 hover:shadow-[0_0_28px_rgba(59,111,232,0.35)]"
-            >
-              <span className="relative grid overflow-hidden">
-                <span className="col-start-1 row-start-1 block transition-transform duration-300 ease-out group-hover:-translate-y-full">Book a Call</span>
-                <span className="col-start-1 row-start-1 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">Book a Call</span>
-              </span>
-            </Link>
-
-            <button aria-label="Open menu" className="lg:hidden text-[#8790bb] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-      
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        
-        <div className="flex flex-col gap-5">
-          {navLinks.map(({ to, label }) => (
-            <Link
-              key={to}
-              to={to}
-              className="font-display text-[26px] leading-none text-[#eef0ff] hover:text-[#5b8af5] transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
-
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=home" className="flex justify-center rounded-full border border-[#5b8af5]/45 bg-[#5b8af5]/[0.1] backdrop-blur-md px-5 py-3.5 font-ui text-[13.5px] font-medium text-[#eef0ff] w-full transition-colors duration-300 hover:border-[#5b8af5]/90" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">
-          {toastMessage}
-        </div>
-      )}
+      <SiteNav />
 
       <div className="pt-[80px] md:pt-[110px]" /> {/* Spacer for fixed navs */}
 
@@ -342,7 +216,7 @@ const Landing = () => {
 
           <div className="pf-layer" style={{ '--pf-z': '-24px' }}>
             <p className="font-ui text-[14.5px] md:text-[18px] font-normal text-[#8790bb] max-w-[620px] mx-auto leading-[1.75] animate-[fadeUp_0.9s_cubic-bezier(0.22,1,0.36,1)_700ms_both]">
-              PersonaForce™ reveals who shows up under pressure—so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
+              PersonaForce™ reveals who shows up under pressure, so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
             </p>
           </div>
 
@@ -662,7 +536,7 @@ const Landing = () => {
               <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-10">
                 <button 
                   onClick={() => setCurrentTestimonial(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-                  className="p-2 md:p-2.5 rounded-full border border-white/[0.08] hover:bg-white/5 transition-colors text-[#7a7fa8] hover:text-white bg-[#0b0d22]"
+                  className="p-2 md:p-2.5 rounded-full border border-white/[0.08] hover:bg-white/5 transition-colors text-[#8790bb] hover:text-white bg-[#0b0d22]"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
@@ -679,7 +553,7 @@ const Landing = () => {
                 </div>
                 <button 
                   onClick={() => setCurrentTestimonial(prev => prev === testimonials.length - 1 ? 0 : prev + 1)}
-                  className="p-2 md:p-2.5 rounded-full border border-white/[0.08] hover:bg-white/5 transition-colors text-[#7a7fa8] hover:text-white bg-[#0b0d22]"
+                  className="p-2 md:p-2.5 rounded-full border border-white/[0.08] hover:bg-white/5 transition-colors text-[#8790bb] hover:text-white bg-[#0b0d22]"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />

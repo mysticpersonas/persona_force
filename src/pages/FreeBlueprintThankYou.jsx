@@ -42,7 +42,7 @@ const FreeBlueprintThankYou = () => {
               <MailCheck className="w-7 h-7 text-[#5b8af5]" strokeWidth={2.5} />
             </span>
 
-            <h1 className="text-[clamp(30px,6vw,48px)] font-black tracking-[-1px] leading-[1.1]">
+            <h1 className="text-[clamp(30px,6vw,48px)] font-display font-normal tracking-[-0.015em] leading-[1.1]">
               We&rsquo;ve Got Your Details
             </h1>
 
@@ -52,7 +52,7 @@ const FreeBlueprintThankYou = () => {
             </p>
 
             <p className="text-[13.5px] text-[#eef0ff]/[0.4] mt-5 leading-[1.7]">
-              Keep an eye on your email over the next little while — and if you don&rsquo;t see it,
+              Keep an eye on your email over the next little while, and if you don&rsquo;t see it,
               check your promotions, spam, or updates folder.
             </p>
 

@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Check, ArrowLeft } from 'lucide-react';
+import SiteNav from './SiteNav';
+import {
+  ArrowRight,
+  Check,
+  ArrowLeft
+} from 'lucide-react';
 import FadeUp from './FadeUp';
 import FormModal from './FormModal';
-
-const NAV_LINKS = [
-  { label: "For CEOs", to: "/for-ceos" },
-  { label: "AI Manager", to: "/ai-manager" },
-  { label: "Lawyers", to: "/lawyers", active: true },
-  { label: "Sales Identity", to: "/sales-identity" },
-  { label: "Sales & Culture", to: "/sales-culture" },
-  { label: "Athletes", to: "/athletes" },
-  { label: "Traders", to: "/trader" },
-  { label: "Free Blueprints", to: "/free-blueprints" },
-];
 
 const imgFallback = (e) => { e.currentTarget.style.opacity = '0'; };
 
@@ -25,8 +19,8 @@ const CheckBubble = () => (
 
 // Section heading used inside split content blocks
 const SplitTitle = ({ a, em }) => (
-  <h2 className="text-[clamp(20px,2.8vw,28px)] font-black leading-[1.18] tracking-[-0.4px] mb-4">
-    {a} {em && <em className="text-[#5b8af5] not-italic">{em}</em>}
+  <h2 className="text-[clamp(20px,2.8vw,28px)] font-display font-normal leading-[1.18] tracking-[-0.4px] mb-4">
+    {a} {em && <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">{em}</em>}
   </h2>
 );
 
@@ -40,10 +34,17 @@ const BgSection = ({ img, children, overlay = "0.88" }) => (
 );
 
 const PathwayTemplate = ({ cfg }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [activeForm, setActiveForm] = useState(null);
+
+  // Page-level toast, not nav: the hero's secondary button falls back to this
+  // when a pathway has no form configured.
+  const [toastMessage, setToastMessage] = useState('');
+
+  const showToast = (e) => {
+    if (e) e.preventDefault();
+    setToastMessage('Coming Soon!');
+    setTimeout(() => setToastMessage(''), 2000);
+  };
 
   // Booking CTAs carry this sub-page's source so /book shows matching copy.
   const bookHref = `/book?source=${cfg.source || 'lawyers'}`;
@@ -54,76 +55,13 @@ const PathwayTemplate = ({ cfg }) => {
     </Link>
   );
 
-  const showToast = (e) => {
-    if (e) e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage("Coming Soon!");
-    setTimeout(() => setToastMessage(""), 2000);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, [cfg]);
 
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            {NAV_LINKS.map((l) => l.to ? (
-              <Link key={l.label} to={l.to} className={`text-[13px] whitespace-nowrap transition-colors ${l.active ? 'text-[#5b8af5] font-semibold' : 'text-[#7a7fa8] hover:text-white'}`}>{l.label}</Link>
-            ) : (
-              <a key={l.label} href="#" onClick={showToast} className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">{l.label}</a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4 shrink-0">
-            <Link to={bookHref} className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">Book a Call</Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}><Menu className="w-5 h-5" /></button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile overlay + drawer */}
-      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMenuOpen(false)} />
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8"><button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}><X className="w-6 h-6" /></button></div>
-        <div className="flex flex-col gap-6">
-          {NAV_LINKS.map((l) => l.to ? (
-            <Link key={l.label} to={l.to} className={`text-[15px] font-bold ${l.active ? 'text-[#5b8af5]' : 'text-[#eef0ff] hover:text-[#5b8af5]'}`} onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
-          ) : (
-            <a key={l.label} href="#" onClick={showToast} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">{l.label}</a>
-          ))}
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to={bookHref} className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>Book a Call</Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">{toastMessage}</div>
-      )}
+      <SiteNav />
 
       <div className="pt-[68px] md:pt-[92px]" />
 
@@ -134,7 +72,7 @@ const PathwayTemplate = ({ cfg }) => {
         <div className="absolute inset-0 [background-image:linear-gradient(rgba(59,111,232,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,111,232,0.04)_1px,transparent_1px)] [background-size:56px_56px]" />
         <div className="relative z-[2] max-w-[1000px] mx-auto px-5 md:px-8 py-20 md:py-28">
           <FadeUp>
-            <Link to="/lawyers" className="inline-flex items-center gap-1.5 text-[12px] text-[#7a7fa8] hover:text-white transition-colors mb-6">
+            <Link to="/lawyers" className="inline-flex items-center gap-1.5 text-[12px] text-[#8790bb] hover:text-white transition-colors mb-6">
               <ArrowLeft className="w-3.5 h-3.5" /> Lawyers
             </Link>
           </FadeUp>
@@ -145,7 +83,7 @@ const PathwayTemplate = ({ cfg }) => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,5.5vw,54px)] font-black leading-[1.06] tracking-[-1px] text-white mb-5 max-w-[760px] mx-auto">
+            <h1 className="text-[clamp(30px,5.5vw,54px)] font-display font-normal leading-[1.06] tracking-[-0.015em] text-white mb-5 max-w-[760px] mx-auto">
               {cfg.hero.titleA}{' '}
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">{cfg.hero.titleEm}</em>
             </h1>
@@ -196,7 +134,7 @@ const PathwayTemplate = ({ cfg }) => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[160px] [background:radial-gradient(ellipse,rgba(59,111,232,0.1)_0%,transparent_70%)] pointer-events-none" />
         <FadeUp>
           <div className="relative z-[1] max-w-[1000px] mx-auto">
-            <h2 className="text-[clamp(20px,3vw,30px)] font-black tracking-[-0.3px] mb-5">When testimony matters, <em className="text-[#5b8af5] not-italic">behavior matters more.</em></h2>
+            <h2 className="text-[clamp(20px,3vw,30px)] font-display font-normal tracking-[-0.3px] mb-5">When testimony matters, <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">behavior matters more.</em></h2>
             <ConsultBtn />
           </div>
         </FadeUp>
@@ -207,8 +145,8 @@ const PathwayTemplate = ({ cfg }) => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">The System</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-3">
-              {cfg.intro.titleA} <em className="text-[#5b8af5] not-italic">{cfg.intro.titleEm}</em>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mb-3">
+              {cfg.intro.titleA} <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">{cfg.intro.titleEm}</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[620px] mx-auto mb-9 leading-[1.8]">{cfg.intro.lead}</p>
           </FadeUp>
@@ -245,7 +183,7 @@ const PathwayTemplate = ({ cfg }) => {
       {/* CHECKLIST (bg) — What You Can Prevent / Predict */}
       <BgSection img={cfg.checklist.img}>
         <FadeUp>
-          <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px] mb-2">{cfg.checklist.title}</h2>
+          <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em] mb-2">{cfg.checklist.title}</h2>
           <p className="text-[13px] text-[#eef0ff]/[0.58] mb-8">{cfg.checklist.lead}</p>
         </FadeUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[760px]">
@@ -295,7 +233,7 @@ const PathwayTemplate = ({ cfg }) => {
       {cfg.trauma && (
         <BgSection img={cfg.trauma.img} overlay="0.85">
           <FadeUp>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px] mb-3">{cfg.trauma.title}</h2>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em] mb-3">{cfg.trauma.title}</h2>
             <p className="text-[13.5px] text-[#eef0ff]/[0.58] max-w-[640px] leading-[1.8] mb-6">{cfg.trauma.lead}</p>
             <p className="text-[12.5px] font-bold text-white mb-3.5">{cfg.trauma.listHeading}</p>
           </FadeUp>
@@ -315,7 +253,7 @@ const PathwayTemplate = ({ cfg }) => {
       {cfg.builtFor && (
         <BgSection img={cfg.builtFor.img} overlay="0.9">
           <FadeUp>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px] mb-2">{cfg.builtFor.title}</h2>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em] mb-2">{cfg.builtFor.title}</h2>
             <p className="text-[13px] text-[#eef0ff]/[0.58] mb-6">{cfg.builtFor.lead}</p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 max-w-[620px] mb-7">
@@ -364,8 +302,8 @@ const PathwayTemplate = ({ cfg }) => {
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Ready to begin
               </div>
-              <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.5px] mb-3.5">
-                {cfg.finalCta.titleA} <em className="text-[#5b8af5] not-italic">{cfg.finalCta.titleEm}</em>
+              <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.015em] mb-3.5">
+                {cfg.finalCta.titleA} <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">{cfg.finalCta.titleEm}</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] max-w-[460px] mx-auto mb-7 leading-[1.8]">{cfg.finalCta.body}</p>
               <ConsultBtn />
@@ -379,7 +317,7 @@ const PathwayTemplate = ({ cfg }) => {
       <FormModal form={activeForm} onClose={() => setActiveForm(null)} />
 
       {/* FOOTER */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
@@ -390,6 +328,12 @@ const PathwayTemplate = ({ cfg }) => {
           </div>
         </div>
       </footer>
+
+      {toastMessage && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[70] rounded-full bg-[#3b6fe8] px-5 py-2.5 font-ui text-[13px] font-semibold text-white shadow-[0_0_24px_rgba(59,111,232,0.45)] animate-[fadeUp_0.3s_ease_both]">
+          {toastMessage}
+        </div>
+      )}
     </div>
   );
 };

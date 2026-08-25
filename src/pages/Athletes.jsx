@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Check, ChevronDown } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight,
+  Check,
+  ChevronDown
+} from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 import FormModal from '../components/FormModal';
 
@@ -90,17 +95,7 @@ const CheckBubble = ({ size = "sm" }) => (
 );
 
 const Athletes = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [activeForm, setActiveForm] = useState(null);
-
-  const showToast = (e, msg = "Coming Soon!") => {
-    if (e) e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage(msg);
-    setTimeout(() => setToastMessage(""), 2000);
-  };
 
   // Smooth-scroll the hero "Free Blueprints" button down to the blueprint cards
   const scrollToBlueprints = () => {
@@ -110,92 +105,12 @@ const Athletes = () => {
   // If a hot-linked image fails, hide it so the gradient placeholder behind shows instead
   const imgFallback = (e) => { e.currentTarget.style.opacity = '0'; };
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book?source=athletes" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=athletes" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">
-          {toastMessage}
-        </div>
-      )}
+      <SiteNav />
 
       <div className="pt-[68px] md:pt-[92px]" /> {/* Spacer for fixed navs */}
 
@@ -212,7 +127,7 @@ const Athletes = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,5.5vw,56px)] font-black leading-[1.05] tracking-[-1px] text-white mb-5 max-w-[760px] mx-auto">
+            <h1 className="text-[clamp(30px,5.5vw,56px)] font-display font-normal leading-[1.05] tracking-[-0.015em] text-white mb-5 max-w-[760px] mx-auto">
               Discover Who Plays<br />
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">Under Pressure.</em>
             </h1>
@@ -315,8 +230,8 @@ const Athletes = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[160px] [background:radial-gradient(ellipse,rgba(59,111,232,0.1)_0%,transparent_70%)] pointer-events-none" />
         <FadeUp>
           <div className="relative z-[1] max-w-[1000px] mx-auto">
-            <h2 className="text-[clamp(20px,3vw,30px)] font-black tracking-[-0.3px] mb-5">
-              When testimony matters, <em className="text-[#5b8af5] not-italic">behavior matters more.</em>
+            <h2 className="text-[clamp(20px,3vw,30px)] font-display font-normal tracking-[-0.3px] mb-5">
+              When testimony matters, <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">behavior matters more.</em>
             </h2>
             <ConsultBtn />
           </div>
@@ -328,8 +243,8 @@ const Athletes = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">What PersonaForce™ Is</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-8">
-              A Human Identity<br /><em className="text-[#5b8af5] not-italic">Architecture System.</em>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mb-8">
+              A Human Identity<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Architecture System.</em>
             </h2>
           </FadeUp>
           <div className="max-w-[680px] mx-auto">
@@ -366,8 +281,8 @@ const Athletes = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">What Gets Installed</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-10">
-              Four capabilities.<br className="sm:hidden" /> <em className="text-[#5b8af5] not-italic">One stable identity.</em>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mb-10">
+              Four capabilities.<br className="sm:hidden" /> <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">One stable identity.</em>
             </h2>
           </FadeUp>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
@@ -394,14 +309,14 @@ const Athletes = () => {
         <div className="relative z-[1] max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2">Why It Works</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px] mb-4">
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em] mb-4">
               Why It Works At<br />The Highest Levels
             </h2>
             <p className="text-[13.5px] text-[#eef0ff]/[0.58] max-w-[640px] leading-[1.8] mb-4">
               PersonaForce Sales &amp; Culture Training aligns your team around one standard of execution so performance stays consistent even when pressure rises.
             </p>
             <p className="text-[13.5px] text-[#eef0ff]/[0.58] max-w-[640px] leading-[1.85] mb-6">
-              <strong className="text-white">Pressure is universal.</strong> From the PGA Tour to Division I basketball, from professional football to international soccer to professional bodybuilding — the nervous system does not care about the league. <strong className="text-white">It responds to perceived threat.</strong>
+              <strong className="text-white">Pressure is universal.</strong> From the PGA Tour to Division I basketball, from professional football to international soccer to professional bodybuilding, the nervous system does not care about the league. <strong className="text-white">It responds to perceived threat.</strong>
             </p>
           </FadeUp>
 
@@ -445,8 +360,8 @@ const Athletes = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">Who It's For</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-10">
-              Built for the individual.<br /><em className="text-[#5b8af5] not-italic">Engineered for the team.</em>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mb-10">
+              Built for the individual.<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Engineered for the team.</em>
             </h2>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-stretch">
@@ -461,7 +376,7 @@ const Athletes = () => {
                   </div>
                   <div className="p-5 md:p-6 flex flex-col flex-1">
                     <div className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2">{t.label}</div>
-                    <div className="text-[16px] font-black text-white mb-2.5 tracking-[-0.2px]">{t.title}</div>
+                    <div className="text-[16px] font-display font-normal text-white mb-2.5 tracking-[-0.2px]">{t.title}</div>
                     <div className="text-[12.5px] text-[#eef0ff]/[0.58] leading-[1.75] mb-4">{t.intro}</div>
                     <div className="flex flex-col gap-2 mb-4">
                       {t.list.map((item, ii) => (
@@ -488,8 +403,8 @@ const Athletes = () => {
         <div className="relative z-[1] max-w-[1000px] mx-auto text-center">
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2">The Difference</div>
-            <h2 className="text-[clamp(22px,3.5vw,34px)] font-black leading-[1.12] tracking-[-0.5px] mb-8">
-              The <em className="text-[#5b8af5] not-italic">Difference.</em>
+            <h2 className="text-[clamp(22px,3.5vw,34px)] font-display font-normal leading-[1.12] tracking-[-0.015em] mb-8">
+              The <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Difference.</em>
             </h2>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-[620px] mx-auto items-stretch text-left">
@@ -507,7 +422,7 @@ const Athletes = () => {
               <div className="h-full bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.28] rounded-[14px] p-6 flex flex-col">
                 <div className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#5b8af5] mb-3.5">PersonaForce™ focuses on:</div>
                 <div className="flex-1 flex items-center">
-                  <div className="text-[18px] md:text-[20px] font-black text-white leading-[1.25] tracking-[-0.3px]">Identity under pressure.</div>
+                  <div className="text-[18px] md:text-[20px] font-display font-normal text-white leading-[1.25] tracking-[-0.3px]">Identity under pressure.</div>
                 </div>
               </div>
             </FadeUp>
@@ -532,11 +447,11 @@ const Athletes = () => {
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Ready to begin
               </div>
-              <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.5px] mb-3.5">
-                Identity Stabilizes.<br /><em className="text-[#5b8af5] not-italic">Performance Follows.</em>
+              <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.015em] mb-3.5">
+                Identity Stabilizes.<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Performance Follows.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] max-w-[440px] mx-auto mb-7 leading-[1.8]">
-                One call is all it takes to see the exact identity patterns holding your performance back — and the path to stability that holds under the brightest lights.
+                One call is all it takes to see the exact identity patterns holding your performance back, and the path to stability that holds under the brightest lights.
               </p>
               <ConsultBtn />
               <div className="text-[11px] text-[#eef0ff]/[0.26] mt-3">No obligation · Built for elite athletes &amp; teams</div>
@@ -549,7 +464,7 @@ const Athletes = () => {
       <FormModal form={activeForm} onClose={() => setActiveForm(null)} />
 
       {/* FOOTER (same as home) */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">

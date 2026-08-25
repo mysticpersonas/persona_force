@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowRight, Scale, Target, FileText } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight,
+  Scale,
+  Target,
+  FileText
+} from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 
 const IMG = {
@@ -11,17 +17,6 @@ const PATHS = [
   { key: "jury", label: "Jury Analysis", Icon: Scale, to: "/lawyers/jury-analysis" },
   { key: "witness", label: "Witness Identity", Icon: Target, to: "/lawyers/witness-identity" },
   { key: "deposition", label: "Deposition Identity", Icon: FileText, to: "/lawyers/deposition-identity" },
-];
-
-const NAV_LINKS = [
-  { label: "For CEOs", to: "/for-ceos" },
-  { label: "AI Manager", to: "/ai-manager" },
-  { label: "Lawyers", to: "/lawyers", active: true },
-  { label: "Sales Identity", to: "/sales-identity" },
-  { label: "Sales & Culture", to: "/sales-culture" },
-  { label: "Athletes", to: "/athletes" },
-  { label: "Traders", to: "/trader" },
-  { label: "Free Blueprints", to: "/free-blueprints" },
 ];
 
 // Reusable primary CTA -> booking flow, with the sliding arrow
@@ -36,99 +31,15 @@ const ConsultBtn = ({ className = "" }) => (
 );
 
 const Lawyers = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [activePath, setActivePath] = useState("jury");
   const navigate = useNavigate();
-
-  const showToast = (e) => {
-    if (e) e.preventDefault();
-    if (isMenuOpen) setIsMenuOpen(false);
-    setToastMessage("Coming Soon!");
-    setTimeout(() => setToastMessage(""), 2000);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            {NAV_LINKS.map((l) => l.to ? (
-              <Link key={l.label} to={l.to} className={`text-[13px] whitespace-nowrap transition-colors ${l.active ? 'text-[#5b8af5] font-semibold' : 'text-[#7a7fa8] hover:text-white'}`}>{l.label}</Link>
-            ) : (
-              <a key={l.label} href="#" onClick={showToast} className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">{l.label}</a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4 shrink-0">
-            <Link to="/book?source=lawyers" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          {NAV_LINKS.map((l) => l.to ? (
-            <Link key={l.label} to={l.to} className={`text-[15px] font-bold ${l.active ? 'text-[#5b8af5]' : 'text-[#eef0ff] hover:text-[#5b8af5]'}`} onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
-          ) : (
-            <a key={l.label} href="#" onClick={showToast} className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]">{l.label}</a>
-          ))}
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=lawyers" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Toast */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#3b6fe8] text-white px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold shadow-[0_0_20px_rgba(59,111,232,0.4)] z-50 animate-[fadeUp_0.3s_ease_both]">
-          {toastMessage}
-        </div>
-      )}
+      <SiteNav />
 
       <div className="pt-[68px] md:pt-[92px]" /> {/* Spacer for fixed navs */}
 
@@ -145,7 +56,7 @@ const Lawyers = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,5.5vw,54px)] font-black leading-[1.06] tracking-[-1px] text-white mb-6 max-w-[720px] mx-auto">
+            <h1 className="text-[clamp(30px,5.5vw,54px)] font-display font-normal leading-[1.06] tracking-[-0.015em] text-white mb-6 max-w-[720px] mx-auto">
               Win the Room Before<br />
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">You Enter It.</em>
             </h1>
@@ -161,13 +72,13 @@ const Lawyers = () => {
           <FadeUp delay={200}>
             <div className="max-w-[620px] mx-auto flex flex-col gap-3">
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                Verdicts aren't decided by facts alone. They're decided by how people respond under pressure — and most attorneys are walking in blind.
+                Verdicts aren't decided by facts alone. They're decided by how people respond under pressure, and most attorneys are walking in blind.
               </p>
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                Traditional trial strategy focuses on arguments, evidence, and sequencing. But outcomes are shaped inside the room — through emotional reactions, influence patterns, and identity under stress.
+                Traditional trial strategy focuses on arguments, evidence, and sequencing. But outcomes are shaped inside the room, through emotional reactions, influence patterns, and identity under stress.
               </p>
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                PersonaForce maps how jurors, witnesses, and opposing parties <em className="italic text-[#eef0ff]/[0.75]">behave when pressure hits</em> — so you don't just present your case... you control how it's received.
+                PersonaForce maps how jurors, witnesses, and opposing parties <em className="italic text-[#eef0ff]/[0.75]">behave when pressure hits</em>, so you don't just present your case... you control how it's received.
               </p>
             </div>
           </FadeUp>
@@ -187,7 +98,7 @@ const Lawyers = () => {
                         ? 'bg-[#3b6fe8]/[0.18] border-[#5b8af5] text-white shadow-[0_0_24px_rgba(59,111,232,0.2)]'
                         : 'bg-white/[0.04] border-white/[0.16] text-[#eef0ff] hover:bg-[#3b6fe8]/[0.12] hover:border-[#3b6fe8]/[0.28]'}`}
                     >
-                      <Icon className={`w-4 h-4 ${active ? 'text-[#5b8af5]' : 'text-[#7a7fa8]'}`} />
+                      <Icon className={`w-4 h-4 ${active ? 'text-[#5b8af5]' : 'text-[#8790bb]'}`} />
                       {label}
                       {to && <ArrowRight className="w-3.5 h-3.5 text-[#5b8af5]" />}
                     </button>
@@ -201,7 +112,7 @@ const Lawyers = () => {
       </section>
 
       {/* FOOTER (same as home) */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">

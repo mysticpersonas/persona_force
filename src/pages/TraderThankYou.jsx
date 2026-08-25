@@ -1,6 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, MailCheck, ListChecks, CalendarClock, Award, Clock } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight,
+  MailCheck,
+  ListChecks,
+  CalendarClock,
+  Award,
+  Clock
+} from 'lucide-react';
 import ParticleField from '../components/ParticleField';
 import FadeUp from '../components/FadeUp';
 
@@ -13,14 +21,9 @@ const NEXT_STEPS = [
 ];
 
 const TraderThankYou = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -35,70 +38,8 @@ const TraderThankYou = () => {
 
       <div className="relative z-10">
 
-        {/* ANNOUNCE BAR — same as every page */}
-        <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-          <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-          Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-        </div>
+        <SiteNav />
 
-        {/* NAV — same sticky structure as the Trader page */}
-        <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#0A0F1F] md:bg-[#0A0F1F]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#0A0F1F] py-3 md:py-5'}`}>
-          <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-            <Link to="/" className="flex items-center gap-2 md:gap-2.5 shrink-0">
-              <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-              <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-white">
-                PersonaForce<span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent"> Trader™</span>
-              </div>
-            </Link>
-
-            <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-              <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">For CEOs</Link>
-              <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">AI Manager</Link>
-              <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Lawyers</Link>
-              <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Sales</Link>
-              <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Organizations</Link>
-              <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Athletes</Link>
-              <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#00AEEF] font-semibold">Traders</Link>
-              <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Free Blueprints</Link>
-            </div>
-
-            <div className="flex items-center gap-3.5 md:gap-4">
-              <Link to="/trader" className="hidden lg:inline-flex items-center gap-1.5 bg-[#00AEEF] hover:bg-[#0bb9f8] text-[#04121f] px-5 py-2.5 rounded-lg text-[13px] font-bold transition-colors">
-                The Pilot
-              </Link>
-              <button className="lg:hidden text-[#9aa3bd] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-                <Menu className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile Menu Overlay */}
-        <div
-          className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-          onClick={() => setIsMenuOpen(false)}
-        />
-
-        {/* Mobile Menu Drawer */}
-        <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b1024] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-          <div className="flex justify-end mb-8">
-            <button className="text-[#9aa3bd] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-          <div className="flex flex-col gap-6">
-            <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-            <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-            <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-            <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-            <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-            <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-            <Link to="/trader" className="text-[15px] font-bold text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-            <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          </div>
-        </div>
-
-        {/* spacer for the fixed announce bar + nav */}
         <div className="pt-[80px] md:pt-[110px]" />
 
         {/* ======================= CONFIRMATION HERO ======================= */}
@@ -115,7 +56,7 @@ const TraderThankYou = () => {
             </FadeUp>
 
             <FadeUp delay={100}>
-              <h1 className="text-[clamp(40px,9vw,84px)] font-black leading-[1.02] tracking-[-1.5px]">
+              <h1 className="text-[clamp(40px,9vw,84px)] font-display font-normal leading-[1.02] tracking-[-0.015em]">
                 You&rsquo;re{' '}
                 <span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent">In.</span>
               </h1>
@@ -130,7 +71,7 @@ const TraderThankYou = () => {
             <FadeUp delay={280}>
               <p className="text-[14px] md:text-[15px] text-[#9aa1b8] mt-4 leading-[1.7] max-w-[560px] mx-auto">
                 You have successfully registered for the private 5-Day Trader Identity
-                Challenge™. This is not a trading strategy course — it is an identity-performance
+                Challenge™. This is not a trading strategy course, it is an identity-performance
                 experience designed to help you discover the person behind your trading decisions.
               </p>
             </FadeUp>
@@ -141,10 +82,10 @@ const TraderThankYou = () => {
         <section className="px-5 md:px-8 pb-16 md:pb-24">
           <FadeUp>
             <div className="relative max-w-[720px] mx-auto rounded-2xl p-8 md:p-12 text-center bg-gradient-to-b from-[#0e1730] to-[#0A0F1F] border border-white/[0.07] shadow-[0_0_60px_rgba(122,45,255,0.1)] overflow-hidden">
-              <div className="pointer-events-none absolute top-2 left-1/2 -translate-x-1/2 text-[160px] md:text-[220px] leading-none font-black text-white/[0.025] select-none">&ldquo;</div>
+              <div className="pointer-events-none absolute top-2 left-1/2 -translate-x-1/2 text-[160px] md:text-[220px] leading-none font-display font-normal text-white/[0.025] select-none">&ldquo;</div>
               <div className="relative">
                 <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-5">Before Day 1 Begins</div>
-                <h2 className="text-[clamp(22px,4vw,34px)] font-black tracking-[-0.6px] leading-[1.2]">
+                <h2 className="text-[clamp(22px,4vw,34px)] font-display font-normal tracking-[-0.6px] leading-[1.2]">
                   Who has been{' '}
                   <span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent">placing my trades?</span>
                 </h2>
@@ -166,7 +107,7 @@ const TraderThankYou = () => {
             <FadeUp>
               <div className="text-center mb-12 md:mb-14">
                 <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-3">What Happens Next</div>
-                <h2 className="text-[clamp(24px,4vw,38px)] font-black tracking-[-0.6px]">Your next few days</h2>
+                <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal tracking-[-0.6px]">Your next few days</h2>
               </div>
             </FadeUp>
 

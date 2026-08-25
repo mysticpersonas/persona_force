@@ -42,7 +42,7 @@ const IntakeThankYou = () => {
               <Check className="w-7 h-7 text-[#5b8af5]" strokeWidth={3} />
             </span>
 
-            <h1 className="text-[clamp(30px,6vw,48px)] font-black tracking-[-1px] leading-[1.1]">Thank You</h1>
+            <h1 className="text-[clamp(30px,6vw,48px)] font-display font-normal tracking-[-0.015em] leading-[1.1]">Thank You</h1>
 
             <p className="text-[15px] md:text-[17px] text-[#eef0ff]/[0.58] mt-6 leading-[1.7]">
               Your Map Intake has been received. Dr. Travis Fox will personally review your responses

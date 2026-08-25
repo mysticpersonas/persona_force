@@ -1,9 +1,24 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import SiteNav from '../components/SiteNav';
 import {
-  Check, X, ArrowRight, ChevronDown, Menu,
-  LineChart, Crosshair, Activity, BarChart3, TrendingUp, Shield, Clock, Target,
-  Eye, Compass, Flame, Sparkles, Lock, Zap,
+  Check,
+  X,
+  ArrowRight,
+  ChevronDown,
+  LineChart,
+  Crosshair,
+  Activity,
+  BarChart3,
+  TrendingUp,
+  Shield,
+  Clock,
+  Target,
+  Eye,
+  Compass,
+  Flame,
+  Sparkles,
+  Lock,
+  Zap
 } from 'lucide-react';
 import ParticleField from '../components/ParticleField';
 
@@ -130,14 +145,14 @@ const TRADERS = [
     name: 'The Triggered Trader',
     tag: 'The hijack',
     color: '#e0934d',
-    desc: 'The version of you that takes over under pressure — revenge, freeze, force, overtrade, move stops, or exit emotionally.',
+    desc: 'The version of you that takes over under pressure, revenge, freeze, force, overtrade, move stops, or exit emotionally.',
   },
   {
     icon: Sparkles,
     name: 'The Future Trader',
     tag: 'The next level',
     color: '#7A2DFF',
-    desc: 'The more disciplined version of you being built — the one ready to lead your next 90 days.',
+    desc: 'The more disciplined version of you being built, the one ready to lead your next 90 days.',
   },
 ];
 
@@ -184,18 +199,18 @@ const NOT_THIS = [
 ];
 
 const Trader = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Drives the sticky bottom CTA bar below — separate from the nav, which owns its own.
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Same sticky announce-bar behavior as every other page
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Same sticky announce-bar behavior as every other page
   const scrollToForm = () => {
-    setIsMenuOpen(false);
     document.getElementById('register')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -224,75 +239,8 @@ const Trader = () => {
 
       <div className="relative z-10">
 
-      {/* ANNOUNCE BAR — same as every page; slides up on scroll so the nav takes its place */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
+      <SiteNav />
 
-      {/* NAV — same sticky structure as every page: sits below the announce bar, slides to top-0 on scroll */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#0A0F1F] md:bg-[#0A0F1F]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#0A0F1F] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-white">
-              PersonaForce<span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent"> Trader™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#00AEEF] font-semibold">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#9aa3bd] hover:text-white transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <button onClick={scrollToForm} className="hidden lg:inline-flex items-center gap-1.5 bg-[#00AEEF] hover:bg-[#0bb9f8] text-[#04121f] px-5 py-2.5 rounded-lg text-[13px] font-bold transition-colors">
-              Join the Private Pilot
-            </button>
-            <button className="lg:hidden text-[#9aa3bd] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b1024] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#9aa3bd] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#00AEEF]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <button onClick={scrollToForm} className="flex justify-center items-center gap-1.5 bg-[#00AEEF] text-[#04121f] px-5 py-2.5 rounded-lg text-[13px] font-bold w-full">
-              Join the Private Pilot
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* spacer for the fixed announce bar + nav */}
       <div className="pt-[80px] md:pt-[110px]" />
 
       {/* ============================ 1 · HERO ============================ */}
@@ -309,7 +257,7 @@ const Trader = () => {
           </div>
 
           {/* word-by-word headline */}
-          <h1 className="text-[clamp(27px,7vw,68px)] font-black leading-[1.08] md:leading-[1.04] tracking-[-0.5px] md:tracking-[-1.5px] flex flex-wrap justify-center gap-x-[0.22em] gap-y-0.5 max-w-[760px] mx-auto">
+          <h1 className="text-[clamp(27px,7vw,68px)] font-display font-normal leading-[1.08] md:leading-[1.04] tracking-[-0.015em] md:tracking-[-0.015em] flex flex-wrap justify-center gap-x-[0.22em] gap-y-0.5 max-w-[760px] mx-auto">
             {HERO_WORDS.map((w, i) =>
               w.t === 'break' ? (
                 <span key={i} className="w-full h-0" />
@@ -358,7 +306,7 @@ const Trader = () => {
         <div className="max-w-[960px] mx-auto">
           <Rise className="text-center mb-12 md:mb-14">
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-4">The Blind Spot</div>
-            <h2 className="text-[clamp(22px,3.6vw,34px)] font-black tracking-[-0.6px] leading-[1.25] max-w-[700px] mx-auto">
+            <h2 className="text-[clamp(22px,3.6vw,34px)] font-display font-normal tracking-[-0.6px] leading-[1.25] max-w-[700px] mx-auto">
               Traders study everything about the market.{' '}
               <span className="text-[#7e87aa]">Almost nothing about themselves.</span>
             </h2>
@@ -400,7 +348,7 @@ const Trader = () => {
               </div>
               <p className="text-[17px] md:text-[20px] font-bold text-white leading-snug">The person placing the trade.</p>
               <p className="text-[13.5px] md:text-[14px] text-[#9aa1b8] mt-3 leading-[1.65]">
-                You can have a system, a plan, and a signal — but when pressure hits, a
+                You can have a system, a plan, and a signal, but when pressure hits, a
                 different version of you may take over. This pilot helps you identify that version.
               </p>
               <div className="mt-6 pt-5 border-t border-white/[0.07] text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#5fd0f5]">
@@ -419,7 +367,7 @@ const Trader = () => {
 
       {/* =================== 3 · THE PHILOSOPHY BEAT =================== */}
       <section className="relative overflow-hidden px-5 md:px-8 py-24 md:py-36 border-y border-white/[0.05] bg-[radial-gradient(ellipse_at_center,rgba(122,45,255,0.08)_0%,transparent_70%)]">
-        <div className="pointer-events-none absolute top-6 left-1/2 -translate-x-1/2 text-[180px] md:text-[260px] leading-none font-black text-white/[0.025] select-none">&ldquo;</div>
+        <div className="pointer-events-none absolute top-6 left-1/2 -translate-x-1/2 text-[180px] md:text-[260px] leading-none font-display font-normal text-white/[0.025] select-none">&ldquo;</div>
 
         <div className="relative max-w-[900px] mx-auto text-center">
           <BlurReveal>
@@ -431,7 +379,7 @@ const Trader = () => {
           </BlurReveal>
 
           <BlurReveal>
-            <h2 className="text-[clamp(26px,5vw,52px)] font-black leading-[1.18] tracking-[-1px]">
+            <h2 className="text-[clamp(26px,5vw,52px)] font-display font-normal leading-[1.18] tracking-[-0.015em]">
               The market does not create your identity.
               <br className="hidden md:block" />{' '}
               <span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent">
@@ -459,7 +407,7 @@ const Trader = () => {
         <div className="max-w-[820px] mx-auto text-center">
           <Rise>
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-4">Why This Is Different</div>
-            <h2 className="text-[clamp(22px,3.6vw,36px)] font-black tracking-[-0.6px] leading-[1.22]">
+            <h2 className="text-[clamp(22px,3.6vw,36px)] font-display font-normal tracking-[-0.6px] leading-[1.22]">
               We are not starting with the market.
             </h2>
           </Rise>
@@ -468,13 +416,13 @@ const Trader = () => {
             <Rise delay={100}>
               <div className="h-full rounded-2xl bg-white/[0.02] border border-white/[0.07] p-6">
                 <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#6b7390] mb-3">Most programs</div>
-                <p className="text-[15px] text-[#9aa1b8] leading-[1.6]">Begin with strategy — what to trade, which system to use, how the setup works.</p>
+                <p className="text-[15px] text-[#9aa1b8] leading-[1.6]">Begin with strategy, what to trade, which system to use, how the setup works.</p>
               </div>
             </Rise>
             <Rise delay={180}>
               <div className="h-full rounded-2xl bg-gradient-to-b from-[#0e1730] to-[#0A0F1F] border border-[#7A2DFF]/30 p-6 shadow-[0_0_40px_rgba(122,45,255,0.12)]">
                 <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#b58cff] mb-3">PersonaForce Trader™</div>
-                <p className="text-[15px] text-[#d4daea] leading-[1.6]">Begins with the trader — what happens inside you when the trade becomes emotional, uncertain, pressured, or personal.</p>
+                <p className="text-[15px] text-[#d4daea] leading-[1.6]">Begins with the trader, what happens inside you when the trade becomes emotional, uncertain, pressured, or personal.</p>
               </div>
             </Rise>
           </div>
@@ -492,11 +440,11 @@ const Trader = () => {
         <div className="max-w-[1100px] mx-auto">
           <Rise className="text-center mb-14 md:mb-16">
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-3">The Identity States</div>
-            <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.6px] leading-[1.2]">
+            <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.6px] leading-[1.2]">
               Three versions of you can show up<br className="hidden sm:block" /> in every trade.
             </h2>
             <p className="text-[14px] md:text-[15px] text-[#9aa1b8] mt-5 max-w-[560px] mx-auto leading-[1.65]">
-              This pilot helps you identify which version has been placing your trades — and
+              This pilot helps you identify which version has been placing your trades, and
               which version needs to lead next.
             </p>
           </Rise>
@@ -531,7 +479,7 @@ const Trader = () => {
       <section className="px-5 md:px-8 py-20 md:py-28">
         <div className="max-w-[760px] mx-auto text-center">
           <Rise>
-            <h2 className="text-[clamp(22px,3.6vw,34px)] font-black tracking-[-0.6px]">What changes when pressure hits?</h2>
+            <h2 className="text-[clamp(22px,3.6vw,34px)] font-display font-normal tracking-[-0.6px]">What changes when pressure hits?</h2>
             <p className="text-[15px] md:text-[16px] leading-[1.7] text-[#aab2cc] mt-5 max-w-[600px] mx-auto">
               Over five short sessions, you will begin identifying what happens inside you
               when these conditions show up:
@@ -554,7 +502,7 @@ const Trader = () => {
         <div className="max-w-[1100px] mx-auto">
           <Rise className="text-center mb-16 md:mb-20">
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-3">The Challenge</div>
-            <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.6px]">Five Days. One Question.</h2>
+            <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.6px]">Five Days. One Question.</h2>
             <p className="text-[15px] md:text-[17px] text-[#aab2cc] mt-4 font-medium">Who is placing the trade?</p>
           </Rise>
 
@@ -597,7 +545,7 @@ const Trader = () => {
       <section className="px-5 md:px-8 py-20 md:py-28 border-t border-white/[0.05]">
         <div className="max-w-[860px] mx-auto">
           <SlideIn from="left" className="mb-10 text-center md:text-left">
-            <h2 className="text-[clamp(22px,3.6vw,34px)] font-black tracking-[-0.6px]">This is for you if…</h2>
+            <h2 className="text-[clamp(22px,3.6vw,34px)] font-display font-normal tracking-[-0.6px]">This is for you if…</h2>
           </SlideIn>
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
             {FOR_YOU.map((line, i) => (
@@ -619,7 +567,7 @@ const Trader = () => {
         <div className="max-w-[900px] mx-auto">
           <Rise className="text-center mb-12">
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#b58cff] mb-3">The Takeaway</div>
-            <h2 className="text-[clamp(22px,3.6vw,34px)] font-black tracking-[-0.6px]">What you&rsquo;ll walk away with</h2>
+            <h2 className="text-[clamp(22px,3.6vw,34px)] font-display font-normal tracking-[-0.6px]">What you&rsquo;ll walk away with</h2>
           </Rise>
           <div className="grid sm:grid-cols-2 gap-4">
             {WALK_AWAY.map((line, i) => (
@@ -684,7 +632,7 @@ const Trader = () => {
               <span className="w-[5px] h-[5px] rounded-full bg-[#00AEEF] animate-[pulse_1.5s_ease-in-out_infinite]" />
               Private pilot · Limited to invited traders
             </div>
-            <h2 className="text-[clamp(26px,4.5vw,42px)] font-black tracking-[-0.8px]">Join the Private PFT Pilot</h2>
+            <h2 className="text-[clamp(26px,4.5vw,42px)] font-display font-normal tracking-[-0.015em]">Join the Private PFT Pilot</h2>
             <p className="text-[14px] md:text-[15px] text-[#9aa1b8] mt-4 max-w-[480px] mx-auto leading-[1.65]">
               Complete the short registration below. Once accepted, you&rsquo;ll receive access
               to Day 1 and your first identity reflection prompt.
@@ -695,8 +643,8 @@ const Trader = () => {
           <Rise delay={80}>
             <div className="flex flex-col sm:flex-row items-stretch justify-center gap-2.5 mt-8 max-w-[560px] mx-auto">
               {[
-                { icon: Lock, text: 'Private pilot — not a public course' },
-                { icon: Check, text: 'Free to join — no payment' },
+                { icon: Lock, text: 'Private pilot, not a public course' },
+                { icon: Check, text: 'Free to join, no payment' },
                 { icon: Zap, text: 'Invited traders only' },
               ].map((it, i) => (
                 <div key={i} className="flex items-center gap-2 flex-1 justify-center rounded-lg bg-white/[0.03] border border-white/[0.07] px-3 py-2.5 text-[12px] font-semibold text-[#cdd4e6]">

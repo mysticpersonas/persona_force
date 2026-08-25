@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight
+} from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 
 // Every booking CTA on this page carries its source so /book renders
@@ -74,89 +77,13 @@ const REVEALS = [
 ];
 
 const AiManager = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to={BOOK_HREF} className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to={BOOK_HREF} className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
+      <SiteNav />
 
       <div className="pt-[80px] md:pt-[110px]" /> {/* Spacer for fixed navs */}
 
@@ -172,8 +99,8 @@ const AiManager = () => {
             </div>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(32px,5.5vw,56px)] font-black leading-[1.08] tracking-[-0.8px] text-white mb-[22px] max-w-[800px] mx-auto">
-              The Future of Human Performance Is<br /><em className="text-[#5b8af5] not-italic">Identity Intelligence™</em>
+            <h1 className="text-[clamp(32px,5.5vw,56px)] font-display font-normal leading-[1.08] tracking-[-0.015em] text-white mb-[22px] max-w-[800px] mx-auto">
+              The Future of Human Performance Is<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Identity Intelligence™</em>
             </h1>
           </FadeUp>
           <FadeUp delay={200}>
@@ -192,11 +119,11 @@ const AiManager = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">What It Detects</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
-              Helps organizations <em className="text-[#5b8af5] not-italic">see.</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
+              Helps organizations <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">see.</em>
             </h2>
             <p className="text-[15px] text-[#eef0ff]/60 text-center max-w-[580px] mx-auto mb-12 leading-[1.75]">
-              The patterns that drive performance are usually invisible. AI Manager makes them visible — across every person, team, and conversation.
+              The patterns that drive performance are usually invisible. AI Manager makes them visible, across every person, team, and conversation.
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -219,8 +146,8 @@ const AiManager = () => {
         <div className="max-w-[880px] mx-auto">
           <FadeUp>
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-2.5 text-center">Your Organization's Identity Map</div>
-            <h2 className="text-[clamp(24px,4vw,38px)] font-black text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
-              Every profile combines into<br />one <em className="text-[#5b8af5] not-italic">living map.</em>
+            <h2 className="text-[clamp(24px,4vw,38px)] font-display font-normal text-center leading-[1.15] tracking-[-0.4px] mb-3.5">
+              Every profile combines into<br />one <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">living map.</em>
             </h2>
             <p className="text-[15px] text-[#eef0ff]/60 text-center max-w-[580px] mx-auto mb-12 leading-[1.75]">
               Every employee receives a PersonaForce profile. Those profiles combine to create four layers of visibility into how your company actually works.
@@ -231,7 +158,7 @@ const AiManager = () => {
               <FadeUp key={i} delay={i * 80}>
                 <div className="group bg-white/[0.04] border border-white/[0.07] rounded-[16px] p-6 md:p-7 h-full transition-all duration-200 hover:border-[#3b6fe8]/[0.28] hover:-translate-y-0.5">
                   <div className="flex items-center gap-2.5 mb-3">
-                    <div className="w-7 h-7 rounded-full bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/[0.28] flex items-center justify-center shrink-0 text-[#5b8af5] text-[12px] font-black">{i + 1}</div>
+                    <div className="w-7 h-7 rounded-full bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/[0.28] flex items-center justify-center shrink-0 text-[#5b8af5] text-[12px] font-display font-normal">{i + 1}</div>
                     <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#5b8af5]">{v.tag}</div>
                   </div>
                   <div className="text-[17px] font-bold text-white mb-2 leading-[1.3]">{v.title}</div>
@@ -250,7 +177,7 @@ const AiManager = () => {
           <FadeUp>
             <div className="bg-[#06081a] border border-white/[0.07] rounded-[18px] p-7 md:p-8 h-full">
               <div className="inline-block bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/[0.28] text-[#5b8af5] text-[11px] font-bold tracking-[0.12em] uppercase py-[5px] px-3.5 rounded-full mb-4">Available Today</div>
-              <h3 className="text-[20px] font-black text-white mb-2 tracking-[-0.3px]">A Custom Implementation</h3>
+              <h3 className="text-[20px] font-display font-normal text-white mb-2 tracking-[-0.3px]">A Custom Implementation</h3>
               <p className="text-[13.5px] text-[#eef0ff]/60 leading-[1.7] mb-6">Today, AI Manager is delivered as a customized service. Our team works directly with your organization to:</p>
               <div className="flex flex-col gap-3">
                 {CUSTOM.map((item, i) => (
@@ -265,8 +192,8 @@ const AiManager = () => {
           <FadeUp delay={120}>
             <div className="bg-[#06081a] border border-[#3b6fe8]/[0.28] rounded-[18px] p-7 md:p-8 h-full">
               <div className="inline-block bg-[#7c3bed]/[0.15] border border-[#7c3bed]/[0.3] text-[#a78bfa] text-[11px] font-bold tracking-[0.12em] uppercase py-[5px] px-3.5 rounded-full mb-4">The Future Vision</div>
-              <h3 className="text-[20px] font-black text-white mb-2 tracking-[-0.3px]">Your Own AI Manager Portal</h3>
-              <p className="text-[13.5px] text-[#eef0ff]/60 leading-[1.7] mb-6">Eventually, organizations will have a dedicated portal — an AI trained on the PersonaForce framework that can:</p>
+              <h3 className="text-[20px] font-display font-normal text-white mb-2 tracking-[-0.3px]">Your Own AI Manager Portal</h3>
+              <p className="text-[13.5px] text-[#eef0ff]/60 leading-[1.7] mb-6">Eventually, organizations will have a dedicated portal, an AI trained on the PersonaForce framework that can:</p>
               <div className="flex flex-col gap-3">
                 {FUTURE.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 text-[14px] text-[#eef0ff]/70 leading-[1.5]">
@@ -286,11 +213,11 @@ const AiManager = () => {
         <FadeUp>
           <div className="max-w-[760px] mx-auto">
             <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#5b8af5] mb-5">Why Leaders Love It</div>
-            <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.5px] leading-[1.15] mb-6">
-              Most managers are forced to guess.<br /><em className="text-[#5b8af5] not-italic">AI Manager provides visibility.</em>
+            <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.015em] leading-[1.15] mb-6">
+              Most managers are forced to guess.<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">AI Manager provides visibility.</em>
             </h2>
             <p className="text-[16px] text-[#eef0ff]/60 leading-[1.8] max-w-[600px] mx-auto">
-              Not just into performance — into the <strong className="text-white">identities driving performance.</strong> Because when you understand how people communicate under pressure, you can build stronger teams, stronger leaders, and stronger organizations.
+              Not just into performance, into the <strong className="text-white">identities driving performance.</strong> Because when you understand how people communicate under pressure, you can build stronger teams, stronger leaders, and stronger organizations.
             </p>
           </div>
         </FadeUp>
@@ -306,8 +233,8 @@ const AiManager = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Schedule a Strategy Call
               </div>
-              <h2 className="text-[clamp(24px,4vw,40px)] font-black tracking-[-0.5px] leading-[1.15] mb-4">
-                Curious what your organization's<br /><em className="text-[#5b8af5] not-italic">identity map looks like?</em>
+              <h2 className="text-[clamp(24px,4vw,40px)] font-display font-normal tracking-[-0.015em] leading-[1.15] mb-4">
+                Curious what your organization's<br /><em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">identity map looks like?</em>
               </h2>
               <p className="text-[15px] text-[#eef0ff]/60 max-w-[520px] mx-auto mb-7 leading-[1.75]">
                 In one call, we'll show you exactly what AI Manager would reveal about your team.
@@ -327,7 +254,7 @@ const AiManager = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">

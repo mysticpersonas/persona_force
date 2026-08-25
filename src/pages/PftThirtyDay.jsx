@@ -7,12 +7,12 @@ const PftThirtyDay = () => (
     headline={<>30 Days to Stabilize the Trader Behind the Trade™</>}
     sub="A structured identity integration container for traders ready to begin working with their Blueprint Map."
     whatIsBold="This is not a course. This is a container."
-    whatIsBody="The 30-Day Mapping is a structured 30-day identity integration experience built around your personalized PersonaForce Trader™ Blueprint Map. You don't just receive a map — you learn to work with it, live with it, and trade from it."
+    whatIsBody="The 30-Day Mapping is a structured 30-day identity integration experience built around your personalized PersonaForce Trader™ Blueprint Map. You don't just receive a map, you learn to work with it, live with it, and trade from it."
     included={[
-      { title: 'Personalized Identity Mapping', desc: 'Your full PersonaForce Trader™ Blueprint Map — built around your specific patterns, shadow loops, and Oracle Trader™ state.' },
-      { title: 'Weekly Group Sessions (4 sessions)', desc: 'Live weekly group sessions with Dr. Travis Fox across 30 days — focused on real-time identity application to your trading decisions.' },
+      { title: 'Personalized Identity Mapping', desc: 'Your full PersonaForce Trader™ Blueprint Map, built around your specific patterns, shadow loops, and Oracle Trader™ state.' },
+      { title: 'Weekly Group Sessions (4 sessions)', desc: 'Live weekly group sessions with Dr. Travis Fox across 30 days, focused on real-time identity application to your trading decisions.' },
       { title: 'Triggered Trader Pattern Analysis', desc: 'We identify the specific identity triggers causing your most repeated trading mistakes and build interruption protocols around them.' },
-      { title: 'Future Trader Integration Guidance', desc: 'Guided work to stabilize your Oracle Trader™ state — the version of you that trades from clarity, not reaction.' },
+      { title: 'Future Trader Integration Guidance', desc: 'Guided work to stabilize your Oracle Trader™ state, the version of you that trades from clarity, not reaction.' },
       { title: 'Voice and Text Support', desc: 'Ongoing voice note and text support throughout the 30 days for real-time pattern questions and integration check-ins.' },
     ]}
     forYou={[

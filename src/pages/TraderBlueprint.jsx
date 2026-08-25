@@ -60,7 +60,7 @@ const TraderBlueprint = () => {
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite]" />
                 Free Trader Blueprint
               </span>
-              <h1 className="text-[clamp(28px,5vw,44px)] font-black tracking-[-0.8px] leading-[1.12] mt-6">
+              <h1 className="text-[clamp(28px,5vw,44px)] font-display font-normal tracking-[-0.015em] leading-[1.12] mt-6">
                 See the Trader Behind Your Trades
               </h1>
               <p className="text-[15px] md:text-[18px] text-[#eef0ff]/[0.58] mt-5 max-w-[520px] mx-auto leading-[1.65]">
@@ -74,7 +74,7 @@ const TraderBlueprint = () => {
             <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85] mt-10 max-w-[540px] mx-auto text-center">
               Most traders never see the pattern underneath their decisions. Your free Blueprint gives
               you a first look at the version of you that shows up under pressure, the loops that keep
-              repeating, and where discipline tends to break — built on the same identity framework
+              repeating, and where discipline tends to break, built on the same identity framework
               behind the full PersonaForce Trader™ Map.
             </p>
           </FadeUp>

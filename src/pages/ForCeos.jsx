@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ArrowRight, Quote } from 'lucide-react';
+import SiteNav from '../components/SiteNav';
+import {
+  ArrowRight,
+  Quote
+} from 'lucide-react';
 import FadeUp from '../components/FadeUp';
 
 /* ------------------------------------------------------------------ */
@@ -44,24 +48,16 @@ const BgSection = ({ img, children, overlay = "0.86" }) => (
 );
 
 const ForCeos = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   // "What PersonaForce reveals" — five identity-level signals.
   const reveals = [
-    { num: "01", t: "Leadership Patterns", d: "The recurring ways a leader actually operates when the stakes are real — not the version on the résumé." },
+    { num: "01", t: "Leadership Patterns", d: "The recurring ways a leader actually operates when the stakes are real, not the version on the résumé." },
     { num: "02", t: "Execution Breakdowns", d: "The exact point between agreement and action where initiatives quietly stall." },
     { num: "03", t: "Communication Gaps", d: "Why the same message lands with one team and fractures with another." },
     { num: "04", t: "Culture Friction", d: "The hidden identity patterns beneath hesitation, friction, and pushback." },
-    { num: "05", t: "Decision Blind Spots", d: "The moments where judgment and presence quietly compound — or erode." },
+    { num: "05", t: "Decision Blind Spots", d: "The moments where judgment and presence quietly compound, or erode." },
   ];
 
   // "Organizational Mapping" — the deliverables that make up the map.
@@ -96,74 +92,7 @@ const ForCeos = () => {
   return (
     <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white">
 
-      {/* ANNOUNCE BAR — fixed at top; slides up out of view once scrolled so the nav can take its place with no blank gap */}
-      <div className={`fixed top-0 left-0 w-full bg-[#3b6fe8] text-white text-center py-2.5 px-4 md:px-6 text-[10.5px] md:text-[13px] font-semibold tracking-wide flex justify-center items-center gap-2 z-50 leading-tight transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full animate-[pulse_1.4s_ease-in-out_infinite] shrink-0" />
-        Identity Mapping Sessions | Limited Availability | Book Before Spots Fill
-      </div>
-
-      {/* NAV — switches to drawer below lg so 7 links never crowd. */}
-      {/* NAV — sits below the announce bar at rest, then slides up to top-0 on scroll as the bar leaves */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 flex justify-center border-b border-white/[0.06] ${isScrolled ? 'top-0 bg-[#06081a] md:bg-[#06081a]/95 md:backdrop-blur-md py-3 md:py-4' : 'top-[36px] md:top-[44px] bg-[#06081a] py-3 md:py-5'}`}>
-        <div className="w-full max-w-[1140px] px-5 md:px-8 flex justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0">
-            <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-            <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-[#eef0ff]">
-              Persona<span className="text-[#5b8af5]">Force™</span>
-            </div>
-          </Link>
-
-          <div className="hidden lg:flex gap-4 xl:gap-6 items-center">
-            <Link to="/for-ceos" className="text-[13px] whitespace-nowrap text-[#5b8af5] font-semibold transition-colors">For CEOs</Link>
-            <Link to="/ai-manager" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">AI Manager</Link>
-            <Link to="/lawyers" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Lawyers</Link>
-            <Link to="/sales-identity" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Sales</Link>
-            <Link to="/sales-culture" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Organizations</Link>
-            <Link to="/athletes" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Athletes</Link>
-            <Link to="/trader" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Traders</Link>
-            <Link to="/free-blueprints" className="text-[13px] whitespace-nowrap text-[#7a7fa8] hover:text-white transition-colors">Free Blueprints</Link>
-          </div>
-
-          <div className="flex items-center gap-3.5 md:gap-4">
-            <Link to="/book?source=for-ceos" className="hidden lg:block bg-[#3b6fe8] hover:bg-[#3b6fe8]/90 text-white px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors">
-              Book a Call
-            </Link>
-            <button className="lg:hidden text-[#7a7fa8] hover:text-white transition-colors" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
-
-      {/* Mobile Menu Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[260px] bg-[#0b0d22] border-l border-white/[0.06] z-[60] transform transition-transform duration-300 ease-in-out flex flex-col p-6 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-        <div className="flex justify-end mb-8">
-          <button className="text-[#7a7fa8] hover:text-white" onClick={() => setIsMenuOpen(false)}>
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="flex flex-col gap-6">
-          <Link to="/for-ceos" className="text-[15px] font-bold text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>For CEOs</Link>
-          <Link to="/ai-manager" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>AI Manager</Link>
-          <Link to="/lawyers" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Lawyers</Link>
-          <Link to="/sales-identity" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Sales</Link>
-          <Link to="/sales-culture" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Organizations</Link>
-          <Link to="/athletes" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Athletes</Link>
-          <Link to="/trader" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Traders</Link>
-          <Link to="/free-blueprints" className="text-[15px] font-bold text-[#eef0ff] hover:text-[#5b8af5]" onClick={() => setIsMenuOpen(false)}>Free Blueprints</Link>
-          <div className="mt-4 pt-6 border-t border-white/[0.06]">
-            <Link to="/book?source=for-ceos" className="flex justify-center bg-[#3b6fe8] text-white px-5 py-2.5 rounded-lg text-[13px] font-bold w-full" onClick={() => setIsMenuOpen(false)}>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </div>
+      <SiteNav />
 
       <div className="pt-[68px] md:pt-[92px]" /> {/* Spacer for fixed navs */}
 
@@ -178,7 +107,7 @@ const ForCeos = () => {
             <Eyebrow>For CEOs &amp; Executive Teams</Eyebrow>
           </FadeUp>
           <FadeUp delay={100}>
-            <h1 className="text-[clamp(30px,7vw,60px)] font-black leading-[1.06] tracking-[-1px] text-white mt-6 mb-5 max-w-[820px] mx-auto">
+            <h1 className="text-[clamp(30px,7vw,60px)] font-display font-normal leading-[1.06] tracking-[-0.015em] text-white mt-6 mb-5 max-w-[820px] mx-auto">
               Why is your team{' '}
               <em className="not-italic bg-gradient-to-br from-[#5b8af5] to-[#a78bfa] bg-clip-text text-transparent">still not executing?</em>
             </h1>
@@ -201,8 +130,8 @@ const ForCeos = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-center"><Eyebrow>The Real Problem</Eyebrow></div>
-            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4">
-              The problem isn't <em className="text-[#5b8af5] not-italic">what you think.</em>
+            <h2 className="text-[clamp(25px,5.5vw,42px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mt-5 mb-4">
+              The problem isn't <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">what you think.</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[600px] mx-auto mb-10 md:mb-14 leading-[1.8]">
               Despite new systems, new processes, and new training, the same patterns keep returning. Here's what that actually looks like inside an organization.
@@ -212,7 +141,7 @@ const ForCeos = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-5">
             {[
               { t: "Initiatives stall", d: "Momentum builds, then quietly dies somewhere between the decision and the doing." },
-              { t: "Communication breaks down", d: "The message is clear in the room — and somehow different the moment people leave it." },
+              { t: "Communication breaks down", d: "The message is clear in the room, and somehow different the moment people leave it." },
               { t: "High performers become inconsistent", d: "Reliable for months, then unpredictable exactly when it matters most." },
               { t: "Teams execute differently than they agreed", d: "Everyone nods in the meeting, then acts out a different reality afterward." },
             ].map((item, i) => (
@@ -220,7 +149,7 @@ const ForCeos = () => {
                 <div className="bg-[#0b0d22] border border-white/[0.06] rounded-[16px] p-6 md:p-8 h-full transition-all duration-300 hover:bg-[#10132b] hover:border-[#3b6fe8]/[0.32] relative overflow-hidden group">
                   <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#3b6fe8] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <h3 className="text-[16px] md:text-[18px] font-bold text-[#eef0ff] mb-2.5">{item.t}</h3>
-                  <p className="text-[13px] md:text-[14px] text-[#7a7fa8] leading-[1.65]">{item.d}</p>
+                  <p className="text-[13px] md:text-[14px] text-[#8790bb] leading-[1.65]">{item.d}</p>
                 </div>
               </FadeUp>
             ))}
@@ -241,8 +170,8 @@ const ForCeos = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-center"><Eyebrow>The Hidden Cost of Leadership</Eyebrow></div>
-            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-10 md:mb-14">
-              Pressure doesn't create behavior.<br className="hidden sm:block" /> <em className="text-[#5b8af5] not-italic">It reveals it.</em>
+            <h2 className="text-[clamp(25px,5.5vw,42px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mt-5 mb-10 md:mb-14">
+              Pressure doesn't create behavior.<br className="hidden sm:block" /> <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">It reveals it.</em>
             </h2>
           </FadeUp>
 
@@ -257,21 +186,21 @@ const ForCeos = () => {
             <FadeUp delay={100}>
               <div>
                 <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.6] leading-[1.8] mb-6">
-                  Every CEO has experienced it. The issue is rarely capability — it's who shows up when pressure arrives. And what gets revealed often determines revenue, culture, retention, innovation, customer experience, and growth.
+                  Every CEO has experienced it. The issue is rarely capability, it's who shows up when pressure arrives. And what gets revealed often determines revenue, culture, retention, innovation, customer experience, and growth.
                 </p>
                 <div className="flex flex-col gap-3.5">
                   {[
-                    { t: "Exceptional on paper", d: "A leader who looks flawless on the résumé — and struggles the moment real pressure lands." },
+                    { t: "Exceptional on paper", d: "A leader who looks flawless on the résumé, and struggles the moment real pressure lands." },
                     { t: "Suddenly inconsistent", d: "A top performer who becomes unreliable without any clear, nameable reason." },
                     { t: "Knows but doesn't do", d: "A department that understands exactly what to do, yet repeatedly fails to do it." },
                   ].map((item, i) => (
                     <div key={i} className="bg-[#10132b] border border-white/[0.06] rounded-[12px] p-4 md:p-5 hover:border-[#3b6fe8]/[0.32] transition-colors">
                       <h3 className="text-[14px] md:text-[15px] font-bold text-[#eef0ff] mb-1">{item.t}</h3>
-                      <p className="text-[12.5px] md:text-[13.5px] text-[#7a7fa8] leading-[1.6]">{item.d}</p>
+                      <p className="text-[12.5px] md:text-[13.5px] text-[#8790bb] leading-[1.6]">{item.d}</p>
                     </div>
                   ))}
                 </div>
-                <p className="text-[13px] md:text-[14px] text-[#7a7fa8] leading-[1.7] mt-5 pl-1">
+                <p className="text-[13px] md:text-[14px] text-[#8790bb] leading-[1.7] mt-5 pl-1">
                   Most organizations never identify the source. They simply treat the symptoms.
                 </p>
               </div>
@@ -285,8 +214,8 @@ const ForCeos = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-center"><Eyebrow>The System</Eyebrow></div>
-            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4">
-              What PersonaForce™ <em className="text-[#5b8af5] not-italic">reveals.</em>
+            <h2 className="text-[clamp(25px,5.5vw,42px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mt-5 mb-4">
+              What PersonaForce™ <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">reveals.</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[640px] mx-auto mb-10 md:mb-14 leading-[1.8]">
               It's not a personality assessment. Not another leadership framework. Not another communication model. It's an Identity Architecture™ system designed to reveal what actually drives behavior under pressure.
@@ -297,9 +226,9 @@ const ForCeos = () => {
             {reveals.map((r, i) => (
               <FadeUp key={i} delay={(i % 3) * 80}>
                 <div className="bg-[#0b0d22] border border-white/[0.06] rounded-[16px] p-6 h-full hover:bg-[#10132b] hover:border-[#3b6fe8]/[0.32] transition-all duration-300">
-                  <div className="text-[28px] md:text-[34px] font-black text-[#5b8af5] leading-none mb-3">{r.num}</div>
+                  <div className="text-[28px] md:text-[34px] font-display font-normal text-[#5b8af5] leading-none mb-3">{r.num}</div>
                   <h3 className="text-[15px] font-bold text-[#eef0ff] mb-2 leading-[1.3]">{r.t}</h3>
-                  <p className="text-[12.5px] md:text-[13px] text-[#7a7fa8] leading-[1.6]">{r.d}</p>
+                  <p className="text-[12.5px] md:text-[13px] text-[#8790bb] leading-[1.6]">{r.d}</p>
                 </div>
               </FadeUp>
             ))}
@@ -308,7 +237,7 @@ const ForCeos = () => {
           <FadeUp delay={120}>
             <div className="bg-[#3b6fe8]/[0.08] border border-[#3b6fe8]/[0.28] rounded-[16px] p-6 md:p-8 mt-8 md:mt-10 text-center max-w-[760px] mx-auto">
               <p className="text-[14px] md:text-[17px] text-[#b0b8e8] leading-[1.7]">
-                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce™ maps what drives behavior.</strong> The difference is significant — because once you can see the pattern, you can change the outcome.
+                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce™ maps what drives behavior.</strong> The difference is significant, because once you can see the pattern, you can change the outcome.
               </p>
             </div>
           </FadeUp>
@@ -319,11 +248,11 @@ const ForCeos = () => {
       <BgSection img="/ceo/boardroom.jpg" overlay="0.88">
         <FadeUp>
           <div className="text-center"><Eyebrow>Organizational Mapping</Eyebrow></div>
-          <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-4 text-white">
-            Your organization, <em className="text-[#5b8af5] not-italic">mapped.</em>
+          <h2 className="text-[clamp(25px,5.5vw,42px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mt-5 mb-4 text-white">
+            Your organization, <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">mapped.</em>
           </h2>
           <p className="text-[14px] text-[#eef0ff]/[0.62] text-center max-w-[560px] mx-auto mb-10 md:mb-12 leading-[1.8]">
-            Every layer of how your people operate — captured in one living view.
+            Every layer of how your people operate, captured in one living view.
           </p>
         </FadeUp>
 
@@ -331,7 +260,7 @@ const ForCeos = () => {
           {orgMapping.map((m, i) => (
             <FadeUp key={i} delay={(i % 3) * 90}>
               <div className="h-full flex items-center gap-3.5 bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-[16px] p-5 md:p-6 hover:border-[#3b6fe8]/[0.4] transition-colors">
-                <span className="text-[18px] md:text-[22px] font-black text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
+                <span className="text-[18px] md:text-[22px] font-display font-normal text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
                 <p className="text-[14px] md:text-[16px] font-bold text-white leading-[1.3]">{m}</p>
               </div>
             </FadeUp>
@@ -351,16 +280,16 @@ const ForCeos = () => {
           <FadeUp delay={100}>
             <div>
               <Eyebrow>Built From Decades Of Human Performance</Eyebrow>
-              <h2 className="text-[clamp(23px,4.5vw,38px)] font-black leading-[1.14] tracking-[-0.5px] mt-5 mb-4">
-                Thirty years studying performance where <em className="text-[#5b8af5] not-italic">outcomes matter.</em>
+              <h2 className="text-[clamp(23px,4.5vw,38px)] font-display font-normal leading-[1.14] tracking-[-0.015em] mt-5 mb-4">
+                Thirty years studying performance where <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">outcomes matter.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-7">
-                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce™ frameworks — built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
+                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce™ frameworks, built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
               </p>
               <div className="flex flex-wrap gap-6 md:gap-10">
-                <div><div className="text-[26px] md:text-[34px] font-black text-[#5b8af5] leading-none">30+</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Years studying performance</div></div>
-                <div><div className="text-[26px] md:text-[34px] font-black text-[#5b8af5] leading-none">5</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">High-stakes arenas</div></div>
-                <div><div className="text-[26px] md:text-[34px] font-black text-[#5b8af5] leading-none">2</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Proprietary frameworks</div></div>
+                <div><div className="text-[26px] md:text-[34px] font-display font-normal text-[#5b8af5] leading-none">30+</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Years studying performance</div></div>
+                <div><div className="text-[26px] md:text-[34px] font-display font-normal text-[#5b8af5] leading-none">5</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">High-stakes arenas</div></div>
+                <div><div className="text-[26px] md:text-[34px] font-display font-normal text-[#5b8af5] leading-none">2</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Proprietary frameworks</div></div>
               </div>
             </div>
           </FadeUp>
@@ -372,8 +301,8 @@ const ForCeos = () => {
         <div className="max-w-[1000px] mx-auto">
           <FadeUp>
             <div className="text-center"><Eyebrow>What CEOs Actually Buy</Eyebrow></div>
-            <h2 className="text-[clamp(25px,5.5vw,42px)] font-black text-center leading-[1.12] tracking-[-0.5px] mt-5 mb-10 md:mb-12">
-              Not a program. <em className="text-[#5b8af5] not-italic">An outcome.</em>
+            <h2 className="text-[clamp(25px,5.5vw,42px)] font-display font-normal text-center leading-[1.12] tracking-[-0.015em] mt-5 mb-10 md:mb-12">
+              Not a program. <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">An outcome.</em>
             </h2>
           </FadeUp>
 
@@ -381,7 +310,7 @@ const ForCeos = () => {
             {ceoBuys.map((b, i) => (
               <FadeUp key={i} delay={(i % 3) * 80}>
                 <div className="flex items-center gap-4 bg-[#10132b] border border-white/[0.06] rounded-[14px] p-5 md:p-6 h-full hover:border-[#3b6fe8]/[0.32] transition-colors">
-                  <span className="text-[20px] md:text-[24px] font-black text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
+                  <span className="text-[20px] md:text-[24px] font-display font-normal text-[#5b8af5] leading-none shrink-0">0{i + 1}</span>
                   <p className="text-[14px] md:text-[16px] font-bold text-[#eef0ff] leading-[1.4]">{b}</p>
                 </div>
               </FadeUp>
@@ -412,7 +341,7 @@ const ForCeos = () => {
                 <div className="p-7 md:p-12 flex flex-col justify-center">
                   <Quote className="w-8 h-8 md:w-10 md:h-10 text-[#3b6fe8]/40 mb-4 md:mb-5" />
                   <blockquote className="text-[15px] md:text-[19px] text-[#b0b8e8] leading-[1.7] md:leading-[1.8]">
-                    Before working with Travis, I focused on what I wanted to achieve. He helped me uncover something far more important — understanding <em className="text-[#eef0ff] not-italic font-semibold">who I am</em> when I pursue those goals. He has a rare ability to challenge you without breaking you, to reveal blind spots without judgment, and to reconnect you with the strongest version of yourself. Together with Michelle Fox, they built a framework that helped me see myself clearly, think more intentionally, and lead with greater confidence and authenticity.
+                    Before working with Travis, I focused on what I wanted to achieve. He helped me uncover something far more important, understanding <em className="text-[#eef0ff] not-italic font-semibold">who I am</em> when I pursue those goals. He has a rare ability to challenge you without breaking you, to reveal blind spots without judgment, and to reconnect you with the strongest version of yourself. Together with Michelle Fox, they built a framework that helped me see myself clearly, think more intentionally, and lead with greater confidence and authenticity.
                   </blockquote>
                   <figcaption className="mt-6 md:mt-8 flex items-center gap-3">
                     <span className="w-8 h-px bg-[#3b6fe8] shrink-0" />
@@ -440,11 +369,11 @@ const ForCeos = () => {
           <FadeUp delay={100}>
             <div>
               <Eyebrow>Start Here</Eyebrow>
-              <h2 className="text-[clamp(23px,4.5vw,38px)] font-black leading-[1.14] tracking-[-0.5px] mt-5 mb-4">
-                Start with the <em className="text-[#5b8af5] not-italic">Blueprint.</em>
+              <h2 className="text-[clamp(23px,4.5vw,38px)] font-display font-normal leading-[1.14] tracking-[-0.015em] mt-5 mb-4">
+                Start with the <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">Blueprint.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-6">
-                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce™ Blueprint gives you a personalized starting point — not theory, not generic advice.
+                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce™ Blueprint gives you a personalized starting point, not theory, not generic advice.
               </p>
               <div className="flex flex-col gap-3 mb-7">
                 {blueprint.map((b, i) => (
@@ -470,8 +399,8 @@ const ForCeos = () => {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3b6fe8] to-transparent" />
               <div className="relative z-[1] flex flex-col items-center">
                 <Eyebrow>The Final Thought</Eyebrow>
-                <h2 className="text-[clamp(25px,5vw,44px)] font-black tracking-[-0.5px] leading-[1.12] mt-6 mb-5 max-w-[720px] mx-auto text-white">
-                  The greatest risk is invisible patterns inside <em className="text-[#5b8af5] not-italic">visible success.</em>
+                <h2 className="text-[clamp(25px,5vw,44px)] font-display font-normal tracking-[-0.015em] leading-[1.12] mt-6 mb-5 max-w-[720px] mx-auto text-white">
+                  The greatest risk is invisible patterns inside <em className="italic bg-[linear-gradient(102deg,#ffffff_0%,#c3d3ff_40%,#5b8af5_100%)] bg-clip-text text-transparent">visible success.</em>
                 </h2>
                 <p className="text-[14px] md:text-[16px] text-[#eef0ff]/[0.62] max-w-[560px] mx-auto mb-9 leading-[1.8]">
                   The organizations that thrive won't simply have better strategies. They'll have greater awareness of the people executing them. Start by discovering what's currently driving yours.
@@ -485,7 +414,7 @@ const ForCeos = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#7a7fa8]">
+      <footer className="py-8 md:py-10 px-5 md:px-8 border-t border-white/[0.06] text-center text-[11.5px] md:text-[13px] text-[#8790bb]">
         <div className="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 PersonaForce™ | All Rights Reserved</p>
           <div className="flex justify-center gap-4 md:gap-7 flex-wrap font-medium">
