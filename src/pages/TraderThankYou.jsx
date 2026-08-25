@@ -15,7 +15,12 @@ const NEXT_STEPS = [
   { icon: CalendarClock, title: 'Join each daily session', desc: 'Five sessions across five days. Come as you are, not as the trader you think you should be.' },
   { icon: ListChecks, title: 'Your reflection arrives after each session', desc: 'Each day’s reflection is sent once that session wraps. A few honest minutes is all it takes.' },
   { icon: Sparkles, title: 'Watch for the Live Reveal invitation', desc: 'It arrives after you complete the challenge.' },
-  { icon: Award, title: 'You may be selected for a complimentary Map', desc: 'Selected participants are considered for a private The Trader’s Journey Map.', wide: true },
+  // NOTE: changed from "you may be selected" to an earned guarantee, per client
+  // feedback. She raised it as a question to Travis and had not had an answer at
+  // the time of writing — if he confirms it is still selective, revert to:
+  // 'You may be selected for a complimentary Map' / 'Selected participants are
+  // considered for a private Trader’s Journey Map.'
+  { icon: Award, title: 'Complete all five reflections, get your Map', desc: 'Finish every daily reflection and your private Trader’s Journey Map is yours. No selection, no lottery, just the work.', wide: true },
 ];
 
 const TraderThankYou = () => {

@@ -451,6 +451,10 @@ const Trader = () => {
               before the pattern costs you again.
             </p>
           </BlurReveal>
+
+          <BlurReveal className="flex justify-center mt-10">
+            <CTAButton onClick={scrollToForm} />
+          </BlurReveal>
         </div>
       </section>
 
@@ -611,6 +615,10 @@ const Trader = () => {
               </SlideIn>
             ))}
           </div>
+
+          <SlideIn from="left" delay={80 + FOR_YOU.length * 70} className="flex justify-center md:justify-start mt-12">
+            <CTAButton onClick={scrollToForm} />
+          </SlideIn>
         </div>
       </section>
 
