@@ -13,7 +13,7 @@ const COLLECTIONS = [
   {
     category: "Athletes",
     label: "Collection 01",
-    tagline: "Map how identity holds — or fractures — under pressure, sport by sport.",
+    tagline: "Map how identity holds, or fractures, under pressure, sport by sport.",
     to: "/athletes",
     blueprints: [
       { label: "Golfers Blueprint", desc: "Performance identity assessment built for the pressure of the course.", form: { id: "OifLjaajW8n0ohzpfKG4", title: "Golf Performance", height: 3309 } },
@@ -27,7 +27,7 @@ const COLLECTIONS = [
     tagline: "Free identity profiles for trial, deposition, and witness preparation.",
     to: "/lawyers",
     blueprints: [
-      { label: "Jury Analysis", desc: "A free juror identity profile — see who leads, flips, and anchors the verdict.", form: { id: "Ine3CsP62NEDVDJiaaMp", title: "Jury Analyzer", height: 956 } },
+      { label: "Jury Analysis", desc: "A free juror identity profile, see who leads, flips, and anchors the verdict.", form: { id: "Ine3CsP62NEDVDJiaaMp", title: "Jury Analyzer", height: 956 } },
       { label: "Witness Identity", desc: "Pressure analysis that prepares a witness for how they respond, not just what they say.", form: { id: "D2Sc4W1jASxKOOsEt6LA", title: "Witness Pressure Analysis", height: 2075 } },
       { label: "Deposition Identity", desc: "Map how a witness thinks, deflects, and breaks before you ever depose them.", form: { id: "rGQd8BoquCp0KMHoh3ir", title: "Deposition Identity Profile", height: 1890 } },
     ],
@@ -178,7 +178,7 @@ const FreeBlueprints = () => {
               <ConsultBtn className="justify-center w-full sm:w-auto max-w-[320px]" />
             </div>
             <p className="text-[12.5px] md:text-[13px] text-[#eef0ff]/[0.5] mt-4 max-w-[440px] mx-auto leading-[1.6]">
-              For everyone — whatever your field, role, or industry. The collections below are just
+              For everyone, whatever your field, role, or industry. The collections below are just
               specialised examples.
             </p>
           </FadeUp>

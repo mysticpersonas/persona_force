@@ -209,7 +209,7 @@ const SalesIdentity = () => {
               What shows up when<br />pressure <em className="text-[#5b8af5] not-italic">hits.</em>
             </h2>
             <p className="text-[15px] text-[#eef0ff]/60 text-center max-w-[580px] mx-auto mb-12 leading-[1.75]">
-              Inside every salesperson, four identity states compete for control. Knowing which one is driving — and when — is the difference between closing and collapsing.
+              Inside every salesperson, four identity states compete for control. Knowing which one is driving, and when, is the difference between closing and collapsing.
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -291,7 +291,7 @@ const SalesIdentity = () => {
               A Human Identity<br /><em className="text-[#5b8af5] not-italic">Architecture System.</em>
             </h2>
             <div className="text-[14px] text-[#eef0ff]/60 leading-[1.75] max-w-[680px] mx-auto mb-2 text-center">
-              PersonaForce trains individuals and teams to master the mechanics of identity.<br />This isn't motivational speaking.<br />This isn't surface-level mindset work.<br />This is identity mechanics applied to sales — a systematic approach to controlling who shows up in high-stakes moments.
+              PersonaForce trains individuals and teams to master the mechanics of identity.<br />This isn't motivational speaking.<br />This isn't surface-level mindset work.<br />This is identity mechanics applied to sales, a systematic approach to controlling who shows up in high-stakes moments.
             </div>
           </FadeUp>
           <div className="flex flex-col max-w-[680px] mx-auto mt-6">
@@ -321,7 +321,7 @@ const SalesIdentity = () => {
               When Identity Stabilizes,<br /><em className="text-[#5b8af5] not-italic">Revenue Follows.</em>
             </h2>
             <div className="text-[15px] text-[#eef0ff]/60 max-w-[640px] mx-auto mb-10 text-center leading-[1.75]">
-              When the right persona stays online, performance becomes predictable. Execution becomes consistent. Results become scalable. This isn't about working harder — it's about operating from a stable identity foundation that doesn't collapse under pressure.
+              When the right persona stays online, performance becomes predictable. Execution becomes consistent. Results become scalable. This isn't about working harder, it's about operating from a stable identity foundation that doesn't collapse under pressure.
             </div>
           </FadeUp>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
@@ -406,7 +406,7 @@ const SalesIdentity = () => {
                 Identity Stabilizes.<br /><em className="text-[#5b8af5] not-italic">Revenue Follows.</em>
               </h2>
               <p className="text-[15px] text-[#eef0ff]/60 max-w-[480px] mx-auto mb-8 leading-[1.75]">
-                One call is all it takes to see the exact identity patterns holding your team back — and the path to installing stability that performs under pressure.
+                One call is all it takes to see the exact identity patterns holding your team back, and the path to installing stability that performs under pressure.
               </p>
               <ConsultBtn />
               <div className="text-[12px] text-[#eef0ff]/[0.28] mt-3">No obligation · Built for sales leaders & teams</div>

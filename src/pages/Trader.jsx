@@ -130,14 +130,14 @@ const TRADERS = [
     name: 'The Triggered Trader',
     tag: 'The hijack',
     color: '#e0934d',
-    desc: 'The version of you that takes over under pressure — revenge, freeze, force, overtrade, move stops, or exit emotionally.',
+    desc: 'The version of you that takes over under pressure, revenge, freeze, force, overtrade, move stops, or exit emotionally.',
   },
   {
     icon: Sparkles,
     name: 'The Future Trader',
     tag: 'The next level',
     color: '#7A2DFF',
-    desc: 'The more disciplined version of you being built — the one ready to lead your next 90 days.',
+    desc: 'The more disciplined version of you being built, the one ready to lead your next 90 days.',
   },
 ];
 
@@ -400,7 +400,7 @@ const Trader = () => {
               </div>
               <p className="text-[17px] md:text-[20px] font-bold text-white leading-snug">The person placing the trade.</p>
               <p className="text-[13.5px] md:text-[14px] text-[#9aa1b8] mt-3 leading-[1.65]">
-                You can have a system, a plan, and a signal — but when pressure hits, a
+                You can have a system, a plan, and a signal, but when pressure hits, a
                 different version of you may take over. This pilot helps you identify that version.
               </p>
               <div className="mt-6 pt-5 border-t border-white/[0.07] text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#5fd0f5]">
@@ -468,13 +468,13 @@ const Trader = () => {
             <Rise delay={100}>
               <div className="h-full rounded-2xl bg-white/[0.02] border border-white/[0.07] p-6">
                 <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#6b7390] mb-3">Most programs</div>
-                <p className="text-[15px] text-[#9aa1b8] leading-[1.6]">Begin with strategy — what to trade, which system to use, how the setup works.</p>
+                <p className="text-[15px] text-[#9aa1b8] leading-[1.6]">Begin with strategy, what to trade, which system to use, how the setup works.</p>
               </div>
             </Rise>
             <Rise delay={180}>
               <div className="h-full rounded-2xl bg-gradient-to-b from-[#0e1730] to-[#0A0F1F] border border-[#7A2DFF]/30 p-6 shadow-[0_0_40px_rgba(122,45,255,0.12)]">
                 <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#b58cff] mb-3">PersonaForce Trader™</div>
-                <p className="text-[15px] text-[#d4daea] leading-[1.6]">Begins with the trader — what happens inside you when the trade becomes emotional, uncertain, pressured, or personal.</p>
+                <p className="text-[15px] text-[#d4daea] leading-[1.6]">Begins with the trader, what happens inside you when the trade becomes emotional, uncertain, pressured, or personal.</p>
               </div>
             </Rise>
           </div>
@@ -496,7 +496,7 @@ const Trader = () => {
               Three versions of you can show up<br className="hidden sm:block" /> in every trade.
             </h2>
             <p className="text-[14px] md:text-[15px] text-[#9aa1b8] mt-5 max-w-[560px] mx-auto leading-[1.65]">
-              This pilot helps you identify which version has been placing your trades — and
+              This pilot helps you identify which version has been placing your trades, and
               which version needs to lead next.
             </p>
           </Rise>
@@ -686,8 +686,8 @@ const Trader = () => {
             </div>
             <h2 className="text-[clamp(26px,4.5vw,42px)] font-black tracking-[-0.8px]">Join the Private PFT Pilot</h2>
             <p className="text-[14px] md:text-[15px] text-[#9aa1b8] mt-4 max-w-[480px] mx-auto leading-[1.65]">
-              Complete the short registration below. Once accepted, you&rsquo;ll receive access
-              to Day 1 and your first identity reflection prompt.
+              Complete the short registration below. Once accepted, we&rsquo;ll send reminders
+              ahead of the first session, and your reflection after each one.
             </p>
           </Rise>
 
@@ -695,8 +695,8 @@ const Trader = () => {
           <Rise delay={80}>
             <div className="flex flex-col sm:flex-row items-stretch justify-center gap-2.5 mt-8 max-w-[560px] mx-auto">
               {[
-                { icon: Lock, text: 'Private pilot — not a public course' },
-                { icon: Check, text: 'Free to join — no payment' },
+                { icon: Lock, text: 'Private pilot, not a public course' },
+                { icon: Check, text: 'Free to join, no payment' },
                 { icon: Zap, text: 'Invited traders only' },
               ].map((it, i) => (
                 <div key={i} className="flex items-center gap-2 flex-1 justify-center rounded-lg bg-white/[0.03] border border-white/[0.07] px-3 py-2.5 text-[12px] font-semibold text-[#cdd4e6]">

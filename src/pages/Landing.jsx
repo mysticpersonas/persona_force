@@ -145,7 +145,7 @@ const Landing = () => {
           
           <FadeUp delay={200}>
             <p className="text-[14px] md:text-[19px] text-[#7a7fa8] max-w-[640px] mx-auto leading-[1.6] mt-1 md:mt-4">
-              PersonaForce™ reveals who shows up under pressure—so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
+              PersonaForce™ reveals who shows up under pressure, so leaders, teams, athletes and organizations can perform with clarity, consistency and confidence.
             </p>
           </FadeUp>
         </div>

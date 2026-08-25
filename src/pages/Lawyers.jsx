@@ -161,13 +161,13 @@ const Lawyers = () => {
           <FadeUp delay={200}>
             <div className="max-w-[620px] mx-auto flex flex-col gap-3">
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                Verdicts aren't decided by facts alone. They're decided by how people respond under pressure — and most attorneys are walking in blind.
+                Verdicts aren't decided by facts alone. They're decided by how people respond under pressure, and most attorneys are walking in blind.
               </p>
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                Traditional trial strategy focuses on arguments, evidence, and sequencing. But outcomes are shaped inside the room — through emotional reactions, influence patterns, and identity under stress.
+                Traditional trial strategy focuses on arguments, evidence, and sequencing. But outcomes are shaped inside the room, through emotional reactions, influence patterns, and identity under stress.
               </p>
               <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85]">
-                PersonaForce maps how jurors, witnesses, and opposing parties <em className="italic text-[#eef0ff]/[0.75]">behave when pressure hits</em> — so you don't just present your case... you control how it's received.
+                PersonaForce maps how jurors, witnesses, and opposing parties <em className="italic text-[#eef0ff]/[0.75]">behave when pressure hits</em>, so you don't just present your case... you control how it's received.
               </p>
             </div>
           </FadeUp>

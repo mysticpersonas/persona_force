@@ -51,7 +51,7 @@ const OptIn = () => {
             <div className="text-center">
               <span className="inline-flex items-center gap-2 bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.3] text-[#5b8af5] text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase py-1.5 px-4 rounded-full">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite]" />
-                Founder Pilot — Final Step
+                Founder Pilot, Final Step
               </span>
               <h1 className="text-[clamp(28px,5vw,44px)] font-black tracking-[-0.8px] leading-[1.12] mt-6">
                 You Attended. Now Make It Official.
@@ -66,7 +66,8 @@ const OptIn = () => {
           <FadeUp delay={120}>
             <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.58] leading-[1.85] mt-10 max-w-[540px] mx-auto text-center">
               The orientation showed you what this is. This step confirms you&rsquo;re ready to
-              actually do the work. Once you opt in, your Day 1 session begins.
+              actually do the work. Once you opt in, your place is held and we&rsquo;ll send
+              reminders ahead of the first session.
             </p>
           </FadeUp>
 

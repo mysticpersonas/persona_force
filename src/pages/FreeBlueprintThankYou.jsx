@@ -52,7 +52,7 @@ const FreeBlueprintThankYou = () => {
             </p>
 
             <p className="text-[13.5px] text-[#eef0ff]/[0.4] mt-5 leading-[1.7]">
-              Keep an eye on your email over the next little while — and if you don&rsquo;t see it,
+              Keep an eye on your email over the next little while, and if you don&rsquo;t see it,
               check your promotions, spam, or updates folder.
             </p>
 

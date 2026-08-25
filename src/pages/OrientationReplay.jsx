@@ -45,7 +45,7 @@ const OrientationReplay = () => {
             <div className="text-center">
               <span className="inline-flex items-center gap-2 bg-[#3b6fe8]/[0.12] border border-[#3b6fe8]/[0.3] text-[#5b8af5] text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase py-1.5 px-4 rounded-full">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#5b8af5] animate-[pulse_1.5s_ease-in-out_infinite]" />
-                Founder Pilot — Orientation Replay
+                Founder Pilot, Orientation Replay
               </span>
               <h1 className="text-[clamp(28px,5vw,46px)] font-black tracking-[-0.8px] leading-[1.12] mt-6 max-w-[640px] mx-auto">
                 You Missed Live. Here&rsquo;s the Full Orientation.

@@ -5,17 +5,17 @@ const PftNinetyDay = () => (
     docTitle="90-Day Deep Identity Mapping · PersonaForce Trader™"
     bookSource="pft-90day"
     headline={<>90 Days. One-on-One. The Deepest Identity Work Available.</>}
-    sub="The most comprehensive PersonaForce Trader™ pathway — for those ready to fully reconstruct the identity behind their trading decisions."
+    sub="The most comprehensive PersonaForce Trader™ pathway, for those ready to fully reconstruct the identity behind their trading decisions."
     whatIsBold="This is the highest-touch container we offer."
-    whatIsBody="The 90-Day Deep Identity Mapping is a comprehensive, private identity reconstruction experience with weekly 1:1 sessions directly with Dr. Travis Fox. This is not group work. This is a personalized, sustained engagement designed to fully reorganize the identity system behind your trading — from the subconscious patterns up."
+    whatIsBody="The 90-Day Deep Identity Mapping is a comprehensive, private identity reconstruction experience with weekly 1:1 sessions directly with Dr. Travis Fox. This is not group work. This is a personalized, sustained engagement designed to fully reorganize the identity system behind your trading, from the subconscious patterns up."
     included={[
       { title: 'Weekly 1:1 Sessions with Dr. Travis Fox (12 sessions)', desc: 'Private, direct sessions every week for 90 days. No group setting. Full attention on your specific identity architecture, patterns, and evolution.' },
-      { title: 'Full Personalized Blueprint Map', desc: 'Your complete PersonaForce Trader™ identity map — the most detailed version available, built specifically around your trading history, pressure responses, and Oracle Trader™ state.' },
+      { title: 'Full Personalized Blueprint Map', desc: 'Your complete PersonaForce Trader™ identity map, the most detailed version available, built specifically around your trading history, pressure responses, and Oracle Trader™ state.' },
       { title: 'Subconscious Pattern Mapping', desc: 'Deep mapping of the subconscious identity structures driving your most persistent and damaging trading behaviors.' },
-      { title: 'Triggered Trader Interruption Work', desc: 'Comprehensive identification and interruption of every major trigger pattern — including revenge trading, freeze, overconfidence, avoidance, and rule-breaking loops.' },
-      { title: 'Future Trader Stabilization', desc: 'Sustained, structured work to anchor your Oracle Trader™ state as the default identity placing your trades — not an occasional visitor.' },
-      { title: 'Identity-Performance Framework', desc: 'A personalized framework for maintaining identity stability across all market conditions — volatile, slow, high-stakes, and recovery phases.' },
-      { title: 'Priority Voice, Text and Email Support', desc: 'Highest level of ongoing support throughout 90 days — direct access for real-time pattern questions, pre-trade identity checks, and post-trade reviews.' },
+      { title: 'Triggered Trader Interruption Work', desc: 'Comprehensive identification and interruption of every major trigger pattern, including revenge trading, freeze, overconfidence, avoidance, and rule-breaking loops.' },
+      { title: 'Future Trader Stabilization', desc: 'Sustained, structured work to anchor your Oracle Trader™ state as the default identity placing your trades, not an occasional visitor.' },
+      { title: 'Identity-Performance Framework', desc: 'A personalized framework for maintaining identity stability across all market conditions, volatile, slow, high-stakes, and recovery phases.' },
+      { title: 'Priority Voice, Text and Email Support', desc: 'Highest level of ongoing support throughout 90 days, direct access for real-time pattern questions, pre-trade identity checks, and post-trade reviews.' },
     ]}
     forYou={[
       'You are serious about doing the deepest identity work available',

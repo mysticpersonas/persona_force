@@ -401,7 +401,7 @@ const Athletes = () => {
               PersonaForce Sales &amp; Culture Training aligns your team around one standard of execution so performance stays consistent even when pressure rises.
             </p>
             <p className="text-[13.5px] text-[#eef0ff]/[0.58] max-w-[640px] leading-[1.85] mb-6">
-              <strong className="text-white">Pressure is universal.</strong> From the PGA Tour to Division I basketball, from professional football to international soccer to professional bodybuilding — the nervous system does not care about the league. <strong className="text-white">It responds to perceived threat.</strong>
+              <strong className="text-white">Pressure is universal.</strong> From the PGA Tour to Division I basketball, from professional football to international soccer to professional bodybuilding, the nervous system does not care about the league. <strong className="text-white">It responds to perceived threat.</strong>
             </p>
           </FadeUp>
 
@@ -536,7 +536,7 @@ const Athletes = () => {
                 Identity Stabilizes.<br /><em className="text-[#5b8af5] not-italic">Performance Follows.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] max-w-[440px] mx-auto mb-7 leading-[1.8]">
-                One call is all it takes to see the exact identity patterns holding your performance back — and the path to stability that holds under the brightest lights.
+                One call is all it takes to see the exact identity patterns holding your performance back, and the path to stability that holds under the brightest lights.
               </p>
               <ConsultBtn />
               <div className="text-[11px] text-[#eef0ff]/[0.26] mt-3">No obligation · Built for elite athletes &amp; teams</div>

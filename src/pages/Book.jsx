@@ -97,7 +97,7 @@ const Book = () => {
                 <>
                   <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
                     <FileText className="w-4 h-4 text-[#3b6fe8] shrink-0" />
-                    Free — takes under two minutes
+                    Free, takes under two minutes
                   </div>
                   <div className="flex items-center gap-3 text-[13px] text-[#666] font-medium">
                     <Mail className="w-4 h-4 text-[#3b6fe8] shrink-0" />

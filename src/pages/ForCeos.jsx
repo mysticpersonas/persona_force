@@ -57,11 +57,11 @@ const ForCeos = () => {
 
   // "What PersonaForce reveals" — five identity-level signals.
   const reveals = [
-    { num: "01", t: "Leadership Patterns", d: "The recurring ways a leader actually operates when the stakes are real — not the version on the résumé." },
+    { num: "01", t: "Leadership Patterns", d: "The recurring ways a leader actually operates when the stakes are real, not the version on the résumé." },
     { num: "02", t: "Execution Breakdowns", d: "The exact point between agreement and action where initiatives quietly stall." },
     { num: "03", t: "Communication Gaps", d: "Why the same message lands with one team and fractures with another." },
     { num: "04", t: "Culture Friction", d: "The hidden identity patterns beneath hesitation, friction, and pushback." },
-    { num: "05", t: "Decision Blind Spots", d: "The moments where judgment and presence quietly compound — or erode." },
+    { num: "05", t: "Decision Blind Spots", d: "The moments where judgment and presence quietly compound, or erode." },
   ];
 
   // "Organizational Mapping" — the deliverables that make up the map.
@@ -212,7 +212,7 @@ const ForCeos = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-5">
             {[
               { t: "Initiatives stall", d: "Momentum builds, then quietly dies somewhere between the decision and the doing." },
-              { t: "Communication breaks down", d: "The message is clear in the room — and somehow different the moment people leave it." },
+              { t: "Communication breaks down", d: "The message is clear in the room, and somehow different the moment people leave it." },
               { t: "High performers become inconsistent", d: "Reliable for months, then unpredictable exactly when it matters most." },
               { t: "Teams execute differently than they agreed", d: "Everyone nods in the meeting, then acts out a different reality afterward." },
             ].map((item, i) => (
@@ -257,11 +257,11 @@ const ForCeos = () => {
             <FadeUp delay={100}>
               <div>
                 <p className="text-[14px] md:text-[15px] text-[#eef0ff]/[0.6] leading-[1.8] mb-6">
-                  Every CEO has experienced it. The issue is rarely capability — it's who shows up when pressure arrives. And what gets revealed often determines revenue, culture, retention, innovation, customer experience, and growth.
+                  Every CEO has experienced it. The issue is rarely capability, it's who shows up when pressure arrives. And what gets revealed often determines revenue, culture, retention, innovation, customer experience, and growth.
                 </p>
                 <div className="flex flex-col gap-3.5">
                   {[
-                    { t: "Exceptional on paper", d: "A leader who looks flawless on the résumé — and struggles the moment real pressure lands." },
+                    { t: "Exceptional on paper", d: "A leader who looks flawless on the résumé, and struggles the moment real pressure lands." },
                     { t: "Suddenly inconsistent", d: "A top performer who becomes unreliable without any clear, nameable reason." },
                     { t: "Knows but doesn't do", d: "A department that understands exactly what to do, yet repeatedly fails to do it." },
                   ].map((item, i) => (
@@ -308,7 +308,7 @@ const ForCeos = () => {
           <FadeUp delay={120}>
             <div className="bg-[#3b6fe8]/[0.08] border border-[#3b6fe8]/[0.28] rounded-[16px] p-6 md:p-8 mt-8 md:mt-10 text-center max-w-[760px] mx-auto">
               <p className="text-[14px] md:text-[17px] text-[#b0b8e8] leading-[1.7]">
-                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce™ maps what drives behavior.</strong> The difference is significant — because once you can see the pattern, you can change the outcome.
+                Most organizations measure behavior. <strong className="text-[#eef0ff] font-semibold">PersonaForce™ maps what drives behavior.</strong> The difference is significant, because once you can see the pattern, you can change the outcome.
               </p>
             </div>
           </FadeUp>
@@ -323,7 +323,7 @@ const ForCeos = () => {
             Your organization, <em className="text-[#5b8af5] not-italic">mapped.</em>
           </h2>
           <p className="text-[14px] text-[#eef0ff]/[0.62] text-center max-w-[560px] mx-auto mb-10 md:mb-12 leading-[1.8]">
-            Every layer of how your people operate — captured in one living view.
+            Every layer of how your people operate, captured in one living view.
           </p>
         </FadeUp>
 
@@ -355,7 +355,7 @@ const ForCeos = () => {
                 Thirty years studying performance where <em className="text-[#5b8af5] not-italic">outcomes matter.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-7">
-                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce™ frameworks — built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
+                Corporate leadership. Executive teams. Professional athletics. Elite performers. High-pressure organizations. Dr. Travis Fox and Michelle Fox distilled it into the MPHIOS™ and PersonaForce™ frameworks, built to map human performance at the identity level. Not who people think they are. Who actually shows up when it matters most.
               </p>
               <div className="flex flex-wrap gap-6 md:gap-10">
                 <div><div className="text-[26px] md:text-[34px] font-black text-[#5b8af5] leading-none">30+</div><div className="text-[11px] md:text-[12px] text-[#3a3f60] mt-1.5">Years studying performance</div></div>
@@ -412,7 +412,7 @@ const ForCeos = () => {
                 <div className="p-7 md:p-12 flex flex-col justify-center">
                   <Quote className="w-8 h-8 md:w-10 md:h-10 text-[#3b6fe8]/40 mb-4 md:mb-5" />
                   <blockquote className="text-[15px] md:text-[19px] text-[#b0b8e8] leading-[1.7] md:leading-[1.8]">
-                    Before working with Travis, I focused on what I wanted to achieve. He helped me uncover something far more important — understanding <em className="text-[#eef0ff] not-italic font-semibold">who I am</em> when I pursue those goals. He has a rare ability to challenge you without breaking you, to reveal blind spots without judgment, and to reconnect you with the strongest version of yourself. Together with Michelle Fox, they built a framework that helped me see myself clearly, think more intentionally, and lead with greater confidence and authenticity.
+                    Before working with Travis, I focused on what I wanted to achieve. He helped me uncover something far more important, understanding <em className="text-[#eef0ff] not-italic font-semibold">who I am</em> when I pursue those goals. He has a rare ability to challenge you without breaking you, to reveal blind spots without judgment, and to reconnect you with the strongest version of yourself. Together with Michelle Fox, they built a framework that helped me see myself clearly, think more intentionally, and lead with greater confidence and authenticity.
                   </blockquote>
                   <figcaption className="mt-6 md:mt-8 flex items-center gap-3">
                     <span className="w-8 h-px bg-[#3b6fe8] shrink-0" />
@@ -444,7 +444,7 @@ const ForCeos = () => {
                 Start with the <em className="text-[#5b8af5] not-italic">Blueprint.</em>
               </h2>
               <p className="text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-6">
-                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce™ Blueprint gives you a personalized starting point — not theory, not generic advice.
+                Most leaders never see the patterns driving their results. In just a few minutes, the PersonaForce™ Blueprint gives you a personalized starting point, not theory, not generic advice.
               </p>
               <div className="flex flex-col gap-3 mb-7">
                 {blueprint.map((b, i) => (

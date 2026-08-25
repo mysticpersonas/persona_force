@@ -32,7 +32,7 @@ const LAYERS = [
       "Where pipeline stalls due to hesitation, avoidance, or emotional resistance",
       "Where culture becomes reactive under quota pressure",
     ] }],
-    outcome: "You stop guessing what's wrong — and start training what's real.",
+    outcome: "You stop guessing what's wrong, and start training what's real.",
   },
   {
     num: "02",
@@ -42,12 +42,12 @@ const LAYERS = [
       { heading: null, items: ["Before calls", "During objections", "After rejection", "In high-pressure weeks", "When momentum drops"] },
       { heading: "This creates:", items: ["Consistent follow-through", "Predictable pipeline behavior", "Stronger sales conversations", "Fewer emotional swings across the team"] },
     ],
-    outcome: "Sales becomes repeatable — not personality-dependent.",
+    outcome: "Sales becomes repeatable, not personality-dependent.",
   },
   {
     num: "03",
     title: "Installing the System",
-    what: <><strong className="text-white">What we do:</strong> Identify the moment where most teams fail: <em className="italic text-[#eef0ff]/70">pressure.</em> Pressure doesn't just reduce skill — it changes decision-making.</>,
+    what: <><strong className="text-white">What we do:</strong> Identify the moment where most teams fail: <em className="italic text-[#eef0ff]/70">pressure.</em> Pressure doesn't just reduce skill, it changes decision-making.</>,
     groups: [{ heading: "PersonaForce trains your team to perform when:", items: [
       "The prospect pushes back",
       "The rep feels rejected",
@@ -60,14 +60,14 @@ const LAYERS = [
   {
     num: "04",
     title: "Reinforce Culture Through Leadership",
-    what: <><strong className="text-white">What we do:</strong> We make the system stick through leadership behavior. Because sales culture is not built by values on a wall — it's built by what leaders tolerate, reward, and reinforce daily.</>,
+    what: <><strong className="text-white">What we do:</strong> We make the system stick through leadership behavior. Because sales culture is not built by values on a wall, it's built by what leaders tolerate, reward, and reinforce daily.</>,
     groups: [{ heading: "PersonaForce trains leaders to:", items: [
       "Coach without control",
       "Correct without shame",
       "Set standards without emotional escalation",
       "Lead consistently even under pressure",
     ] }],
-    outcome: "Your culture becomes stable — and your sales team stops cycling through burnout, inconsistency, and turnover.",
+    outcome: "Your culture becomes stable, and your sales team stops cycling through burnout, inconsistency, and turnover.",
   },
 ];
 
@@ -277,10 +277,10 @@ const SalesCulture = () => {
           <FadeUp>
             <div className="text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-[#5b8af5] mb-2 text-center">How Real Change Actually Happens</div>
             <h2 className="text-[clamp(22px,3.5vw,34px)] font-black text-center leading-[1.12] tracking-[-0.5px] mb-3">
-              MPHIAS™ — A <em className="text-[#5b8af5] not-italic">4-Layer System</em>
+              MPHIAS™, A <em className="text-[#5b8af5] not-italic">4-Layer System</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[560px] mx-auto mb-10 leading-[1.8]">
-              PersonaForce is a 4-layer system that stabilizes performance under pressure by training execution, leadership, and culture — not just tactics.
+              PersonaForce is a 4-layer system that stabilizes performance under pressure by training execution, leadership, and culture, not just tactics.
             </p>
           </FadeUp>
 
@@ -390,7 +390,7 @@ const SalesCulture = () => {
                 Ready to Build a Team That<br /><em className="text-[#5b8af5] not-italic">Holds Under Pressure?</em>
               </h2>
               <p className="text-[13.5px] md:text-[14px] text-[#eef0ff]/[0.58] leading-[1.8] mb-5">
-                PersonaForce Sales &amp; Culture Training installs the standards, coaching, and accountability your team needs to perform consistently — without burnout or breakdown.
+                PersonaForce Sales &amp; Culture Training installs the standards, coaching, and accountability your team needs to perform consistently, without burnout or breakdown.
               </p>
               <ConsultBtn />
             </div>

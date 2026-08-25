@@ -128,7 +128,7 @@ export const CHALLENGE_DAYS = [
       title: 'Identify Your Pressure Pattern',
       subtitle: '',
     },
-    form: { id: 'rnQSR176dCERTCj5vVze', height: 1132, name: "TJ Day 4 — PRESSURE REVEALS" },
+    form: { id: 'rnQSR176dCERTCj5vVze', height: 1132, name: "TJ Day 4, PRESSURE REVEALS" },
     completion: {
       title: 'Day 4 Complete',
       body: ['You have named the trader that pressure reveals.', 'Tomorrow is the final day.'],
@@ -162,7 +162,7 @@ export const CHALLENGE_DAYS = [
       subtitle: '',
     },
     // Day 5 is the only day that routes onward — into the map intake.
-    form: { id: 'qyFcFF2IWGa8slB3OOvT', height: 1468, name: "TJ Day 5 — FUTURE TRADER / FIRST 5%" },
+    form: { id: 'qyFcFF2IWGa8slB3OOvT', height: 1468, name: "TJ Day 5, FUTURE TRADER / FIRST 5%" },
     completion: {
       title: 'You Completed the Challenge',
       body: ['You now have five days of structured evidence about the trader behind your trades.', 'Your answers have been saved.', 'Your pattern is becoming visible.'],

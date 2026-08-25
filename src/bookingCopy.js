@@ -42,14 +42,14 @@ const bookingCopy = {
     eyebrow: 'Identity mapping session',
     title: [{ t: "Let's see who you become " }, { t: 'under pressure.', accent: true }],
     intro:
-      "In 30 minutes, we'll map the identity architecture beneath your performance — the drivers, the shadow patterns, the exact points where pressure causes collapse, and a clear path to stabilise it.",
+      "In 30 minutes, we'll map the identity architecture beneath your performance, the drivers, the shadow patterns, the exact points where pressure causes collapse, and a clear path to stabilise it.",
     bullets: personBullets,
   },
   home: {
     eyebrow: 'Identity mapping session',
     title: [{ t: "Let's see who you become " }, { t: 'under pressure.', accent: true }],
     intro:
-      "In 30 minutes, we'll map the identity architecture beneath your performance — the drivers, the shadow patterns, the exact points where pressure causes collapse, and a clear path to stabilise it.",
+      "In 30 minutes, we'll map the identity architecture beneath your performance, the drivers, the shadow patterns, the exact points where pressure causes collapse, and a clear path to stabilise it.",
     bullets: personBullets,
   },
 
@@ -58,7 +58,7 @@ const bookingCopy = {
     eyebrow: 'Strategy call',
     title: [{ t: "See your organization's " }, { t: 'identity map.', accent: true }],
     intro:
-      "In 30 minutes, we'll show you what AI Manager would reveal about your team — where communication friction is hiding, how your people perform under pressure, and how PersonaForce can be customised for your organization.",
+      "In 30 minutes, we'll show you what AI Manager would reveal about your team, where communication friction is hiding, how your people perform under pressure, and how PersonaForce can be customised for your organization.",
     bullets: [
       { bold: 'What AI Manager reveals', text: 'about how your team communicates, collaborates, and performs.' },
       { bold: 'Where friction is hiding', text: 'across leadership, departments, and customer-facing roles.' },
@@ -72,7 +72,7 @@ const bookingCopy = {
     eyebrow: 'Leadership strategy call',
     title: [{ t: 'See the identities ' }, { t: 'driving your company.', accent: true }],
     intro:
-      "In 30 minutes, we'll map where pressure, conflict, and performance gaps are most likely to emerge across your leadership and teams — and the leverage points to get ahead of them.",
+      "In 30 minutes, we'll map where pressure, conflict, and performance gaps are most likely to emerge across your leadership and teams, and the leverage points to get ahead of them.",
     bullets: orgBullets,
   },
 
@@ -81,7 +81,7 @@ const bookingCopy = {
     eyebrow: 'Sales identity session',
     title: [{ t: 'See the identity patterns ' }, { t: 'holding your team back.', accent: true }],
     intro:
-      "In 30 minutes, we'll map what shows up when your sellers hit pressure — the persona that closes, the shadow patterns that sabotage deals, and the path to stabilising performance on every call.",
+      "In 30 minutes, we'll map what shows up when your sellers hit pressure, the persona that closes, the shadow patterns that sabotage deals, and the path to stabilising performance on every call.",
     bullets: personBullets,
   },
 
@@ -90,7 +90,7 @@ const bookingCopy = {
     eyebrow: 'Culture mapping session',
     title: [{ t: 'See how your team ' }, { t: 'really communicates.', accent: true }],
     intro:
-      "In 30 minutes, we'll map your team's communication dynamics — how departments interact, where culture erodes under pressure, and how to install standards that actually hold.",
+      "In 30 minutes, we'll map your team's communication dynamics, how departments interact, where culture erodes under pressure, and how to install standards that actually hold.",
     bullets: orgBullets,
   },
 
@@ -99,7 +99,7 @@ const bookingCopy = {
     eyebrow: 'Performance session',
     title: [{ t: 'See who you become ' }, { t: 'on game day.', accent: true }],
     intro:
-      "In 30 minutes, we'll map the identity architecture beneath your performance — what drives you, what collapses under pressure, and the path to performing when everything's on the line.",
+      "In 30 minutes, we'll map the identity architecture beneath your performance, what drives you, what collapses under pressure, and the path to performing when everything's on the line.",
     bullets: personBullets,
   },
 
@@ -108,28 +108,28 @@ const bookingCopy = {
     eyebrow: 'Case strategy session',
     title: [{ t: 'See the behavior ' }, { t: 'behind the testimony.', accent: true }],
     intro:
-      "In 30 minutes, we'll show you how identity mapping sharpens jury selection, witness prep, and deposition strategy — so you read the room before it reads you.",
+      "In 30 minutes, we'll show you how identity mapping sharpens jury selection, witness prep, and deposition strategy, so you read the room before it reads you.",
     bullets: personBullets,
   },
   'jury-analysis': {
     eyebrow: 'Jury strategy session',
     title: [{ t: 'Read the jury ' }, { t: 'before they decide.', accent: true }],
     intro:
-      "In 30 minutes, we'll show you how PersonaForce maps juror identity — how they process, persuade, and pressure each other — so you shape the room instead of guessing at it.",
+      "In 30 minutes, we'll show you how PersonaForce maps juror identity, how they process, persuade, and pressure each other, so you shape the room instead of guessing at it.",
     bullets: personBullets,
   },
   'witness-identity': {
     eyebrow: 'Witness prep session',
     title: [{ t: 'Know how your witness ' }, { t: 'holds under pressure.', accent: true }],
     intro:
-      "In 30 minutes, we'll show you how identity mapping reveals how a witness performs on the stand — where they crack, where they convince, and how to prepare them for cross.",
+      "In 30 minutes, we'll show you how identity mapping reveals how a witness performs on the stand, where they crack, where they convince, and how to prepare them for cross.",
     bullets: personBullets,
   },
   'deposition-identity': {
     eyebrow: 'Deposition strategy session',
     title: [{ t: 'See who shows up ' }, { t: 'in the room.', accent: true }],
     intro:
-      "In 30 minutes, we'll show you how PersonaForce maps deposition behavior — how identity shifts under questioning, and how to use it to control the record.",
+      "In 30 minutes, we'll show you how PersonaForce maps deposition behavior, how identity shifts under questioning, and how to use it to control the record.",
     bullets: personBullets,
   },
 
@@ -140,7 +140,7 @@ const bookingCopy = {
     eyebrow: 'Free Identity Blueprint',
     title: [{ t: 'Get your free ' }, { t: 'Identity Blueprint.', accent: true }],
     intro:
-      "For anyone — whatever your field or role. Enter your details and we'll build your free PersonaForce™ Identity Blueprint: a first look at the hidden patterns shaping how you perform, decide, and respond under pressure. Delivered straight to your inbox.",
+      "For anyone, whatever your field or role. Enter your details and we'll build your free PersonaForce™ Identity Blueprint: a first look at the hidden patterns shaping how you perform, decide, and respond under pressure. Delivered straight to your inbox.",
     bullets: [
       { bold: 'Free.', text: 'Takes under two minutes to request.' },
       { bold: 'Built by Dr. Travis and Michelle Fox', text: 'on the PersonaForce identity framework.' },

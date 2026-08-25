@@ -58,12 +58,12 @@ const cfg = {
       { label: "Most attorneys try to:", value: "prepare what the witness will say" },
       { label: "PersonaForce helps you:", value: "stabilize how the witness will respond" },
     ],
-    note: <>Because under pressure, people don't access rehearsed answers — they revert to emotional patterns. And those patterns can be prepared for.</>,
+    note: <>Because under pressure, people don't access rehearsed answers, they revert to emotional patterns. And those patterns can be prepared for.</>,
   },
   trauma: {
     img: "/witness/trauma-bg.jpg",
     title: "Trauma-Informed Preparation",
-    lead: <>Some witnesses are not just under pressure — they are navigating <strong className="text-white">trauma responses.</strong></>,
+    lead: <>Some witnesses are not just under pressure, they are navigating <strong className="text-white">trauma responses.</strong></>,
     listHeading: "PersonaForce provides:",
     list: [
       "Trauma-aware preparation protocols",
@@ -76,7 +76,7 @@ const cfg = {
   finalCta: {
     titleA: "Prepare the witness.",
     titleEm: "Protect the testimony.",
-    body: "One call is all it takes to see exactly how identity intelligence protects your witness — and your case — before the pressure ever hits.",
+    body: "One call is all it takes to see exactly how identity intelligence protects your witness, and your case, before the pressure ever hits.",
   },
 };
 

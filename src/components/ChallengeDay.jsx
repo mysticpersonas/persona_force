@@ -51,7 +51,7 @@ const ChallengeDay = ({ day }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const prevTitle = document.title;
-    document.title = `${day.marker} — ${day.headline} · The Trader's Journey`;
+    document.title = `${day.marker}, ${day.headline} · The Trader's Journey`;
     // Private page — keep it out of search indexes.
     const meta = document.createElement('meta');
     meta.name = 'robots';

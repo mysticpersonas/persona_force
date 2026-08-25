@@ -196,7 +196,7 @@ const AiManager = () => {
               Helps organizations <em className="text-[#5b8af5] not-italic">see.</em>
             </h2>
             <p className="text-[15px] text-[#eef0ff]/60 text-center max-w-[580px] mx-auto mb-12 leading-[1.75]">
-              The patterns that drive performance are usually invisible. AI Manager makes them visible — across every person, team, and conversation.
+              The patterns that drive performance are usually invisible. AI Manager makes them visible, across every person, team, and conversation.
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -266,7 +266,7 @@ const AiManager = () => {
             <div className="bg-[#06081a] border border-[#3b6fe8]/[0.28] rounded-[18px] p-7 md:p-8 h-full">
               <div className="inline-block bg-[#7c3bed]/[0.15] border border-[#7c3bed]/[0.3] text-[#a78bfa] text-[11px] font-bold tracking-[0.12em] uppercase py-[5px] px-3.5 rounded-full mb-4">The Future Vision</div>
               <h3 className="text-[20px] font-black text-white mb-2 tracking-[-0.3px]">Your Own AI Manager Portal</h3>
-              <p className="text-[13.5px] text-[#eef0ff]/60 leading-[1.7] mb-6">Eventually, organizations will have a dedicated portal — an AI trained on the PersonaForce framework that can:</p>
+              <p className="text-[13.5px] text-[#eef0ff]/60 leading-[1.7] mb-6">Eventually, organizations will have a dedicated portal, an AI trained on the PersonaForce framework that can:</p>
               <div className="flex flex-col gap-3">
                 {FUTURE.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 text-[14px] text-[#eef0ff]/70 leading-[1.5]">
@@ -290,7 +290,7 @@ const AiManager = () => {
               Most managers are forced to guess.<br /><em className="text-[#5b8af5] not-italic">AI Manager provides visibility.</em>
             </h2>
             <p className="text-[16px] text-[#eef0ff]/60 leading-[1.8] max-w-[600px] mx-auto">
-              Not just into performance — into the <strong className="text-white">identities driving performance.</strong> Because when you understand how people communicate under pressure, you can build stronger teams, stronger leaders, and stronger organizations.
+              Not just into performance, into the <strong className="text-white">identities driving performance.</strong> Because when you understand how people communicate under pressure, you can build stronger teams, stronger leaders, and stronger organizations.
             </p>
           </div>
         </FadeUp>

@@ -45,12 +45,12 @@ const OptInThankYou = () => {
             <h1 className="text-[clamp(30px,6vw,48px)] font-black tracking-[-1px] leading-[1.1]">You&rsquo;re In</h1>
 
             <p className="text-[15px] md:text-[17px] text-[#eef0ff]/[0.58] mt-6 leading-[1.7]">
-              Your opt-in is confirmed. The 5-Day Trader Identity Challenge™ has begun — your Day 1
-              session is on its way.
+              Your opt-in is confirmed. Your place in the 5-Day Trader Identity Challenge™ is held.
             </p>
 
             <p className="text-[13.5px] text-[#eef0ff]/[0.4] mt-5 leading-[1.7]">
-              Check your email for your Day 1 access.
+              We&rsquo;ll email you reminders in the run-up to the event. Each day&rsquo;s reflection
+              is sent after that day&rsquo;s session.
             </p>
 
             <Link

@@ -252,7 +252,7 @@ const JuryAnalysis = () => {
               Introducing Juror Identity <em className="text-[#5b8af5] not-italic">Architecture™</em>
             </h2>
             <p className="text-[14px] text-[#eef0ff]/[0.58] text-center max-w-[620px] mx-auto mb-10 leading-[1.8]">
-              PersonaForce is a 4-layer system that stabilizes performance under pressure by training execution, leadership, and culture — not just tactics.
+              PersonaForce is a 4-layer system that stabilizes performance under pressure by training execution, leadership, and culture, not just tactics.
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-[820px] mx-auto">
