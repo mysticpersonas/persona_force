@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowDown, Check } from 'lucide-react';
 import FadeUp from './FadeUp';
-import TjLogo from './TjLogo';
+import TjHeader from './TjHeader';
+import TjFooter from './TjFooter';
 import TjForm from './TjForm';
 
 /**
@@ -66,24 +67,7 @@ const ChallengeDay = ({ day }) => {
   return (
     <div className="min-h-screen bg-[#0b0f14] text-white font-tj-body overflow-x-hidden antialiased selection:bg-[#00e676]/25 selection:text-white">
 
-      {/* The performance gradient as a hairline across the very top — loss to profit,
-          the brand's whole thesis in 3px. */}
-      <div aria-hidden="true" className="h-[3px] w-full bg-[linear-gradient(90deg,#ff3b30_0%,#ff8a00_34%,#ffd100_62%,#00e676_100%)]" />
-
-      {/* 1 — LOGO ONLY. No nav links, no day links. */}
-      <header className="border-b border-white/[0.07] bg-[#0b0f14]">
-        <div className="max-w-[880px] mx-auto px-5 md:px-8 py-4 flex items-center gap-3">
-          <TjLogo className="w-9 h-9 md:w-10 md:h-10 shrink-0" />
-          <div className="leading-none">
-            <div className="font-tj-display text-[13px] md:text-[15px] font-black uppercase tracking-[0.06em] text-white">
-              The Trader&rsquo;s
-            </div>
-            <div className="font-tj-sub text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.42em] text-[#00e676] mt-1">
-              Journey
-            </div>
-          </div>
-        </div>
-      </header>
+      <TjHeader />
 
       <main className="px-5 md:px-8 py-14 md:py-20">
         <div className="max-w-[880px] mx-auto">
@@ -246,22 +230,7 @@ const ChallengeDay = ({ day }) => {
         </div>
       </main>
 
-      {/* footer — disclaimer only, no nav links */}
-      <footer className="px-5 md:px-8 py-12 border-t border-white/[0.07]">
-        <div className="max-w-[680px] mx-auto text-center">
-          <p className="font-tj-sub text-[10px] font-semibold uppercase tracking-[0.3em] text-white/25 mb-5">
-            Cut Losses. Stack Wins.
-          </p>
-          <p className="text-[11.5px] leading-[1.75] text-white/30">
-            The Trader&rsquo;s Journey is an educational and identity-development experience. It does not
-            provide financial, investment, tax, legal, or trading advice. Results vary. Participants
-            are responsible for their own trading decisions.
-          </p>
-          <p className="text-[11px] text-white/20 mt-5">
-            © {new Date().getFullYear()} The Trader&rsquo;s Journey
-          </p>
-        </div>
-      </footer>
+      <TjFooter />
     </div>
   );
 };
