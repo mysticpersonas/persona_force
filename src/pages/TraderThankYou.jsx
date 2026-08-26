@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MailCheck, ListChecks, CalendarClock, Award, Sparkles, Clock } from 'lucide-react';
+import { ArrowRight, MailCheck, ListChecks, CalendarClock, Award, Sparkles } from 'lucide-react';
 import ParticleField from '../components/ParticleField';
 import FadeUp from '../components/FadeUp';
 import TjHeader from '../components/TjHeader';
@@ -20,7 +20,7 @@ const NEXT_STEPS = [
   // the time of writing — if he confirms it is still selective, revert to:
   // 'You may be selected for a complimentary Map' / 'Selected participants are
   // considered for a private Trader’s Journey Map.'
-  { icon: Award, title: 'Complete all five reflections, get your Map', desc: 'Finish every daily reflection and your private Trader’s Journey Map is yours. No selection, no lottery, just the work.', wide: true },
+  { icon: Award, title: 'Complete all five reflections, get your Map', desc: 'Finish every daily reflection and your private Trader’s Journey Map is yours.', wide: true },
 ];
 
 const TraderThankYou = () => {
@@ -43,8 +43,6 @@ const TraderThankYou = () => {
 
         <TjHeader />
 
-        {/* spacer for the fixed announce bar + nav */}
-        <div className="pt-[80px] md:pt-[110px]" />
 
         {/* ======================= CONFIRMATION HERO ======================= */}
         <section className="relative overflow-hidden">
@@ -68,7 +66,7 @@ const TraderThankYou = () => {
 
             <FadeUp delay={200}>
               <p className="text-[16px] md:text-[19px] text-[#c3cad6] mt-6 leading-[1.6] max-w-[560px] mx-auto">
-                Welcome to the <span className="text-white font-semibold">The Trader’s Journey Founder Pilot.</span>
+                Welcome to <span className="text-white font-semibold">The Trader’s Journey Founder Pilot.</span>
               </p>
             </FadeUp>
 
@@ -133,12 +131,19 @@ const TraderThankYou = () => {
               ))}
             </div>
 
-            {/* spam note */}
+            {/* Deliverability note. Given every reminder and every daily reflection
+                now arrives by email, this is load-bearing, so it gets the green
+                accent and a bolded instruction rather than sitting as grey fine print. */}
             <FadeUp delay={120}>
-              <div className="flex items-center justify-center gap-2.5 mt-8 text-center rounded-xl bg-white/[0.02] border border-white/[0.06] px-5 py-4">
-                <Clock className="w-4 h-4 text-[#6c7482] shrink-0" />
-                <p className="text-[13px] text-[#8a93a3] leading-[1.5]">
-                  Add us to your contacts so the reminders land in your inbox, not your promotions, spam, or updates folder.
+              <div className="flex items-start gap-3.5 mt-8 rounded-xl bg-[#00e676]/[0.06] border border-[#00e676]/[0.28] px-5 py-4 text-left">
+                <MailCheck className="w-[18px] h-[18px] text-[#00e676] shrink-0 mt-0.5" />
+                <p className="text-[13px] md:text-[13.5px] text-[#c3cad6] leading-[1.65]">
+                  If you don&rsquo;t see the confirmation email, check your promotions or spam
+                  folders, then{' '}
+                  <strong className="font-semibold text-white">
+                    reply to it and move it to your primary inbox
+                  </strong>{' '}
+                  so you don&rsquo;t miss out on the reminders.
                 </p>
               </div>
             </FadeUp>
