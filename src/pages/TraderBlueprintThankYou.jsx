@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
+import TjHeader from '../components/TjHeader';
+import TjFooter from '../components/TjFooter';
 import FadeUp from '../components/FadeUp';
 
 /**
@@ -11,7 +13,7 @@ const TraderBlueprintThankYou = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const prevTitle = document.title;
-    document.title = 'Thank You · PersonaForce Trader™';
+    document.title = 'Thank You · The Trader’s Journey';
     const meta = document.createElement('meta');
     meta.name = 'robots';
     meta.content = 'noindex, nofollow';
@@ -23,34 +25,26 @@ const TraderBlueprintThankYou = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#06081a] text-[#eef0ff] font-sans overflow-x-hidden selection:bg-[#3b6fe8]/30 selection:text-white antialiased flex flex-col">
+    <div className="min-h-screen bg-[#0b0f14] text-[#ffffff] font-tj-body overflow-x-hidden selection:bg-[#00e676]/30 selection:text-white antialiased flex flex-col">
 
-      {/* mini nav — logo only */}
-      <header className="border-b border-white/[0.06]">
-        <div className="max-w-[860px] mx-auto px-5 md:px-8 py-4 flex items-center gap-2.5">
-          <img src="/pf_logo.png" alt="PersonaForce Trader" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-          <span className="text-[14px] md:text-[15px] font-extrabold tracking-[-0.3px]">
-            Persona<span className="text-[#5b8af5]">Force Trader™</span>
-          </span>
-        </div>
-      </header>
+      <TjHeader />
 
       <main className="flex-1 flex items-center justify-center px-5 md:px-8 py-20">
         <FadeUp>
           <div className="max-w-[520px] mx-auto text-center">
-            <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#3b6fe8]/[0.15] border border-[#3b6fe8]/[0.35] shadow-[0_0_36px_rgba(59,111,232,0.3)] mb-8">
-              <Check className="w-7 h-7 text-[#5b8af5]" strokeWidth={3} />
+            <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#00e676]/[0.15] border border-[#00e676]/[0.35] shadow-[0_0_36px_rgba(0,230,118,0.3)] mb-8">
+              <Check className="w-7 h-7 text-[#00e676]" strokeWidth={3} />
             </span>
 
-            <h1 className="text-[clamp(30px,6vw,48px)] font-display font-normal tracking-[-0.015em] leading-[1.1]">
+            <h1 className="text-[clamp(30px,6vw,48px)] font-tj-display font-black uppercase tracking-[0.02em] leading-[1.1]">
               Your Blueprint Is On Its Way
             </h1>
 
-            <p className="text-[15px] md:text-[17px] text-[#eef0ff]/[0.58] mt-6 leading-[1.7]">
-              Check your email in the next few minutes for your free PersonaForce Trader™ Blueprint.
+            <p className="text-[15px] md:text-[17px] text-[#ffffff]/[0.58] mt-6 leading-[1.7]">
+              Check your email in the next few minutes for your free The Trader’s Journey Blueprint.
             </p>
 
-            <p className="text-[13.5px] text-[#eef0ff]/[0.4] mt-5 leading-[1.7]">
+            <p className="text-[13.5px] text-[#ffffff]/[0.4] mt-5 leading-[1.7]">
               If you don&rsquo;t see it, check your promotions, spam, or updates folder.
             </p>
 
@@ -58,19 +52,13 @@ const TraderBlueprintThankYou = () => {
               to="/trader"
               className="inline-flex items-center justify-center mt-10 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.12] text-white px-6 py-3.5 rounded-[10px] text-[14px] font-semibold transition-colors"
             >
-              Back to PersonaForce Trader™
+              Back to The Trader’s Journey
             </Link>
           </div>
         </FadeUp>
       </main>
 
-      <footer className="px-5 md:px-8 py-10 border-t border-white/[0.06]">
-        <div className="max-w-[680px] mx-auto text-center">
-          <p className="text-[11px] text-[#eef0ff]/[0.2]">
-            © {new Date().getFullYear()} PersonaForce Trader™ · Discover the Trader Behind the Trade™
-          </p>
-        </div>
-      </footer>
+      <TjFooter />
     </div>
   );
 };

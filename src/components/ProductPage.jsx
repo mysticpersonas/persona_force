@@ -40,24 +40,29 @@ const ProductPage = ({
   }, [docTitle]);
 
   return (
-    <div className="relative min-h-screen bg-[#0A0F1F] text-white font-sans overflow-x-hidden selection:bg-[#00AEEF]/30 selection:text-white antialiased">
+    <div className="relative min-h-screen bg-[#0b0f14] text-white font-tj-body overflow-x-hidden selection:bg-[#00e676]/30 selection:text-white antialiased">
 
       {/* ambient depth — same as the rest of the PFT site */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-0 opacity-[0.5] [background-image:linear-gradient(rgba(0,174,239,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(0,174,239,0.045)_1px,transparent_1px)] [background-size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_80%)]" />
-        <div className="absolute top-[12%] -left-40 w-[420px] h-[420px] rounded-full bg-[#00AEEF]/[0.05] blur-[120px]" />
-        <div className="absolute top-[60%] -right-40 w-[460px] h-[460px] rounded-full bg-[#7A2DFF]/[0.05] blur-[130px]" />
+        <div className="absolute inset-0 opacity-[0.5] [background-image:linear-gradient(rgba(0,230,118,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(0,230,118,0.045)_1px,transparent_1px)] [background-size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_80%)]" />
+        <div className="absolute top-[12%] -left-40 w-[420px] h-[420px] rounded-full bg-[#00e676]/[0.05] blur-[120px]" />
+        <div className="absolute top-[60%] -right-40 w-[460px] h-[460px] rounded-full bg-[#7b2cff]/[0.05] blur-[130px]" />
       </div>
 
       <div className="relative z-10">
 
         {/* SECTION 1 — MINI NAV (private page: logo + Book a Call only, no links/hamburger) */}
-        <nav className="fixed top-0 w-full z-40 flex justify-center border-b border-white/[0.06] bg-[#0A0F1F]/95 backdrop-blur-md py-3 md:py-4">
+        <nav className="fixed top-0 w-full z-40 flex justify-center border-b border-white/[0.06] bg-[#0b0f14]/95 backdrop-blur-md py-3 md:py-4">
           <div className="w-full max-w-[1100px] px-5 md:px-8 flex justify-between items-center gap-4">
             <Link to="/trader" className="flex items-center gap-2 md:gap-2.5 shrink-0">
-              <img src="/pf_logo.png" alt="PersonaForce" className="w-7 h-7 md:w-8 md:h-8 rounded-lg shrink-0 object-contain" />
-              <div className="text-[14px] md:text-base font-extrabold tracking-[-0.3px] text-white">
-                PersonaForce<span className="bg-gradient-to-r from-[#00AEEF] to-[#7A2DFF] bg-clip-text text-transparent"> Trader™</span>
+              <img src="/tj_logo.jpeg" alt="The Trader's Journey" className="w-8 h-8 md:w-9 md:h-9 rounded-lg shrink-0 object-cover" />
+              <div className="leading-none">
+                <div className="font-tj-display text-[12px] md:text-[13.5px] font-black uppercase tracking-[0.06em] text-white">
+                  The Trader&rsquo;s
+                </div>
+                <div className="font-tj-sub text-[8.5px] md:text-[9.5px] font-semibold uppercase tracking-[0.42em] text-[#00e676] mt-1">
+                  Journey
+                </div>
               </div>
             </Link>
             <Link
@@ -73,16 +78,16 @@ const ProductPage = ({
         {/* SECTION 2 — HERO (no CTA — let them scroll) */}
         <section className="relative overflow-hidden">
           <ParticleField className="absolute inset-0 w-full h-full" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,transparent_0%,#0A0F1F_78%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,transparent_0%,#0b0f14_78%)]" />
           <div className="relative z-10 max-w-[800px] mx-auto px-5 md:px-8 pt-14 pb-20 md:pt-20 md:pb-28 text-center">
             <FadeUp>
-              <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-[#00AEEF]/[0.3] text-[#5fd0f5] text-[10px] md:text-[11px] font-bold tracking-[0.16em] uppercase py-1.5 px-4 rounded-full mb-7">
-                <span className="w-[5px] h-[5px] rounded-full bg-[#00AEEF] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
+              <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-[#00e676]/[0.3] text-[#00e676] text-[10px] md:text-[11px] font-bold tracking-[0.16em] uppercase py-1.5 px-4 rounded-full mb-7">
+                <span className="w-[5px] h-[5px] rounded-full bg-[#00e676] animate-[pulse_1.5s_ease-in-out_infinite] shrink-0" />
                 Founder Pilot, Private Access Only
               </div>
             </FadeUp>
             <FadeUp delay={100}>
-              <h1 className="text-[clamp(28px,5.6vw,54px)] font-black leading-[1.1] tracking-[-1px] max-w-[720px] mx-auto">{headline}</h1>
+              <h1 className="text-[clamp(28px,5.6vw,54px)] font-tj-display font-black uppercase leading-[1.1] tracking-[0.02em] max-w-[720px] mx-auto">{headline}</h1>
             </FadeUp>
             <FadeUp delay={200}>
               <p className="text-[15px] md:text-[18px] text-[#aab2cc] mt-6 leading-[1.7] max-w-[600px] mx-auto">{sub}</p>
@@ -94,7 +99,7 @@ const ProductPage = ({
         <section className="px-5 md:px-8 py-16 md:py-24 border-t border-white/[0.05]">
           <div className="max-w-[1000px] mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <FadeUp>
-              <h2 className="text-[clamp(22px,3.4vw,32px)] font-black tracking-[-0.6px] leading-[1.2]">{whatIsBold}</h2>
+              <h2 className="text-[clamp(22px,3.4vw,32px)] font-tj-display font-black uppercase tracking-[0.02em] leading-[1.2]">{whatIsBold}</h2>
             </FadeUp>
             <FadeUp delay={120}>
               <div className="md:border-l border-white/[0.08] md:pl-12">
@@ -109,18 +114,18 @@ const ProductPage = ({
           <div className="max-w-[900px] mx-auto">
             <FadeUp>
               <div className="text-center mb-12 md:mb-14">
-                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-3">What&rsquo;s Included</div>
-                <h2 className="text-[clamp(24px,4vw,38px)] font-black tracking-[-0.6px]">Everything in this container</h2>
+                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#00e676] mb-3">What&rsquo;s Included</div>
+                <h2 className="text-[clamp(24px,4vw,38px)] font-tj-display font-black uppercase tracking-[0.02em]">Everything in this container</h2>
               </div>
             </FadeUp>
             <div className="flex flex-col gap-3.5">
               {included.map((it, i) => (
                 <FadeUp key={i} delay={i * 60}>
-                  <div className="flex items-start gap-4 rounded-xl bg-white/[0.025] border border-white/[0.07] border-l-2 border-l-[#00AEEF] p-5 md:p-6 hover:bg-white/[0.04] transition-colors">
-                    <span className="shrink-0 w-8 h-8 rounded-lg bg-[#00AEEF]/[0.12] border border-[#00AEEF]/[0.3] flex items-center justify-center text-[13px] font-black text-[#5fd0f5]">{i + 1}</span>
+                  <div className="flex items-start gap-4 rounded-xl bg-white/[0.025] border border-white/[0.07] border-l-2 border-l-[#00e676] p-5 md:p-6 hover:bg-white/[0.04] transition-colors">
+                    <span className="shrink-0 w-8 h-8 rounded-lg bg-[#00e676]/[0.12] border border-[#00e676]/[0.3] flex items-center justify-center text-[13px] font-tj-display font-black uppercase text-[#00e676]">{i + 1}</span>
                     <div>
                       <h3 className="text-[15px] md:text-[16px] font-bold text-white mb-1.5">{it.title}</h3>
-                      <p className="text-[13.5px] text-[#9aa1b8] leading-[1.6]">{it.desc}</p>
+                      <p className="text-[13.5px] text-[#8a93a3] leading-[1.6]">{it.desc}</p>
                     </div>
                   </div>
                 </FadeUp>
@@ -134,11 +139,11 @@ const ProductPage = ({
           <div className="max-w-[1000px] mx-auto grid md:grid-cols-2 gap-6">
             <FadeUp>
               <div className="h-full rounded-2xl bg-white/[0.025] border border-white/[0.07] p-7 md:p-8">
-                <h3 className="flex items-center gap-2 text-[13px] font-bold tracking-[0.14em] uppercase text-[#5fd0f5] mb-6"><span className="w-6 h-px bg-[#00AEEF]" /> This is for you if…</h3>
+                <h3 className="flex items-center gap-2 text-[13px] font-bold tracking-[0.14em] uppercase text-[#00e676] mb-6"><span className="w-6 h-px bg-[#00e676]" /> This is for you if…</h3>
                 <div className="flex flex-col gap-4">
                   {forYou.map((line, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-[#00AEEF]/15 border border-[#00AEEF]/40 flex items-center justify-center"><Check className="w-3 h-3 text-[#00AEEF]" strokeWidth={3} /></span>
+                      <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-[#00e676]/15 border border-[#00e676]/40 flex items-center justify-center"><Check className="w-3 h-3 text-[#00e676]" strokeWidth={3} /></span>
                       <p className="text-[14px] text-[#cdd4e6] leading-[1.55]">{line}</p>
                     </div>
                   ))}
@@ -165,17 +170,17 @@ const ProductPage = ({
         <section className="px-5 md:px-8 py-16 md:py-24">
           <div className="max-w-[560px] mx-auto">
             <FadeUp>
-              <div className="rounded-2xl bg-gradient-to-b from-[#0e1730] to-[#0A0F1F] border border-[#00AEEF]/25 shadow-[0_0_60px_rgba(0,174,239,0.12)] p-7 md:p-10 text-center">
-                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#5fd0f5] mb-4">The Investment</div>
-                <div className="text-[clamp(44px,10vw,64px)] font-black tracking-[-2px] leading-none">{price}</div>
-                <div className="text-[13px] text-[#9aa1b8] mt-2">One-time payment</div>
+              <div className="rounded-2xl bg-gradient-to-b from-[#11151d] to-[#0b0f14] border border-[#00e676]/25 shadow-[0_0_60px_rgba(0,230,118,0.12)] p-7 md:p-10 text-center">
+                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#00e676] mb-4">The Investment</div>
+                <div className="text-[clamp(44px,10vw,64px)] font-tj-display font-black uppercase tracking-[0.02em] leading-none">{price}</div>
+                <div className="text-[13px] text-[#8a93a3] mt-2">One-time payment</div>
 
                 <div className="my-7 h-px bg-white/[0.08]" />
 
                 <div className="flex flex-col gap-3 text-left">
                   {pricingSummary.map((line, i) => (
                     <div key={i} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-[#00AEEF] mt-0.5 shrink-0" strokeWidth={3} />
+                      <Check className="w-4 h-4 text-[#00e676] mt-0.5 shrink-0" strokeWidth={3} />
                       <span className="text-[13.5px] text-[#cdd4e6] leading-[1.5]">{line}</span>
                     </div>
                   ))}
@@ -185,7 +190,7 @@ const ProductPage = ({
 
                 <a
                   href={paymentLink}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0bb9f8] text-[#04121f] py-4 rounded-xl text-[16px] font-bold transition-colors animate-[pftGlow_3s_ease-in-out_infinite]"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#00e676] hover:bg-[#3bff9b] text-[#0b0f14] py-4 rounded-xl text-[16px] font-bold transition-colors animate-[pftGlow_3s_ease-in-out_infinite]"
                 >
                   Get Started, {price} <ArrowRight className="w-4 h-4" />
                 </a>
@@ -195,8 +200,8 @@ const ProductPage = ({
             </FadeUp>
 
             <FadeUp delay={100}>
-              <p className="text-[11.5px] leading-[1.7] text-[#646b85] text-center mt-7 max-w-[480px] mx-auto">
-                PersonaForce Trader™ is an educational and identity-development experience. It does not
+              <p className="text-[11.5px] leading-[1.7] text-[#6c7482] text-center mt-7 max-w-[480px] mx-auto">
+                The Trader’s Journey is an educational and identity-development experience. It does not
                 provide financial, investment, tax, legal, or trading advice. Results vary. Participants
                 are responsible for their own trading decisions.
               </p>
@@ -208,12 +213,12 @@ const ProductPage = ({
         <footer className="px-5 md:px-8 py-12 border-t border-white/[0.06]">
           <div className="max-w-[680px] mx-auto text-center">
             <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[14px] text-[#cdd4e6]">
-              <Mail className="w-4 h-4 text-[#5fd0f5]" />
+              <Mail className="w-4 h-4 text-[#00e676]" />
               Questions? Reply to your email or reach us at
-              <a href="mailto:TF@personaforce.co" className="text-[#5fd0f5] hover:text-white font-semibold transition-colors">TF@personaforce.co</a>
+              <a href="mailto:TF@personaforce.co" className="text-[#00e676] hover:text-white font-semibold transition-colors">TF@personaforce.co</a>
             </p>
             <p className="text-[11px] text-[#3f4763] mt-6">
-              © {new Date().getFullYear()} PersonaForce Trader™ · Discover the Trader Behind the Trade™
+              © {new Date().getFullYear()} The Trader’s Journey · Discover the Trader Behind the Trade™
             </p>
           </div>
         </footer>
