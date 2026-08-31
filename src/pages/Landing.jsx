@@ -27,6 +27,15 @@ const OS_CLIP = [{ src: '/3d/30yrsos.mp4', duration: 4 }];
 const Landing = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  // Resolved once, lazily, so the browser is never asked to fetch both cuts.
+  // Deliberately not reactive: swapping the hero's src mid-session would restart
+  // the sky, and nobody resizes a phone into a desktop.
+  const [heroSrc] = useState(() =>
+    window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
+      ? '/3d/3d_bg-m.mp4'
+      : '/3d/3d_bg.mp4'
+  );
+
   const testimonials = [
     {
       quote: "First program that gave me a system, not just a framework. Understanding my shadow personas and how to shift out of pressure in real time changed how I handle every high stakes negotiation.",
@@ -143,9 +152,12 @@ const Landing = () => {
         {/* 3D plate — confined to the hero viewport and left to loop on its own.
             Stretching it over the full sky (hero + video) distorted the footage. */}
         <div className="absolute inset-x-0 top-0 h-[100svh] overflow-hidden">
+          {/* Phones get the 640px cut (152KB vs 574KB) and a poster, so the sky
+              has its first frame before a single byte of video has arrived. */}
           <video
             className="pf-bgvid h-full w-full object-cover"
-            src="/3d/3d_bg.mp4"
+            src={heroSrc}
+            poster="/3d/3d_bg.jpg"
             autoPlay
             loop
             muted
