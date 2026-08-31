@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Master 3D footage (29MB of 5-13Mbps source). public/3d holds the web encodes
+# generated from these; keep this folder backed up outside git, or drop the
+# "#" below if you would rather version the masters.
+video-src

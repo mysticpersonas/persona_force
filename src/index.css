@@ -189,6 +189,33 @@ html {
   mix-blend-mode: screen;
 }
 
+/* Lite mode swaps a single element's clip, so it fades in on mount rather than
+   crossfading against a second decoder. `both` parks it on the target opacity,
+   which the component hands over as --pf-vid-o. */
+@keyframes pfVidIn {
+  from { opacity: 0; }
+  to   { opacity: var(--pf-vid-o, 0.3); }
+}
+
+.pf-sectionvid--lite {
+  animation: pfVidIn 700ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* A `mix-blend-mode` layer nested inside a live 3D transform forces the phone to
+   re-composite the whole plate off-screen on every scroll frame — the single
+   biggest cause of the stutter on mobile. On touch viewports the plate keeps its
+   entrance (translate + fade, both cheap) and drops the rotateX/perspective. */
+@media (max-width: 900px), (pointer: coarse) {
+  .pf-plate {
+    perspective: none;
+  }
+
+  .pf-plate-inner {
+    transform: translateY(var(--pf-pl-y, 56px)) scale(var(--pf-pl-s, 1.14));
+    will-change: opacity;
+  }
+}
+
 /* Scroll button — a ring that keeps breathing outward, so it reads as an
    invitation rather than a static control. */
 @keyframes pfHalo {
@@ -208,6 +235,33 @@ html {
   .pf-scroll-out,
   .pf-pop { transform: none; opacity: 1; filter: none; }
   .pf-plate-inner { transform: none; opacity: 1; }
+}
+
+/* --- Trader's Journey embedded forms (Day 1–5, intake, blueprint) ----------
+   These rules are what TjForm.jsx has always assumed existed. Without them the
+   iframe had NO width declared anywhere, so it fell back to the HTML spec's
+   default intrinsic iframe size — 300px wide — which is why every day's form
+   rendered as a narrow, hard-wrapped column inside a full-width white card. */
+.tj-form__frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  /* Fallback only. GHL's form_embed.js measures the rendered form and writes a
+     real px height to the iframe's inline style, which beats this. This is what
+     holds the layout for the window before that lands, and if the script is
+     slow, blocked by a content blocker, or fails. */
+  height: var(--tj-form-h, 1200px);
+}
+
+/* The heights in challengeDays.js came from GHL's embed snippet, which measures
+   at desktop width. On a phone the same form stacks every field and its labels
+   wrap to two or three lines, so it runs far taller — a fixed number would clip
+   the submit button off the bottom until the script resized it. Scaling the same
+   value keeps the per-day differences (Day 5 is 1468px, Day 3 only 1166px). */
+@media (max-width: 767px) {
+  .tj-form__frame {
+    height: calc(var(--tj-form-h, 1200px) * 1.55);
+  }
 }
 
 wistia-player[media-id='ey25sbhvm4']:not(:defined) {

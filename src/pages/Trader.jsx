@@ -223,7 +223,9 @@ const Trader = () => {
 
       <div className="relative z-10">
 
-      <TjHeader width="max-w-[1100px]" />
+      {/* nav — this is the public entry page, not a funnel step. Without it there
+          was no route back to the main site from /trader. */}
+      <TjHeader width="max-w-[1100px]" nav />
 
       
       {/* ============================ 1 · HERO ============================ */}
