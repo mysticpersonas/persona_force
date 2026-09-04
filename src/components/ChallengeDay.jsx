@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown, Check } from 'lucide-react';
+import { ArrowDown, Check } from 'lucide-react';
 import FadeUp from './FadeUp';
 import TjHeader from './TjHeader';
 import TjFooter from './TjFooter';
@@ -208,17 +207,13 @@ const ChallengeDay = ({ day }) => {
                 </p>
               )}
 
-              {/* Day 5 only — the single onward step, into the map intake */}
+              {/* Day 5 only — the closing note that ends the challenge.
+                  There is deliberately no CTA here: the five daily reflections
+                  ARE the map input, so an extra intake form would only ask the
+                  trader to re-submit what they have already given us. */}
               {day.completion.final && (
-                <div className="mt-8 pt-7 border-t border-white/[0.07] flex flex-col items-center">
-                  <Link
-                    to="/trader/trader-intake"
-                    className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-[10px] bg-[#00e676] px-8 py-4 font-tj-sub text-[14px] font-bold uppercase tracking-[0.1em] text-[#0b0f14] shadow-[0_0_30px_rgba(0,230,118,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(0,230,118,0.55)]"
-                  >
-                    Continue to My Map Confirmation
-                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link>
-                  <p className="text-[12.5px] text-white/40 mt-5 max-w-[420px] leading-[1.75]">
+                <div className="mt-8 pt-7 border-t border-white/[0.07]">
+                  <p className="text-[12.5px] text-white/40 max-w-[420px] mx-auto leading-[1.75]">
                     The market does not create your identity.<br />
                     It reveals it.<br />
                     Now we begin mapping what it revealed.

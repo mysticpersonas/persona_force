@@ -1,8 +1,9 @@
 /* ------------------------------------------------------------------ *
  *  5-Day Trader Identity Challenge™ — copy + video for each day.      *
  *  Each day renders as its OWN standalone page (no scrolling between  *
- *  days, no links between days). Reflection questions are visual UI   *
- *  only — real capture happens on /trader/trader-intake (GHL form).   *
+ *  days, no links between days). Each day's GHL form is where that    *
+ *  day's answers are captured, and the five together ARE the input to *
+ *  the PersonaForce Trader™ Map — there is no separate intake step.   *
  * ------------------------------------------------------------------ */
 export const CHALLENGE_DAYS = [
   {
@@ -161,12 +162,12 @@ export const CHALLENGE_DAYS = [
       title: 'Define Your Future Trader',
       subtitle: '',
     },
-    // Day 5 is the only day that routes onward — into the map intake.
     form: { id: 'qyFcFF2IWGa8slB3OOvT', height: 1468, name: "TJ Day 5, FUTURE TRADER / FIRST 5%" },
     completion: {
       title: 'You Completed the Challenge',
       body: ['You now have five days of structured evidence about the trader behind your trades.', 'Your answers have been saved.', 'Your pattern is becoming visible.'],
-      next: 'One final step remains: review and confirm the information that will be used to prepare your PersonaForce Trader™ Map.',
+      // No `next` here: days 1–4 use it to tease tomorrow, but day 5 has no
+      // tomorrow and no onward step. The five reflections are the map input.
       final: true,
     },
   },
