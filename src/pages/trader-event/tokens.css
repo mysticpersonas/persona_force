@@ -1,0 +1,104 @@
+/* Design tokens for /trader/event.
+   Scoped to the page root (not :root) so nothing leaks into other pages.
+   Components read these through var(); no raw colors in component CSS. */
+
+[data-page='trader-event'] {
+  /* Color */
+  --te-bg: #050b0f;
+  --te-card: #0b1116;
+  --te-card-raised: #0f171d;
+  --te-gold-light: #f5d28b;
+  --te-gold-highlight: #fff1c9;
+  --te-gold-mid: #c99442;
+  --te-gold-deep: #ad7528;
+  --te-teal: #00cddf;
+  --te-ivory: #faf2e0;
+  /* #BDB6AA passes AA on --te-bg (~10:1); kept as specified */
+  --te-muted: #bdb6aa;
+  /* Disclaimer gray, still ~6.5:1 on --te-bg */
+  --te-faint: #9b958b;
+  --te-ink: #17110a; /* dark text on gold */
+  --te-field: #faf7f0;
+  --te-field-ink: #1a1a1a;
+  --te-field-placeholder: #6e6a63;
+  --te-error: #ff8a80; /* AA on the dark card */
+  --te-error-ink: #b3261e; /* AA on the light field */
+  --te-success: #7ee0a5;
+  --te-hairline: rgba(245, 210, 139, 0.22);
+
+  /* Metallic gold: light, deep, then a bright highlight band */
+  --te-gold-text: linear-gradient(
+    180deg,
+    var(--te-gold-highlight) 0%,
+    var(--te-gold-light) 26%,
+    var(--te-gold-mid) 46%,
+    var(--te-gold-deep) 56%,
+    var(--te-gold-light) 76%,
+    var(--te-gold-highlight) 88%,
+    var(--te-gold-mid) 100%
+  );
+  --te-gold-border: linear-gradient(
+    135deg,
+    var(--te-gold-light),
+    var(--te-gold-deep) 35%,
+    var(--te-gold-light) 60%,
+    var(--te-gold-deep)
+  );
+  --te-gold-fill: linear-gradient(180deg, #f8dd9e 0%, var(--te-gold-light) 30%, var(--te-gold-mid) 70%, #b98235 100%);
+  /* Fine vertical lines on top of the gold fill read as "brushed" metal */
+  --te-brush: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 0 1px,
+    rgba(0, 0, 0, 0.04) 1px 3px,
+    transparent 3px 5px
+  );
+
+  /* Type */
+  --te-font-display: 'Cinzel', 'Times New Roman', serif;
+  --te-font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --te-text-xs: 11px;
+  --te-text-sm: 13px;
+  --te-text-base: 15px;
+  --te-text-md: 17px;
+  --te-text-lg: 20px;
+  --te-text-xl: 24px;
+  --te-text-2xl: 32px;
+  --te-tracking-wide: 0.35em;
+  --te-tracking-caps: 0.08em;
+
+  /* Spacing (4px base) */
+  --te-space-1: 4px;
+  --te-space-2: 8px;
+  --te-space-3: 12px;
+  --te-space-4: 16px;
+  --te-space-5: 20px;
+  --te-space-6: 24px;
+  --te-space-8: 32px;
+  --te-space-10: 40px;
+  --te-space-12: 48px;
+  --te-space-16: 64px;
+  --te-space-20: 80px;
+
+  /* Radius */
+  --te-radius-input: 8px;
+  --te-radius-button: 8px;
+  --te-radius-card: 12px;
+  --te-radius-modal: 16px;
+
+  /* Elevation and glow */
+  --te-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --te-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --te-glow-gold: 0 0 24px rgba(245, 210, 139, 0.18);
+  --te-focus: 0 0 0 2px var(--te-bg), 0 0 0 4px var(--te-gold-light);
+
+  /* Motion */
+  --te-duration-fast: 100ms;
+  --te-duration-base: 200ms;
+  --te-duration-slow: 350ms;
+  --te-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --te-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Layout */
+  --te-max: 1200px;
+  --te-gutter: clamp(16px, 4vw, 40px);
+}
