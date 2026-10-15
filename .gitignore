@@ -32,8 +32,3 @@ video-src
 # so they are never deployed. Back them up outside git; the web-ready files are
 # generated into public/trader/ by `npm run build:trader-event-images`.
 assets/trader-event
-
-# Local secrets (see .env.example)
-.env
-.env.*
-!.env.example

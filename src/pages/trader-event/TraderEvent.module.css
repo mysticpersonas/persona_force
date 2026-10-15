@@ -660,190 +660,23 @@
   text-wrap: balance;
 }
 
-.form {
-  position: relative;
-  display: grid;
-  gap: var(--te-space-4);
-  padding: var(--te-space-4) var(--te-space-6) var(--te-space-6);
+/* GHL form iframe. Height starts at GHL's own value so nothing jumps; their
+   embed script then resizes it to fit the form. */
+.ghlWrap {
+  padding: var(--te-space-2) var(--te-space-3) var(--te-space-3);
 }
 
-.row2 {
-  display: grid;
-  gap: var(--te-space-4);
-}
-
-.field {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
-}
-
-.label {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.3;
-  color: var(--te-ivory);
-}
-
-.req {
-  color: var(--te-error);
-}
-
-.form input[type='text'],
-.form input[type='tel'],
-.form input[type='email'],
-.form select {
+.ghlFrame {
+  display: block;
   width: 100%;
-  height: 48px;
-  padding: 0 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  height: 723px;
+  border: 0;
   border-radius: var(--te-radius-input);
-  background: var(--te-field);
-  color: var(--te-field-ink);
-  font: 500 16px/1.2 var(--te-font-sans); /* 16px stops iOS zoom-on-focus */
-  transition: box-shadow var(--te-duration-base) var(--te-ease), border-color var(--te-duration-base) var(--te-ease);
+  background: var(--te-card);
 }
 
-.form input::placeholder {
-  color: var(--te-field-placeholder);
-  font-weight: 400;
-}
-
-.form input:focus-visible,
-.form select:focus-visible {
-  outline: 2px solid var(--te-gold-light);
-  outline-offset: 2px;
-  border-color: var(--te-gold-deep);
-}
-
-.fieldInvalid input,
-.fieldInvalid select {
-  border-color: var(--te-error-ink) !important;
-  box-shadow: 0 0 0 1px var(--te-error-ink);
-}
-
-.fieldError {
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-  margin: 0;
-  font-size: var(--te-text-sm);
-  line-height: 1.35;
-  color: var(--te-error);
-}
-
-.fieldError svg {
-  flex: none;
-  margin-top: 2px;
-}
-
-.selectWrap {
-  position: relative;
-}
-
-.form select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding-right: 40px;
-  cursor: pointer;
-}
-
-.form select.selectEmpty {
-  color: var(--te-field-placeholder);
-  font-weight: 400;
-}
-
-.form select option {
-  color: var(--te-field-ink);
-}
-
-.selectIcon {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: var(--te-field-ink);
-}
-
-.check {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--te-space-3);
-  align-items: start;
-  font-size: var(--te-text-sm);
-  line-height: 1.45;
-  color: var(--te-muted);
-}
-
-.check input {
-  width: 20px;
-  height: 20px;
-  margin: 1px 0 0;
-  accent-color: var(--te-gold-deep);
-  cursor: pointer;
-}
-
-.check label {
-  cursor: pointer;
-  padding-bottom: var(--te-space-1);
-}
-
-.honeypot {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.errorSummary,
-.failBox {
-  border: 1px solid var(--te-error);
-  border-radius: var(--te-radius-input);
-  background: rgba(255, 138, 128, 0.08);
-  padding: var(--te-space-3) var(--te-space-4);
-  font-size: 14px;
-  color: var(--te-ivory);
-}
-
-.errorSummary:focus {
-  outline: 2px solid var(--te-error);
-  outline-offset: 2px;
-}
-
-.errorSummary p {
-  display: flex;
-  align-items: center;
-  gap: var(--te-space-2);
-  margin: 0;
-  font-weight: 600;
-}
-
-.errorSummary ul {
-  margin: var(--te-space-2) 0 0;
-  padding-left: var(--te-space-8);
-}
-
-.errorSummary a {
-  color: var(--te-error);
-  text-underline-offset: 2px;
-}
-
-.failBox {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--te-space-2);
-  align-items: start;
-}
-
-.failBox svg {
-  color: var(--te-error);
-  margin-top: 2px;
-}
-
-.failBox p {
-  margin: 0;
+.formCol:focus {
+  outline: none;
 }
 
 /* Brushed metallic gold button with a sheen that sweeps across on hover */
@@ -912,109 +745,6 @@
 
 .goldButton:disabled::after {
   display: none;
-}
-
-.submit {
-  margin-top: var(--te-space-1);
-}
-
-.spin {
-  animation: te-spin 0.9s linear infinite;
-}
-
-@keyframes te-spin {
-  to { transform: rotate(360deg); }
-}
-
-.privacy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--te-space-2);
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--te-muted);
-}
-
-.privacy svg {
-  flex: none;
-  color: var(--te-gold-light);
-}
-
-/* Success / waitlist */
-.resultBody {
-  display: grid;
-  justify-items: center;
-  gap: var(--te-space-4);
-  padding: var(--te-space-8) var(--te-space-6);
-  text-align: center;
-}
-
-.resultLead {
-  margin: 0;
-  font-size: var(--te-text-md);
-  line-height: 1.5;
-  color: var(--te-ivory);
-  text-wrap: balance;
-}
-
-.resultActions {
-  display: grid;
-  gap: var(--te-space-3);
-  width: 100%;
-  padding-top: var(--te-space-4);
-  border-top: 1px solid var(--te-hairline);
-}
-
-.resultLabel {
-  margin: 0;
-  font-weight: 600;
-  font-size: var(--te-text-xs);
-  letter-spacing: var(--te-tracking-caps);
-  text-transform: uppercase;
-  color: var(--te-gold-light);
-}
-
-.btnRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--te-space-3);
-}
-
-.ghostButton {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--te-space-2);
-  min-height: 44px;
-  padding: 0 var(--te-space-4);
-  border: 1px solid rgba(245, 210, 139, 0.45);
-  border-radius: var(--te-radius-button);
-  background: transparent;
-  color: var(--te-ivory) !important;
-  font: 600 14px/1 var(--te-font-sans);
-  text-decoration: none;
-  cursor: pointer;
-  transition: background var(--te-duration-base) var(--te-ease), border-color var(--te-duration-base) var(--te-ease);
-}
-
-.ghostButton:hover {
-  background: rgba(245, 210, 139, 0.08);
-  border-color: var(--te-gold-light);
-}
-
-.shareInput {
-  width: 100%;
-  height: 44px;
-  padding: 0 var(--te-space-3);
-  border: 1px solid var(--te-hairline);
-  border-radius: var(--te-radius-input);
-  background: var(--te-bg);
-  color: var(--te-ivory);
-  font: 400 16px/1 var(--te-font-sans);
-  text-align: center;
 }
 
 /* ---------- Footer ---------- */
@@ -1208,17 +938,9 @@
     font-size: var(--te-text-sm);
   }
 
-  .row2 {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .urgencyBody {
     padding: var(--te-space-6) var(--te-space-8);
     max-width: 68%;
-  }
-
-  .form {
-    padding: var(--te-space-5) var(--te-space-6) var(--te-space-6);
   }
 }
 
@@ -1298,8 +1020,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .sun,
-  .trailShimmer,
-  .spin {
+  .trailShimmer {
     animation: none;
   }
 

@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { CalendarDays, Clock, MapPin, Users, Wine, ChartColumnIncreasing, UsersRound, Gift, ChevronRight } from 'lucide-react';
 import './tokens.css';
 import styles from './TraderEvent.module.css';
 import { HeroArt, CardMountains } from './HeroArt';
-import RsvpForm from './RsvpForm';
+import GhlForm from './GhlForm';
 import { useInView, useReveal, prefersReducedMotion } from './hooks';
 
 const SPEAKERS = [
@@ -77,6 +77,7 @@ function HeadTags() {
       <meta name="description" content="A live, immersive experience hosted by Nicole Quinones with Dr. Travis Fox and Michelle Fox. Sunday, October 18, 2026. Limited to 25 guests. Reserve your complimentary seat." />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link rel="preconnect" href="https://api.leadconnectorhq.com" crossOrigin="" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" precedence="default" />
     </>
   );
@@ -85,7 +86,6 @@ function HeadTags() {
 export default function TraderEvent({ standalone = false }) {
   const formRef = useRef(null);
   const formInView = useInView(formRef, { threshold: 0.15 });
-  const [done, setDone] = useState(false);
   useReveal(styles.reveal, styles.revealed);
 
   useEffect(() => {
@@ -94,9 +94,9 @@ export default function TraderEvent({ standalone = false }) {
 
   const goToForm = () => {
     formRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
-    // Move focus to the first field so keyboard and screen reader users land
-    // where the button sent them.
-    formRef.current?.querySelector('input:not([type=hidden]):not([tabindex="-1"])')?.focus({ preventScroll: true });
+    // Move focus to the form card so keyboard and screen reader users land
+    // where the button sent them (the GHL fields live inside an iframe).
+    formRef.current?.focus({ preventScroll: true });
   };
 
   return (
@@ -194,8 +194,8 @@ export default function TraderEvent({ standalone = false }) {
             </aside>
           </div>
 
-          <div className={styles.formCol} id="reserve" ref={formRef}>
-            <RsvpForm onDone={() => setDone(true)} />
+          <div className={styles.formCol} id="reserve" ref={formRef} tabIndex={-1}>
+            <GhlForm />
           </div>
         </div>
       </main>
@@ -204,8 +204,8 @@ export default function TraderEvent({ standalone = false }) {
         <p>Trading involves financial risk and does not guarantee income or additional free time.<br />This event is for educational and informational purposes only.</p>
       </footer>
 
-      <div className={`${styles.stickyCta} ${formInView || done ? styles.stickyHidden : ''}`} aria-hidden={formInView || done}>
-        <button type="button" className={styles.goldButton} onClick={goToForm} tabIndex={formInView || done ? -1 : 0}>
+      <div className={`${styles.stickyCta} ${formInView ? styles.stickyHidden : ''}`} aria-hidden={formInView}>
+        <button type="button" className={styles.goldButton} onClick={goToForm} tabIndex={formInView ? -1 : 0}>
           <span>Reserve My Seat</span>
           <ChevronRight size={20} strokeWidth={2.5} aria-hidden="true" />
         </button>

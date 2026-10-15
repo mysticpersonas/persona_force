@@ -19,8 +19,8 @@ export default defineConfig([
     },
   },
   {
-    // Vercel serverless functions and build scripts run in Node
-    files: ['api/**/*.js', 'scripts/**/*.{js,mjs}'],
+    // Build scripts run in Node
+    files: ['scripts/**/*.{js,mjs}'],
     languageOptions: { globals: globals.node },
   },
 ])
