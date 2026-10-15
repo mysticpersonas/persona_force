@@ -35,11 +35,13 @@ const PEOPLE = [
   },
   {
     slug: 'travis',
-    // Swap this for a clean, signature-free file when one is supplied, then set
-    // signatureSafeCrop to false.
+    // Full original, signature visible (approved). For a clean, signature-free
+    // file later: swap `file`, re-measure landmarks. To hide the signature with
+    // this file instead, set signatureSafeCrop: true (head-only crop).
     file: 'dr_travis_fox_original.jpg',
     eyeY: 515, centerX: 410, chinY: 912,
-    signatureSafeCrop: true,
+    signatureSafeCrop: false,
+    featherEdges: true, // his photo has a background, so soften its box edges
   },
   {
     slug: 'michelle',
@@ -61,11 +63,12 @@ function isSignatureOrange(r, g, b) {
   return r > 170 && g > 90 && g < 200 && b < 110 && r - b > 110;
 }
 
-async function signatureSafeAlpha(input) {
+async function featheredAlpha(input, { signatureSafe }) {
   const { data, info } = await sharp(input).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const { width: W, height: H } = info;
 
-  const points = TRAVIS_CLEAN_ZONE.map(([x, y]) => `${x},${y}`).join(' ');
+  const zone = signatureSafe ? TRAVIS_CLEAN_ZONE : [[0, 0], [W, 0], [W, H], [0, H]];
+  const points = zone.map(([x, y]) => `${x},${y}`).join(' ');
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="100%" height="100%" fill="#000"/><polygon points="${points}" fill="#fff"/></svg>`;
   const hard = await sharp(Buffer.from(svg)).extractChannel(0).raw().toBuffer();
 
@@ -87,6 +90,12 @@ async function signatureSafeAlpha(input) {
   }
 
   // Guarantee: no signature pixel survives with any opacity.
+  if (!signatureSafe) {
+    return sharp(data, { raw: { width: W, height: H, channels: 3 } })
+      .joinChannel(alpha, { raw: { width: W, height: H, channels: 1 } })
+      .png()
+      .toBuffer();
+  }
   let leaks = 0;
   for (let i = 0; i < W * H; i++) {
     const p = i * 3;
@@ -102,7 +111,9 @@ async function signatureSafeAlpha(input) {
 
 async function normalize(person) {
   const input = path.join(SRC, person.file);
-  const base = person.signatureSafeCrop ? await signatureSafeAlpha(input) : await sharp(input).ensureAlpha().png().toBuffer();
+  const base = person.signatureSafeCrop || person.featherEdges
+    ? await featheredAlpha(input, { signatureSafe: !!person.signatureSafeCrop })
+    : await sharp(input).ensureAlpha().png().toBuffer();
   const meta = await sharp(base).metadata();
 
   const scale = EYE_TO_CHIN / (person.chinY - person.eyeY);

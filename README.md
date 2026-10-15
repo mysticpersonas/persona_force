@@ -36,11 +36,11 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Art: recreated vs. still needed
 - **Recreated in SVG/CSS:** mountain ridgelines with rim light, the glowing trail, sun flare, candlesticks, grid, haze, vignette, metallic gold type, light streak, brushed gold header and button, the urgency card's dusk mountains.
 - **Icons:** `lucide-react` (ISC license).
-- **OG image:** `public/trader/og-wealth-blueprint.jpg`, generated from the hero. Regenerate it after the Travis photo is replaced.
+- **OG image:** `public/trader/og-wealth-blueprint.jpg`, generated from the hero. Regenerate it if the portraits change.
 - **Worth licensing/shooting:** a real mountain-at-dusk photo for the urgency card, and a dedicated OG design if wanted.
 
 ### Not matched from the mockup
-- **Dr. Travis Fox portrait (launch blocker).** The orange signature in the original crosses his collar under his chin, so the current file is an interim, alpha-shaped crop of only the clean region (no pixels altered). Supply a clean head-and-shoulders photo, drop it in `assets/trader-event/`, update the `travis` entry in the script (set `signatureSafeCrop: false`), and run `npm run build:trader-event-images`.
+- **Dr. Travis Fox portrait.** Uses the full original photo, so the orange signature on his chest shows (approved; it fades behind the title). For a cleaner look, supply a signature-free photo, drop it in `assets/trader-event/`, update the `travis` entry in the script, and run `npm run build:trader-event-images` (then regenerate the OG image).
 - **Form fields** render inside GHL's iframe, so their look depends on the GHL Custom CSS.
 - **Time zone** is not confirmed, so the JSON-LD has no UTC offset (TODO in `trader-event.html`).
 - **Copy:** "SURRISE" fixed to "SURPRISE"; all em dashes removed.
