@@ -31,6 +31,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - Submissions go straight into GHL. Fields, the thank-you message and the field styling (Custom CSS) are edited in the GHL form builder, not in this repo.
 - The tag and the confirmation email with the venue address come from a GHL workflow triggered by **Form Submitted** on this form.
 - There is no seat cap. Watch the submission count in GHL.
+- **After submit:** set the GHL form to *On submit > Redirect to URL* `https://www.personaforce.co/trader/event/thank-you`. That page shows the reserved message, Add to Calendar (Google + .ics) and a copy/share link to `/trader/event` (`TraderEventThankYou.jsx`, noindex).
 - The mobile sticky "Reserve My Seat" button scrolls to the form and hides while the form is on screen.
 
 ### Art: recreated vs. still needed

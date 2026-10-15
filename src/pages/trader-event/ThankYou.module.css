@@ -1,0 +1,150 @@
+/* /trader/event/thank-you. Shares tokens and the card, ring and footer
+   styles with the event page; only the layout pieces live here. */
+
+.page {
+  padding-bottom: 0; /* no sticky CTA on this page */
+}
+
+/* The hero art, dimmed, as a backdrop behind the card */
+.art {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 640px;
+  overflow: hidden;
+  opacity: 0.55;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--te-space-12) var(--te-gutter) 0;
+}
+
+.kicker {
+  margin: 0 0 var(--te-space-6);
+  text-align: center;
+  font-family: var(--te-font-display);
+  font-weight: 700;
+  font-size: clamp(26px, 6vw, 40px);
+  line-height: 1.1;
+  background: var(--te-gold-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 18px rgba(245, 210, 139, 0.25));
+}
+
+.card {
+  position: relative;
+}
+
+.body {
+  display: grid;
+  justify-items: center;
+  gap: var(--te-space-5);
+  padding: var(--te-space-8) var(--te-space-6);
+  text-align: center;
+}
+
+.lead {
+  margin: 0;
+  font-size: var(--te-text-md);
+  line-height: 1.5;
+  color: var(--te-ivory);
+  text-wrap: balance;
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--te-space-2);
+  font-size: 14px;
+  color: var(--te-muted);
+}
+
+.facts li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--te-space-2);
+}
+
+.facts svg {
+  flex: none;
+  color: var(--te-gold-light);
+}
+
+.block {
+  display: grid;
+  gap: var(--te-space-3);
+  width: 100%;
+  padding-top: var(--te-space-5);
+  border-top: 1px solid var(--te-hairline);
+}
+
+.label {
+  margin: 0;
+  font-weight: 600;
+  font-size: var(--te-text-xs);
+  letter-spacing: var(--te-tracking-caps);
+  text-transform: uppercase;
+  color: var(--te-gold-light);
+}
+
+.note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--te-muted);
+}
+
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--te-space-3);
+}
+
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--te-space-2);
+  min-height: 44px;
+  padding: 0 var(--te-space-4);
+  border: 1px solid rgba(245, 210, 139, 0.45);
+  border-radius: var(--te-radius-button);
+  background: transparent;
+  color: var(--te-ivory) !important;
+  font: 600 14px/1 var(--te-font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--te-duration-base) var(--te-ease), border-color var(--te-duration-base) var(--te-ease);
+}
+
+.ghost:hover {
+  background: rgba(245, 210, 139, 0.08);
+  border-color: var(--te-gold-light);
+}
+
+.shareInput {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--te-space-3);
+  border: 1px solid var(--te-hairline);
+  border-radius: var(--te-radius-input);
+  background: var(--te-bg);
+  color: var(--te-ivory);
+  font: 400 16px/1 var(--te-font-sans);
+  text-align: center;
+}

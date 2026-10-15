@@ -33,6 +33,7 @@ import PftNinetyDay from './pages/PftNinetyDay';
 
 // Event page is code-split so its art and form never weigh down other pages.
 const TraderEvent = lazy(() => import('./pages/trader-event/TraderEvent'));
+const TraderEventThankYou = lazy(() => import('./pages/trader-event/TraderEventThankYou'));
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
         <Route path="/trader/thank-you" element={<TraderThankYou />} />
         {/* The Wealth Blueprint live event (Oct 18, 2026). /trader already exists, so it lives here. */}
         <Route path="/trader/event" element={<Suspense fallback={<div style={{ minHeight: '100vh', background: '#050B0F' }} />}><TraderEvent /></Suspense>} />
+        <Route path="/trader/event/thank-you" element={<Suspense fallback={<div style={{ minHeight: '100vh', background: '#050B0F' }} />}><TraderEventThankYou /></Suspense>} />
         {/* Canonical challenge links used in emails — renders ONE day per hash */}
         <Route path="/trader/trader-challenge" element={<TraderChallenge />} />
         {/* Same standalone day pages on clean routes */}
