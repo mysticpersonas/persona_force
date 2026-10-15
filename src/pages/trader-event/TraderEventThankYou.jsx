@@ -59,7 +59,7 @@ export default function TraderEventThankYou() {
 
             <ul className={ty.facts}>
               <li><CalendarDays size={18} aria-hidden="true" /> Sunday, October 18, 2026</li>
-              <li><Clock size={18} aria-hidden="true" /> <span>Doors open 1:00 PM · Experience <span className={ty.nowrap}>1:30–3:30 PM</span></span></li>
+              <li><Clock size={18} aria-hidden="true" /> <span>Doors open 1:45 PM · Experience <span className={ty.nowrap}>2:00–4:00 PM</span></span></li>
               <li><MapPin size={18} aria-hidden="true" /> Venue address sent by email</li>
             </ul>
 

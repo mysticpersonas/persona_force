@@ -29,7 +29,7 @@ const SPEAKERS = [
 
 const INFO = [
   { icon: CalendarDays, label: 'Sunday', value: 'October 18, 2026' },
-  { icon: Clock, label: 'Doors Open', value: '1:00 PM', note: 'Experience: 1:30–3:30 PM' },
+  { icon: Clock, label: 'Doors Open', value: '1:45 PM', note: 'Experience: 2:00–4:00 PM' },
   { icon: MapPin, label: 'Exclusive Venue', note: 'Address provided after registration' },
   { icon: Users, label: 'Limited Seating', value: '25 Guest Seats' },
 ];

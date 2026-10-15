@@ -1,13 +1,13 @@
-// Add to Calendar helpers. Guests add the full window (doors 1:00 PM to the
-// 3:30 PM finish) so the reminder fires before doors open.
-// Times are floating (no time zone): they show as 1:00 PM on the guest's own
+// Add to Calendar helpers. Guests add the full window (doors 1:45 PM to the
+// 4:00 PM finish) so the reminder fires before doors open.
+// Times are floating (no time zone): they show as 1:45 PM on the guest's own
 // device, which is right for a local in-person event.
 
 export const EVENT_TITLE = 'The Wealth Blueprint: Live Experience';
 export const EVENT_URL = 'https://www.personaforce.co/trader/event';
 
-const START = '20261018T130000';
-const END = '20261018T153000';
+const START = '20261018T134500';
+const END = '20261018T160000';
 const LOCATION = 'Address provided via email';
 const DETAILS = 'A live, immersive experience hosted by Nicole Quinones with Dr. Travis Fox and Michelle Fox. The venue address will be sent to you by email.';
 
