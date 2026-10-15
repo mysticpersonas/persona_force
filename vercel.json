@@ -1,9 +1,22 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/trader/event",
-      "destination": "/trader-event.html"
+      "destination": "/trader",
+      "permanent": false
     },
+    {
+      "source": "/trader/event/:path*",
+      "destination": "/trader",
+      "permanent": false
+    },
+    {
+      "source": "/trader-event.html",
+      "destination": "/trader",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"

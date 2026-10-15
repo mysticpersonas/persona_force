@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender-trader-event.mjs",
+    "build": "vite build",
     "build:trader-event-images": "node scripts/build-trader-event-images.mjs",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -74,6 +74,8 @@ function HeadTags() {
   return (
     <>
       <title>The Wealth Blueprint: Live Experience | Oct 18, 2026</title>
+      {/* Unlisted: reachable only by direct link, never in search results */}
+      <meta name="robots" content="noindex, nofollow" />
       <meta name="description" content="A live, immersive experience hosted by Nicole Quinones with Dr. Travis Fox and Michelle Fox. Sunday, October 18, 2026. Limited to 25 guests. Reserve your complimentary seat." />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

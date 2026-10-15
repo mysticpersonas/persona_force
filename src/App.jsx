@@ -1,5 +1,4 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Book from './pages/Book';
 import SalesIdentity from './pages/SalesIdentity';
@@ -31,10 +30,6 @@ import PftThirtyDay from './pages/PftThirtyDay';
 import PftSixtyDay from './pages/PftSixtyDay';
 import PftNinetyDay from './pages/PftNinetyDay';
 
-// Event page is code-split so its art and form never weigh down other pages.
-const TraderEvent = lazy(() => import('./pages/trader-event/TraderEvent'));
-const TraderEventThankYou = lazy(() => import('./pages/trader-event/TraderEventThankYou'));
-
 const App = () => {
   return (
     <Router>
@@ -44,9 +39,10 @@ const App = () => {
         <Route path="/ai-manager" element={<AiManager />} />
         <Route path="/trader" element={<Trader />} />
         <Route path="/trader/thank-you" element={<TraderThankYou />} />
-        {/* The Wealth Blueprint live event (Oct 18, 2026). /trader already exists, so it lives here. */}
-        <Route path="/trader/event" element={<Suspense fallback={<div style={{ minHeight: '100vh', background: '#050B0F' }} />}><TraderEvent /></Suspense>} />
-        <Route path="/trader/event/thank-you" element={<Suspense fallback={<div style={{ minHeight: '100vh', background: '#050B0F' }} />}><TraderEventThankYou /></Suspense>} />
+        {/* The Wealth Blueprint event (Oct 18, 2026) was called off. Its pages are
+            disabled and send visitors to /trader; the code stays in
+            src/pages/trader-event/ (see README to restore). */}
+        <Route path="/trader/event/*" element={<Navigate to="/trader" replace />} />
         {/* Canonical challenge links used in emails — renders ONE day per hash */}
         <Route path="/trader/trader-challenge" element={<TraderChallenge />} />
         {/* Same standalone day pages on clean routes */}
