@@ -1,0 +1,164 @@
+[
+  {
+    "n": 1,
+    "file": "01-trader.html",
+    "slug": "trader",
+    "route": "/trader",
+    "title": "The Trader's Journey · Private 5-Day Identity Pilot",
+    "noindex": false,
+    "kb": 133.7
+  },
+  {
+    "n": 2,
+    "file": "02-trader-thank-you.html",
+    "slug": "trader-thank-you",
+    "route": "/trader/thank-you",
+    "title": "You're In · The Trader's Journey",
+    "noindex": true,
+    "kb": 75
+  },
+  {
+    "n": 3,
+    "file": "03-trader-challenge.html",
+    "slug": "trader-challenge",
+    "route": "/trader/trader-challenge",
+    "title": "The Trader's Journey · 5-Day Challenge",
+    "noindex": true,
+    "kb": 0.9
+  },
+  {
+    "n": 4,
+    "file": "04-trader-day1.html",
+    "slug": "trader-day1",
+    "route": "/trader/day1",
+    "title": "Day 1 of 5, Who Is the Trader? · The Trader's Journey",
+    "noindex": true,
+    "kb": 77.3
+  },
+  {
+    "n": 5,
+    "file": "05-trader-day2.html",
+    "slug": "trader-day2",
+    "route": "/trader/day2",
+    "title": "Day 2 of 5, The Invisible Trade · The Trader's Journey",
+    "noindex": true,
+    "kb": 76.8
+  },
+  {
+    "n": 6,
+    "file": "06-trader-day3.html",
+    "slug": "trader-day3",
+    "route": "/trader/day3",
+    "title": "Day 3 of 5, The Identity Gap · The Trader's Journey",
+    "noindex": true,
+    "kb": 75.8
+  },
+  {
+    "n": 7,
+    "file": "07-trader-day4.html",
+    "slug": "trader-day4",
+    "route": "/trader/day4",
+    "title": "Day 4 of 5, Pressure Reveals Identity · The Trader's Journey",
+    "noindex": true,
+    "kb": 76.5
+  },
+  {
+    "n": 8,
+    "file": "08-trader-day5.html",
+    "slug": "trader-day5",
+    "route": "/trader/day5",
+    "title": "Day 5 of 5, Meet Your Future Trader · The Trader's Journey",
+    "noindex": true,
+    "kb": 76.4
+  },
+  {
+    "n": 9,
+    "file": "09-trader-intake.html",
+    "slug": "trader-intake",
+    "route": "/trader/trader-intake",
+    "title": "Map Intake · The Trader's Journey",
+    "noindex": true,
+    "kb": 70.3
+  },
+  {
+    "n": 10,
+    "file": "10-trader-intake-thank-you.html",
+    "slug": "trader-intake-thank-you",
+    "route": "/trader/intake-thank-you",
+    "title": "Thank You · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 72.3
+  },
+  {
+    "n": 11,
+    "file": "11-trader-orientation-replay.html",
+    "slug": "trader-orientation-replay",
+    "route": "/trader/orientation-replay",
+    "title": "Orientation Replay · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 79.3
+  },
+  {
+    "n": 12,
+    "file": "12-trader-blueprint.html",
+    "slug": "trader-blueprint",
+    "route": "/trader/blueprint",
+    "title": "Free Trader Blueprint · The Trader's Journey",
+    "noindex": true,
+    "kb": 78.4
+  },
+  {
+    "n": 13,
+    "file": "13-trader-blueprint-thank-you.html",
+    "slug": "trader-blueprint-thank-you",
+    "route": "/trader/blueprintthankyou",
+    "title": "Thank You · The Trader's Journey",
+    "noindex": true,
+    "kb": 74.8
+  },
+  {
+    "n": 14,
+    "file": "14-trader-pft-30day.html",
+    "slug": "trader-pft-30day",
+    "route": "/trader/pft-30day",
+    "title": "30-Day Mapping · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 95
+  },
+  {
+    "n": 15,
+    "file": "15-trader-pft-60day.html",
+    "slug": "trader-pft-60day",
+    "route": "/trader/pft-60day",
+    "title": "60-Day Mapping · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 95.8
+  },
+  {
+    "n": 16,
+    "file": "16-trader-pft-90day.html",
+    "slug": "trader-pft-90day",
+    "route": "/trader/pft-90day",
+    "title": "90-Day Deep Identity Mapping · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 97.1
+  },
+  {
+    "n": 17,
+    "file": "17-opt-in.html",
+    "slug": "opt-in",
+    "route": "/opt-in",
+    "title": "Opt-In · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 80.7
+  },
+  {
+    "n": 18,
+    "file": "18-opt-in-thank-you.html",
+    "slug": "opt-in-thank-you",
+    "route": "/opt-in-thank-you",
+    "title": "You’re In · PersonaForce Trader™",
+    "noindex": true,
+    "kb": 79.2
+  }
+]

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import {
   Check, X, ArrowRight, ChevronDown,
   LineChart, Crosshair, Activity, BarChart3, TrendingUp, Shield, Clock, Target,
-  Eye, Compass, Flame, Sparkles, Lock, Zap,
+  Eye, Compass, Flame, Sparkles, Lock, Zap, CalendarDays,
 } from 'lucide-react';
 import ParticleField from '../components/ParticleField';
 import TjHeader from '../components/TjHeader';
@@ -94,6 +94,15 @@ const CTAButton = ({ onClick, glow = false, className = '' }) => (
 );
 
 /* ------------------------------------------------------------------ */
+
+// Pilot start: the one place to change it. Nov 2 falls after daylight saving
+// ends (Nov 1), so Pacific time is PST that day; "PT" stays correct either way.
+const START = {
+  short: 'Mon, Nov 2 · 7:30 AM PT',
+  day: 'Monday, November 2',
+  time: '7:30 AM PT',
+  alt: '10:30 AM ET',
+};
 
 const HERO_WORDS = [
   { t: 'Discover' },
@@ -270,7 +279,11 @@ const Trader = () => {
           </p>
 
           <div className="opacity-0 animate-[wordUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]" style={{ animationDelay: '700ms' }}>
-            <div className="mt-8 md:mt-9">
+            <div className="mt-8 md:mt-9 inline-flex items-center gap-2 rounded-full border border-[#00e676]/30 bg-[#00e676]/[0.07] px-4 py-2 text-[12.5px] md:text-[13.5px] font-semibold text-white">
+              <CalendarDays className="w-4 h-4 text-[#00e676] shrink-0" />
+              Starts {START.short}
+            </div>
+            <div className="mt-5">
               <CTAButton onClick={scrollToForm} glow />
             </div>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11.5px] font-semibold text-[#8b93ad]">
@@ -493,6 +506,10 @@ const Trader = () => {
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#00e676] mb-3">The Challenge</div>
             <h2 className="text-[clamp(24px,4vw,40px)] font-tj-display font-black uppercase tracking-[0.02em]">Five Days. One Question.</h2>
             <p className="text-[15px] md:text-[17px] text-[#8a93a3] mt-4 font-medium">Who is placing the trade?</p>
+            <p className="mt-4 inline-flex items-center gap-2 text-[13px] md:text-[14px] font-semibold text-[#00e676]">
+              <CalendarDays className="w-4 h-4 shrink-0" />
+              Day 1 starts {START.day} at {START.time}
+            </p>
           </Rise>
 
           <div ref={lineRef} className="relative">
@@ -633,6 +650,13 @@ const Trader = () => {
               Complete the short registration below. Once accepted, we&rsquo;ll send reminders
               ahead of the first session, and your reflection after each one.
             </p>
+            <div className="mt-6 inline-flex items-center gap-3.5 rounded-xl border border-[#00e676]/30 bg-[#00e676]/[0.06] px-5 py-3.5 text-left">
+              <CalendarDays className="w-5 h-5 text-[#00e676] shrink-0" />
+              <div>
+                <div className="text-[14px] md:text-[15px] font-bold text-white">Pilot starts {START.day}</div>
+                <div className="text-[12.5px] md:text-[13px] text-[#8a93a3] mt-0.5">{START.time} · {START.alt}</div>
+              </div>
+            </div>
           </Rise>
 
           {/* trust strip */}
@@ -683,6 +707,10 @@ const Trader = () => {
 
       {/* STICKY MOBILE CTA — follows the user on phones/tablets; hides once the form is in view */}
       <div className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pt-3 pb-[max(12px,env(safe-area-inset-bottom))] bg-[#0b0f14]/95 backdrop-blur-md border-t border-white/[0.08] transition-all duration-300 ${isScrolled && !formIn ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
+        <p className="mb-2 flex items-center justify-center gap-1.5 text-[11.5px] font-semibold text-[#c3cad6]">
+          <CalendarDays className="w-3.5 h-3.5 text-[#00e676] shrink-0" />
+          Starts {START.short}
+        </p>
         <button onClick={scrollToForm} className="w-full inline-flex items-center justify-center gap-2 bg-[#00e676] hover:bg-[#3bff9b] text-[#0b0f14] py-3.5 rounded-xl text-[15px] font-bold shadow-[0_0_24px_rgba(0,230,118,0.35)]">
           Join the Private Pilot <ArrowRight className="w-4 h-4" />
         </button>
