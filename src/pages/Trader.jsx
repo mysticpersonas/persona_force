@@ -95,11 +95,11 @@ const CTAButton = ({ onClick, glow = false, className = '' }) => (
 
 /* ------------------------------------------------------------------ */
 
-// Pilot start: the one place to change it. Nov 2 falls after daylight saving
+// Pilot start: the one place to change it. Nov 9 falls after daylight saving
 // ends (Nov 1), so Pacific time is PST that day; "PT" stays correct either way.
 const START = {
-  short: 'Mon, Nov 2 · 7:30 AM PT',
-  day: 'Monday, November 2',
+  short: 'Mon, Nov 9 · 7:30 AM PT',
+  day: 'Monday, November 9',
   time: '7:30 AM PT',
   alt: '10:30 AM ET',
 };
